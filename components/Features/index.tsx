@@ -44,7 +44,8 @@ const Features: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center mb-20">
           <Reveal>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-[1px] bg-white/40"></div>
+              
+
               <span className="text-white/60 font-bold tracking-[0.3em] uppercase text-xs">
                 Our Methodology
               </span>
@@ -53,7 +54,7 @@ const Features: React.FC = () => {
           
           <Reveal delay={100}>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
-              How We Make This <span className="italic text-[#000000]">Work.</span>
+              How We Make This <span className="italic text-[#F5E6D3]">Work.</span>
             </h2>
           </Reveal>
           

@@ -3,14 +3,14 @@ import Reveal from '../ui/Reveal';
 
 const TrustBar: React.FC = () => {
   return (
-    <div className="bg-brand-beige border-y border-brand-black/10 py-16 relative overflow-hidden">
+    <div className="bg-brand-beige border-y border-brand-black/10 py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-serif text-brand-black mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-black mb-6 leading-tight">
               Trusted by Clients <br /> <span className="italic text-brand-brick">Across Competitive Industries</span>
             </h2>
-            <p className="text-xl md:text-2xl text-brand-black/80 leading-relaxed">
+            <p className="text-lg md:text-xl text-brand-black/80 leading-relaxed">
               We work closely with law firms, applying systems built from experience across other high-competition industries including healthcare, hospitality, and retail, where visibility, trust, and conversion matter just as much.
             </p>
           </div>
