@@ -49,7 +49,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
       </div>
 
       {/* Content Container */}
-      <div className="pb-8">
+      <div className="pb-0 md:pb-8">
         {/* Quote Text */}
         <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light">
           {quote}
@@ -90,7 +90,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
         </div>
 
         {/* Navigation Buttons - Bottom Right */}
-        <div className="absolute right-0 bottom-8 flex gap-4">
+        <div className="flex gap-4 w-full justify-center mt-8 md:absolute md:w-auto md:mt-0 md:right-0 md:bottom-8">
           <button 
             onClick={onPrev}
             className="w-12 h-8 border border-white/20 rounded-md flex items-center justify-center text-white hover:bg-white/10 transition-colors group"

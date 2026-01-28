@@ -24,12 +24,21 @@ const Footer: React.FC = () => {
             <a href="https://www.facebook.com/seg.socialengagementgroup/" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Facebook className="w-4 h-4" /></a>
           </div>
 
+          {/* Mobile Links - Stacked Vertical */}
+          <div className="flex md:hidden flex-col items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
+            <a href="https://www.socialengagementgroup.com/terms-and-conditions" className="hover:text-white transition-colors">Terms and Conditions</a>
+            <a href="https://www.socialengagementgroup.com/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="https://www.socialengagementgroup.com/cookies" className="hover:text-white transition-colors">Cookies</a>
+            <a href="https://www.socialengagementgroup.com/legal-notice" className="hover:text-white transition-colors">Legal Notice</a>
+          </div>
+
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest gap-4 md:gap-0">
           <p>All rights reserved &copy; {new Date().getFullYear()}</p>
           
-          <div className="flex gap-6">
+          {/* Desktop Links - Row */}
+          <div className="hidden md:flex gap-6">
             <a href="https://www.socialengagementgroup.com/terms-and-conditions" className="hover:text-white transition-colors">Terms and Conditions</a>
             <a href="https://www.socialengagementgroup.com/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="https://www.socialengagementgroup.com/cookies" className="hover:text-white transition-colors">Cookies</a>

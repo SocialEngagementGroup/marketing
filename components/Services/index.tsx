@@ -21,11 +21,17 @@ const Services: React.FC = () => {
 
   return (
     <section id="why-us" className="py-20 bg-brand-beige relative overflow-hidden">
-      {/* Background Graphic */}
-      <div className="absolute right-0 top-0 w-1/3 h-full bg-white/30 backdrop-blur-3xl -skew-x-12 translate-x-32 pointer-events-none"></div>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ 
+             backgroundImage: 'radial-gradient(#1a1a1a 1px, transparent 1px)', 
+             backgroundSize: '40px 40px' 
+           }}>
+      </div>
+      <div className="absolute -left-20 top-40 w-96 h-96 bg-brand-brick/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
           {/* Left Side - Title & Decorative Element */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">

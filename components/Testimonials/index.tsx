@@ -96,7 +96,7 @@ const Testimonials: React.FC = () => {
             </div>
 
             {/* Pagination Dots */}
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-2 mt-4">
               {testimonials.map((_, index) => (
                 <button
                   key={index}

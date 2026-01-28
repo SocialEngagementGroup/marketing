@@ -54,7 +54,7 @@ const Features: React.FC = () => {
           
           <Reveal delay={100}>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
-              How We Make This <span className="italic text-[#F5E6D3]">Work.</span>
+              How We <br className="md:hidden" /> Make This <span className="italic text-[#F5E6D3]">Work.</span>
             </h2>
           </Reveal>
           

@@ -11,9 +11,7 @@ const VideoSection: React.FC = () => {
              <h2 className="text-4xl md:text-6xl font-serif text-brand-black mb-6">
               See How We <span className="italic text-brand-brick">Transform</span> Firms
             </h2>
-            <p className="text-brand-black/70 max-w-2xl mx-auto">
-              Take a closer look at our approach and the results we deliver for our clients.
-            </p>
+           
           </div>
         </Reveal>
 

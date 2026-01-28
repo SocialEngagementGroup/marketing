@@ -13,6 +13,17 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', href: 'https://www.socialengagementgroup.com/' },
     { name: 'Services', href: 'https://www.socialengagementgroup.com/services' },
@@ -20,67 +31,69 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
-        isScrolled 
-          ? 'bg-brand-black/95 backdrop-blur-sm border-brand-white/10 py-4' 
-          : 'bg-transparent border-transparent py-6'
-      }`}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <img 
-            src="/logos/seg.png" 
-            alt="Social Engagement Group" 
-            className={`w-10 h-10 object-contain ${isScrolled || isMobileMenuOpen ? '' : 'invert'}`}
-          />
-          <span className={`font-sans font-bold text-sm tracking-widest uppercase ${isScrolled || isMobileMenuOpen ? 'text-brand-white' : 'text-brand-black md:text-brand-black'}`}>
-            Social Engagement Group
-          </span>
-        </div>
+    <>
+      <header 
+        className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
+          isScrolled 
+            ? 'bg-brand-black/95 backdrop-blur-sm border-brand-white/10 py-4' 
+            : 'bg-transparent border-transparent py-6'
+        }`}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <img 
+              src="/logos/seg.png" 
+              alt="Social Engagement Group" 
+              className={`w-10 h-10 object-contain ${isScrolled || isMobileMenuOpen ? '' : 'invert'}`}
+            />
+            <span className={`font-sans font-bold text-sm tracking-widest uppercase ${isScrolled || isMobileMenuOpen ? 'text-brand-white' : 'text-brand-black md:text-brand-black'}`}>
+              Social Engagement Group
+            </span>
+          </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
+                  isScrolled ? 'text-brand-white/80 hover:text-brand-brick' : 'text-brand-black hover:text-brand-brick'
+                }`}
+              >
+                {link.name}
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-brick transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
             <a 
-              key={link.name} 
-              href={link.href}
+              href="https://calendly.com/itseg/segmeet" 
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
-                isScrolled ? 'text-brand-white/80 hover:text-brand-brick' : 'text-brand-black hover:text-brand-brick'
+              className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+                isScrolled 
+                  ? 'bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black' 
+                  : 'bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick'
               }`}
             >
-              {link.name}
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-brick transition-all duration-300 group-hover:w-full"></span>
+              Book Consultation
             </a>
-          ))}
-          <a 
-            href="https://calendly.com/itseg/segmeet" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
-              isScrolled 
-                ? 'bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black' 
-                : 'bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick'
-            }`}
-          >
-            Book Consultation
-          </a>
-        </nav>
+          </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden z-50 relative"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen 
-            ? <X className="text-white w-8 h-8" /> 
-            : <Menu className={`w-8 h-8 ${isScrolled ? 'text-white' : 'text-brand-black'}`} />
-          }
-        </button>
-      </div>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden z-50 relative"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen 
+              ? <X className="text-white w-8 h-8" /> 
+              : <Menu className={`w-8 h-8 ${isScrolled ? 'text-white' : 'text-brand-black'}`} />
+            }
+          </button>
+        </div>
+      </header>
 
       {/* Mobile Nav Overlay */}
       <div className={`fixed inset-0 bg-brand-black z-40 transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
@@ -108,7 +121,7 @@ const Header: React.FC = () => {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

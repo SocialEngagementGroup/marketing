@@ -153,28 +153,30 @@ const ContactForm: React.FC = () => {
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={status === 'loading' || status === 'success'}
-                  className={`bg-brand-brick hover:bg-brand-brick/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-brand-brick/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
-                >
-                  {status === 'loading' ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : status === 'success' ? (
-                    <>
-                      <CheckCircle2 className="w-5 h-5" />
-                      <span>Message Sent</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Send Message</span>
-                      <ArrowUpRight className="w-5 h-5" />
-                    </>
-                  )}
-                </button>
+                <div className="flex justify-center md:justify-start">
+                  <button
+                    type="submit"
+                    disabled={status === 'loading' || status === 'success'}
+                    className={`bg-brand-brick hover:bg-brand-brick/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-brand-brick/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
+                  >
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : status === 'success' ? (
+                      <>
+                        <CheckCircle2 className="w-5 h-5" />
+                        <span>Message Sent</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <ArrowUpRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
