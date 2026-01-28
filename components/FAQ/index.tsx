@@ -29,7 +29,7 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-brand-white">
+    <section className="py-24 bg-brand-beige">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
            <span className="text-brand-brick font-bold tracking-widest uppercase text-xs mb-4 block">Common Questions From Law Firms</span>
