@@ -48,15 +48,29 @@ const Hero: React.FC = () => {
           {/* Right Content - Arch Image */}
           <div className="lg:col-span-6 relative h-[600px] hidden lg:block">
              <Reveal delay={400} className="h-full w-full">
-               <div className="absolute top-0 right-0 w-4/5 h-full bg-brand-black arch-mask overflow-hidden shadow-2xl group [mask-image:radial-gradient(white,black)]">
+               {/* Decorative Offset Border */}
+               <div className="absolute top-4 -right-4 w-4/5 h-full border-2 border-brand-brick/30 arch-mask z-0 hidden lg:block"></div>
+
+               <div className="absolute top-0 right-0 w-4/5 h-full bg-brand-black arch-mask overflow-hidden shadow-2xl group [mask-image:radial-gradient(white,black)] z-10">
                   <img 
                     src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop" 
                     alt="Modern Law Office Architecture" 
                     className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                   />
-                  <div className="absolute bottom-0 left-0 p-8 bg-brand-brick/90 backdrop-blur-sm text-white max-w-xs transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="font-serif text-2xl italic mb-2">"Volume & Quality"</p>
-                    <p className="text-xs tracking-widest uppercase opacity-80">Predictable inbound calls for your specific practice areas.</p>
+                  
+                  {/* Modern/Classic Floating Card */}
+                  <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-brand-black/90 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-end h-1/2">
+                    <div className="border-l-2 border-brand-brick pl-4 mb-2">
+                        <p className="font-serif text-3xl italic mb-1">"Volume & Quality"</p>
+                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-80 font-sans">Est. Standards</p>
+                    </div>
+                  </div>
+               </div>
+
+               {/* Classic 'Stamp' Badge */}
+               <div className="absolute top-8 right-[75%] z-20 hidden lg:flex flex-col items-center justify-center w-24 h-24 rounded-full border border-brand-brick/20 bg-brand-beige shadow-lg backdrop-blur-sm">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-brand-black text-center leading-tight">
+                    Law<br/>Firm<br/>Growth
                   </div>
                </div>
                
