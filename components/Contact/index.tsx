@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
           </Reveal>
           
           <Reveal delay={100}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-tight">
+            <h2 className="text-6xl font-serif mb-8 leading-tight">
               Let's Build a System <br/>You Can <span className="italic">Rely On</span>
             </h2>
           </Reveal>

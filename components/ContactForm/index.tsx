@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
             {/* Left Panel: Contact Info */}
             <div className="space-y-8 md:space-y-12 py-4">
               <div className="space-y-6 md:space-y-8">
-                <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif font-medium text-white leading-[1.1] tracking-tight">
+                <h2 className="text-6xl font-serif font-medium text-white leading-[1.1] tracking-tight">
                   Let’s create <br className="hidden lg:block" />
                   next chapter of <br className="hidden lg:block" />
                   Your <span className="italic">Story</span>

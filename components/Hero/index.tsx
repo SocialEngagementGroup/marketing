@@ -17,13 +17,6 @@ const Hero: React.FC = () => {
           
           {/* Left Content */}
           <div className="lg:col-span-6 space-y-8">
-            <Reveal>
-              <div className="inline-block relative">
-                 <span className="relative z-10 text-brand-brick font-bold tracking-[0.3em] uppercase text-xs pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-brand-brick">
-                   The Legal Growth Engine
-                 </span>
-              </div>
-            </Reveal>
             
             <Reveal delay={200}>
               <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-brand-black">
