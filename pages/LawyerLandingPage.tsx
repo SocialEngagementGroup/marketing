@@ -6,6 +6,7 @@ import Services from '../components/Services';
 import CaseStudies from '../components/CaseStudies';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
+import VideoSection from '../components/VideoSection';
 import Contact from '../components/Contact';
 import ContactForm from '../components/ContactForm';
 import FAQ from '../components/FAQ';
@@ -21,8 +22,9 @@ import Footer from '../components/Footer';
  * 3. Services - "Why Firms Choose Us" value propositions  
  * 4. CaseStudies - Featured case study + testimonials
  * 5. TrustBar - Industries we serve
- * 6. Contact - Final CTA with Calendly
- * 7. FAQ - Common questions
+ * 6. VideoSection - Featured video content
+ * 7. Contact - Final CTA with Calendly
+ * 8. FAQ - Common questions
  */
 const LawyerLandingPage: React.FC = () => {
   return (
@@ -46,6 +48,9 @@ const LawyerLandingPage: React.FC = () => {
         
         {/* Client Testimonials */}
         <Testimonials />
+
+        {/* Video Section */}
+        <VideoSection />
         
         {/* Final CTA */}
         <Contact />
