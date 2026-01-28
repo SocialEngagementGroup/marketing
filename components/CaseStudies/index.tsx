@@ -3,7 +3,7 @@ import Reveal from '../ui/Reveal';
 
 const CaseStudies: React.FC = () => {
   return (
-    <section id="testimonials" className="py-32 bg-brand-black text-white relative overflow-hidden">
+    <section id="testimonials" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-brick/5 -skew-x-12 translate-x-1/4"></div>
 
