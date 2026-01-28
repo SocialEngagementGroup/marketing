@@ -68,39 +68,7 @@ const ContactForm: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {/* Call Card */}
-              <a 
-                href="https://calendly.com/d/cpnm-vj2-mpw/social-engagement-group-intro-call" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-brand-brick/30 transition-all duration-300 backdrop-blur-sm"
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-white/5 group-hover:bg-brand-brick/20 group-hover:text-brand-brick transition-colors">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-xl font-medium text-white mb-1">Book A Call</h3>
-                <p className="text-sm text-gray-400">Schedule a time that works</p>
-              </a>
 
-              {/* Email Card */}
-              <a 
-                href="mailto:infotech@arino.com" 
-                className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-brand-brick/30 transition-all duration-300 backdrop-blur-sm"
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <div className="p-3 rounded-xl bg-white/5 group-hover:bg-brand-brick/20 group-hover:text-brand-brick transition-colors">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-xl font-medium text-white mb-1">Send Email</h3>
-                <p className="text-sm text-gray-400">Drop us a line anytime</p>
-              </a>
-            </div>
           </div>
 
           {/* Right Column: Form */}
