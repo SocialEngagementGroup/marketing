@@ -1,0 +1,94 @@
+import React from 'react';
+import { Star } from 'lucide-react';
+
+interface TestimonialCardProps {
+  quote: string;
+  rating: number;
+  author: string;
+  position: string;
+  image?: string;
+}
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author, position, image }) => {
+  const renderStars = (rating: number) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <Star
+        key={i}
+        className={`w-5 h-5 ${
+          i < rating
+            ? 'text-brand-brick fill-brand-brick'
+            : 'text-gray-600'
+        }`}
+      />
+    ));
+  };
+
+  return (
+    <div className="relative">
+      {/* Large Quote Mark */}
+      <div className="mb-10">
+        <svg 
+          width="60" 
+          height="48" 
+          viewBox="0 0 100 80" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="text-brand-brick"
+        >
+           <path 
+            d="M5 45C5 60 15 70 28 70C38 70 45 62 45 52C45 42 38 35 28 35C25 35 22 36 20 37C20 25 28 15 40 12L38 5C20 10 5 25 5 45Z"
+            fill="currentColor"
+          />
+           <path 
+            d="M55 45C55 60 65 70 78 70C88 70 95 62 95 52C95 42 88 35 78 35C75 35 72 36 70 37C70 25 78 15 90 12L88 5C70 10 55 25 55 45Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+      {/* Content Container */}
+      <div className="pb-8">
+        {/* Quote Text */}
+        <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light">
+          {quote}
+        </p>
+
+        {/* Star Rating */}
+        <div className="flex gap-1 mb-8">
+          {renderStars(rating)}
+        </div>
+
+        {/* Author Info */}
+        <div className="flex items-center gap-4">
+          {/* Avatar Placeholder */}
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center overflow-hidden border-2 border-gray-700">
+            {image ? (
+              <img 
+                src={image} 
+                alt={author}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-xl font-bold text-white/70">
+                {author.charAt(0)}
+              </span>
+            )}
+          </div>
+          
+          {/* Name & Position */}
+          <div>
+            <h4 className="text-white font-semibold text-lg">
+              {author}
+            </h4>
+            <p className="text-gray-500 text-sm flex items-center gap-2">
+              <span className="text-gray-600">—</span>
+              {position}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TestimonialCard;
