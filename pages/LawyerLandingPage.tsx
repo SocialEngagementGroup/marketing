@@ -7,6 +7,7 @@ import CaseStudies from '../components/CaseStudies';
 import Testimonials from '../components/Testimonials';
 import TrustBar from '../components/TrustBar';
 import Contact from '../components/Contact';
+import ContactForm from '../components/ContactForm';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 
@@ -51,6 +52,9 @@ const LawyerLandingPage: React.FC = () => {
         
         {/* FAQ */}
         <FAQ />
+
+        {/* Contact Form */}
+        <ContactForm />
       </main>
       <Footer />
     </div>
