@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
             
             <Reveal delay={200}>
               <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-brand-black">
-                Marketing for Law Firms Built for <span className="italic text-brand-brick">Consistent</span> Call Volume.
+                Marketing for Law Firms Built for <span className="italic text-brand-brick">Consistent</span> Call Volume
               </h1>
             </Reveal>
             
@@ -47,12 +47,6 @@ const Hero: React.FC = () => {
                 >
                   Schedule a Strategy Call
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a 
-                  href="#services" 
-                  className="border border-brand-black text-brand-black hover:bg-brand-black hover:text-white px-10 py-5 text-sm font-bold tracking-widest uppercase transition-all duration-300 text-center"
-                >
-                  How We Help
                 </a>
               </div>
             </Reveal>

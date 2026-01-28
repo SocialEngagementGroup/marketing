@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import Logo from '../ui/Logo';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,10 +14,9 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Methodology', href: '#why-us' },
-    { name: 'Solutions', href: '#services' },
-    { name: 'Case Studies', href: '#testimonials' },
-    { name: 'AI Audit', href: '#ai-audit' },
+    { name: 'Home', href: 'https://www.socialengagementgroup.com/' },
+    { name: 'Services', href: 'https://www.socialengagementgroup.com/services' },
+    { name: 'Contact Us', href: 'https://www.socialengagementgroup.com/contact-us' },
   ];
 
   return (
@@ -32,11 +30,14 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Logo className={`w-8 h-8 ${isScrolled || isMobileMenuOpen ? 'text-brand-white' : 'text-brand-black md:text-brand-black'}`} />
-          <div className={`flex flex-col leading-none ${isScrolled || isMobileMenuOpen ? 'text-brand-white' : 'text-brand-black md:text-brand-black'}`}>
-            <span className="font-sans font-bold text-sm tracking-widest uppercase">Social Engagement</span>
-            <span className="font-sans text-[10px] tracking-[0.2em] opacity-80 uppercase">Group</span>
-          </div>
+          <img 
+            src="/logos/seg.png" 
+            alt="Social Engagement Group" 
+            className={`w-10 h-10 object-contain ${isScrolled || isMobileMenuOpen ? '' : 'invert'}`}
+          />
+          <span className={`font-sans font-bold text-sm tracking-widest uppercase ${isScrolled || isMobileMenuOpen ? 'text-brand-white' : 'text-brand-black md:text-brand-black'}`}>
+            Social Engagement Group
+          </span>
         </div>
 
         {/* Desktop Nav */}
@@ -45,6 +46,8 @@ const Header: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${
                 isScrolled ? 'text-brand-white/80 hover:text-brand-brick' : 'text-brand-black hover:text-brand-brick'
               }`}
@@ -54,7 +57,9 @@ const Header: React.FC = () => {
             </a>
           ))}
           <a 
-            href="#contact" 
+            href="https://calendly.com/itseg/segmeet" 
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
               isScrolled 
                 ? 'bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black' 
@@ -84,6 +89,8 @@ const Header: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-brand-white hover:text-brand-brick text-2xl font-serif"
             >
@@ -91,7 +98,9 @@ const Header: React.FC = () => {
             </a>
           ))}
           <a 
-            href="#contact" 
+            href="https://calendly.com/itseg/segmeet" 
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="mt-8 bg-brand-brick text-white px-8 py-4 text-sm font-bold uppercase tracking-widest"
           >

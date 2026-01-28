@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
           
           <Reveal delay={200}>
             <p className="text-xl text-white/80 leading-relaxed mb-12 max-w-2xl mx-auto">
-              If your firm is ready for consistent visibility and a clearer path to new cases, we'll help you build a marketing system you can trust—so you can focus on running your practice.
+              If your firm is ready for consistent visibility and a clearer path to new cases, we'll help you build a marketing system you can trust, so you can focus on running your practice.
             </p>
           </Reveal>
 
@@ -41,11 +41,7 @@ const Contact: React.FC = () => {
             </a>
           </Reveal>
 
-          <Reveal delay={400}>
-            <p className="mt-8 text-white/50 text-sm">
-              No commitment. Just a conversation about your goals.
-            </p>
-          </Reveal>
+
         </div>
       </div>
     </section>

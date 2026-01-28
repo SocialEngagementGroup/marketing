@@ -16,7 +16,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How involved do we need to be?",
-      answer: "We keep your involvement focused and efficient. We handle the day-to-day execution and optimization, while keeping you informed with clear reporting and regular check-ins—so marketing doesn't become a distraction."
+      answer: "We keep your involvement focused and efficient. We handle the day-to-day execution and optimization, while keeping you informed with clear reporting and regular check-ins, so marketing doesn't become a distraction."
     },
     {
       question: "How do you measure success?",
