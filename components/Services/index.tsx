@@ -7,7 +7,7 @@ const Services: React.FC = () => {
   const reasons = [
     {
       title: "Built Around Your Firm",
-      desc: "Every law firm is different. We take the time to understand where your firm is today, what's already working, and where we can have the biggest impact for your firm. From there, we build a marketing approach that fits your goals—not a one-size-fits-all package.",
+      desc: "Every law firm is different. We take the time to understand where your firm is today, what's already working, and where we can have the biggest impact for your firm. From there, we build a marketing approach that fits your goals.",
     },
     {
       title: "We Treat Your Firm Like It's Our Own",
@@ -20,7 +20,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-32 bg-brand-beige relative overflow-hidden">
+    <section id="why-us" className="py-20 bg-brand-beige relative overflow-hidden">
       {/* Background Graphic */}
       <div className="absolute right-0 top-0 w-1/3 h-full bg-white/30 backdrop-blur-3xl -skew-x-12 translate-x-32 pointer-events-none"></div>
 
@@ -28,7 +28,7 @@ const Services: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Side - Title & Decorative Element */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+          <div className="lg:col-span-4 lg:sticky lg:top-32">
             <Reveal>
               <span className="text-brand-brick font-bold tracking-widest uppercase text-xs mb-6 block">
                 Why Law Firms Choose Us
@@ -43,18 +43,11 @@ const Services: React.FC = () => {
 
 
 
-            {/* Decorative Circle */}
-            <Reveal delay={300}>
-              <div className="mt-16 hidden lg:block">
-                <div className="w-48 h-48 bg-brand-beige border-2 border-brand-black/10 rounded-full relative overflow-hidden group hover:border-brand-brick/50 transition-colors duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-brick/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-              </div>
-            </Reveal>
+
           </div>
 
           {/* Right Side - Services List */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <div className="divide-y divide-brand-black/10">
               {reasons.map((reason, index) => (
                 <ServiceItem

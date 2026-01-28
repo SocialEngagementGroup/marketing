@@ -35,7 +35,7 @@ const TrustBar: React.FC = () => {
           <div className="mt-16 overflow-hidden relative">
             <div className="flex animate-marquee w-fit">
               {/* First Set of Logos */}
-              <div className="flex items-center gap-16 md:gap-24 px-8 md:px-12 flex-shrink-0">
+              <div className="flex items-center gap-12 md:gap-16 px-8 md:px-12 flex-shrink-0">
                 {[
                   'Aref-Black.png',
                   'Capiton-Black.png',
@@ -60,7 +60,7 @@ const TrustBar: React.FC = () => {
               </div>
 
               {/* Second Set of Logos (Duplicate for infinite scroll) */}
-              <div className="flex items-center gap-16 md:gap-24 px-8 md:px-12 flex-shrink-0">
+              <div className="flex items-center gap-12 md:gap-16 px-8 md:px-12 flex-shrink-0">
                 {[
                   'Aref-Black.png',
                   'Capiton-Black.png',

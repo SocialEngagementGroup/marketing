@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import Reveal from '../ui/Reveal';
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import Reveal from "../ui/Reveal";
 
 interface FeatureCardProps {
   number: string;
@@ -12,25 +12,31 @@ interface FeatureCardProps {
   delay?: number;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ number, icon, title, desc, stat, statLabel, delay = 0 }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  number,
+  icon,
+  title,
+  desc,
+  stat,
+  statLabel,
+  delay = 0,
+}) => {
   return (
     <Reveal delay={delay}>
-      <div className="group relative h-full bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-white/20 rounded-xl p-8 hover:border-white/40 hover:from-white/[0.12] transition-all duration-500 overflow-hidden flex flex-col">
-        
+      <div className="group relative h-full bg-gradient-to-b from-black/20 to-black/40 border border-white/10 rounded-xl p-8 hover:border-white/30 hover:from-black/30 transition-all duration-500 overflow-hidden flex flex-col">
         {/* Large Number - Top Right Only */}
         <div className="absolute -right-4 -top-6 text-[8rem] font-serif font-bold text-white/[0.05] group-hover:text-white/[0.1] transition-colors duration-500 select-none pointer-events-none leading-none">
           {number}
         </div>
-        
+
         {/* Content */}
         <div className="flex-grow relative z-10">
-          <h3 className="text-xl md:text-2xl font-serif text-white mb-4 transition-colors leading-tight" dangerouslySetInnerHTML={{ __html: title }}>
-          </h3>
-          <p className="text-white/60 leading-relaxed text-sm mb-6">
-            {desc}
-          </p>
+          <h3
+            className="text-xl md:text-2xl font-serif text-white mb-4 transition-colors leading-tight"
+            dangerouslySetInnerHTML={{ __html: title }}
+          ></h3>
+          <p className="text-white/80 leading-relaxed text-base mb-6">{desc}</p>
         </div>
-        
       </div>
     </Reveal>
   );
