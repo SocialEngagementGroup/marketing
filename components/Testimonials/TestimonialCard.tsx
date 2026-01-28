@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface TestimonialCardProps {
   quote: string;
@@ -7,9 +7,11 @@ interface TestimonialCardProps {
   author: string;
   position: string;
   image?: string;
+  onNext: () => void;
+  onPrev: () => void;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author, position, image }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author, position, image, onNext, onPrev }) => {
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -85,6 +87,24 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
               {position}
             </p>
           </div>
+        </div>
+
+        {/* Navigation Buttons - Bottom Right */}
+        <div className="absolute right-0 bottom-8 flex gap-4">
+          <button 
+            onClick={onPrev}
+            className="w-12 h-8 border border-white/20 rounded-md flex items-center justify-center text-white hover:bg-white/10 transition-colors group"
+            aria-label="Previous testimonial"
+          >
+            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+          </button>
+          <button 
+            onClick={onNext}
+            className="w-12 h-8 border border-white/20 rounded-md flex items-center justify-center text-white hover:bg-white/10 transition-colors group"
+            aria-label="Next testimonial"
+          >
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </div>

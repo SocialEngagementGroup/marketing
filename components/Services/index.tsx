@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Wrench, Target, ArrowUpRight } from 'lucide-react';
+import { Users, Wrench, Target } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import ServiceItem from './ServiceItem';
 
@@ -41,15 +41,7 @@ const Services: React.FC = () => {
               </h2>
             </Reveal>
 
-            <Reveal delay={200}>
-              <a 
-                href="#contact" 
-                className="group inline-flex items-center gap-3 text-brand-black font-bold uppercase tracking-widest text-xs border-b border-brand-black/30 pb-2 hover:border-brand-brick hover:text-brand-brick transition-colors"
-              >
-                Let's Talk
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </Reveal>
+
 
             {/* Decorative Circle */}
             <Reveal delay={300}>

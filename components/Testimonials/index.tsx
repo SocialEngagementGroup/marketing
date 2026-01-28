@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react'; // Removing unused import
 import TestimonialCard from './TestimonialCard';
 
 interface Testimonial {
@@ -17,13 +18,15 @@ const testimonials: Testimonial[] = [
     author: "Michael F. Campopiano",
     position: "CEO at MFC Law",
     rating: 5,
+    image: "/testimonial/law1.png",
   },
   {
     id: 2,
     quote: "Social Engagement Group built our website from the ground up and gave us a real online presence. We finally started showing up in search and the results speak for themselves.",
     author: "Sharif Aref",
     position: "Owner at Aref Law",
-    rating: 4,
+    rating: 5,
+    image: "/testimonial/law2.png",
   },
 ];
 
@@ -39,6 +42,13 @@ const Testimonials: React.FC = () => {
   };
 
   const current = testimonials[currentIndex];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextTestimonial();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
 
 
 
@@ -73,13 +83,17 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div>
           <div className="max-w-4xl mx-auto">
-            <TestimonialCard
-              quote={current.quote}
-              rating={current.rating}
-              author={current.author}
-              position={current.position}
-              image={current.image}
-            />
+            <div className="relative">
+              <TestimonialCard
+                quote={current.quote}
+                rating={current.rating}
+                author={current.author}
+                position={current.position}
+                image={current.image}
+                onNext={nextTestimonial}
+                onPrev={prevTestimonial}
+              />
+            </div>
 
             {/* Pagination Dots */}
             <div className="flex justify-center gap-2 mt-8">
