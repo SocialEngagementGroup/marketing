@@ -53,7 +53,7 @@ const Testimonials: React.FC = () => {
 
 
   return (
-    <section className="py-24 bg-zinc-950 relative overflow-hidden">
+    <section className="py-24 bg-brand-black relative overflow-hidden">
       {/* Large Background Quote Decoration - Rounded 66-style */}
       <div className="absolute left-4 top-4 pointer-events-none select-none opacity-15">
         <svg 

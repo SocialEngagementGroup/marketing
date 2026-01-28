@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
           {/* Right Content - Arch Image */}
           <div className="lg:col-span-6 relative h-[600px] hidden lg:block">
              <Reveal delay={400} className="h-full w-full">
-               <div className="absolute top-0 right-0 w-4/5 h-full bg-brand-black arch-mask overflow-hidden shadow-2xl group">
+               <div className="absolute top-0 right-0 w-4/5 h-full bg-brand-black arch-mask overflow-hidden shadow-2xl group [mask-image:radial-gradient(white,black)]">
                   <img 
                     src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop" 
                     alt="Modern Law Office Architecture" 
