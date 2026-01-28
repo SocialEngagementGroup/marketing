@@ -33,7 +33,7 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
            <span className="text-brand-brick font-bold tracking-widest uppercase text-xs mb-4 block">Common Questions From Law Firms</span>
-           <h2 className="text-6xl font-serif text-brand-black">Frequently Asked <span className="italic text-brand-brick">Questions</span></h2>
+           <h2 className="text-4xl md:text-6xl font-serif text-brand-black">Frequently Asked <span className="italic text-brand-brick">Questions</span></h2>
         </div>
         
         <div className="bg-white px-8 md:px-12 py-4 shadow-lg border-t-4 border-brand-brick">

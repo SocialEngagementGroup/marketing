@@ -7,7 +7,7 @@ const TrustBar: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-6xl font-serif text-brand-black mb-6 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-serif text-brand-black mb-6 leading-tight">
               Trusted by Clients <br /> <span className="italic text-brand-brick">Across Competitive Industries</span>
             </h2>
             <p className="text-xl md:text-2xl text-brand-black/80 leading-relaxed">

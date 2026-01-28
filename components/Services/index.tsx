@@ -36,7 +36,7 @@ const Services: React.FC = () => {
             </Reveal>
             
             <Reveal delay={100}>
-              <h2 className="text-6xl font-serif text-brand-black leading-tight mb-8">
+              <h2 className="text-4xl md:text-6xl font-serif text-brand-black leading-tight mb-8">
                 A Partner You <br/>Can <span className="italic text-brand-brick">Trust.</span>
               </h2>
             </Reveal>

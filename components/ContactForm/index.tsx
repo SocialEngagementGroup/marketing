@@ -60,10 +60,10 @@ const ContactForm: React.FC = () => {
             {/* Left Panel: Contact Info */}
             <div className="space-y-8 md:space-y-12 py-4">
               <div className="space-y-6 md:space-y-8">
-                <h2 className="text-6xl font-serif font-medium text-white leading-[1.1] tracking-tight">
+                <h2 className="text-4xl md:text-6xl font-serif font-medium text-white leading-[1.1] tracking-tight">
                   Let’s create <br className="hidden lg:block" />
-                  next chapter of <br className="hidden lg:block" />
-                  Your <span className="italic">Story</span>
+                  the next chapter of <br className="hidden lg:block" />
+                  your <span className="italic">Story</span>
                 </h2>
                 <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg font-light border-l-2 border-brand-brick/30 pl-6">
                   Every story deserves to be seen, heard, and remembered. Let’s bring yours to life with clarity and purpose.
