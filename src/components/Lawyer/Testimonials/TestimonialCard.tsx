@@ -9,9 +9,12 @@ interface TestimonialCardProps {
   image?: string;
   onNext: () => void;
   onPrev: () => void;
+  currentIndex: number;
+  totalCount: number;
+  onSetIndex: (index: number) => void;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author, position, image, onNext, onPrev }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author, position, image, onNext, onPrev, currentIndex, totalCount, onSetIndex }) => {
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -83,7 +86,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
               {author}
             </h4>
             <p className="text-gray-500 text-sm flex items-center gap-2">
-              <span className="text-gray-600">—</span>
               {position}
             </p>
           </div>
@@ -98,6 +100,23 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           </button>
+
+          {/* Dots */}
+          <div className="flex gap-2 items-center">
+            {Array.from({ length: totalCount }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => onSetIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-brand-brick w-6'
+                    : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+
           <button 
             onClick={onNext}
             className="w-12 h-8 border border-white/20 rounded-md flex items-center justify-center text-white hover:bg-white/10 transition-colors group"

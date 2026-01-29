@@ -92,23 +92,10 @@ const Testimonials: React.FC = () => {
                 image={current.image}
                 onNext={nextTestimonial}
                 onPrev={prevTestimonial}
+                currentIndex={currentIndex}
+                totalCount={testimonials.length}
+                onSetIndex={setCurrentIndex}
               />
-            </div>
-
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2 mt-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-brand-brick w-6'
-                      : 'bg-gray-600 hover:bg-gray-500'
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>
