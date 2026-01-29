@@ -27,6 +27,14 @@ const testimonials: Testimonial[] = [
     company: "Aref Law",
     image: "/testimonial/law2.png",
   },
+  {
+    id: 3,
+    quote: "SEG helped bring our vision to life. They took the time to listen to what we wanted & turned our ideas into a brand we’re proud of. We got brand guidelines, logo, menus & social media content. Highly recommend working with them.",
+    author: "Zakia Sumi",
+    role: "Owner",
+    company: "The Munch Yard",
+    image: "",
+  },
 ];
 
 
@@ -98,15 +106,21 @@ const HomepageTestimonials: React.FC = () => {
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <img
-                src={current.image}
-                alt={current.author}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-white/20"
-              />
+              {current.image ? (
+                <img
+                  src={current.image}
+                  alt={current.author}
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-white/20"
+                />
+              ) : (
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-lime flex items-center justify-center border-2 border-white/20 text-brand-purple font-bold text-sm md:text-base">
+                  {current.author.split(' ').map(n => n[0]).join('')}
+                </div>
+              )}
               <div>
                 <div className="text-white font-bold text-sm md:text-base">{current.author}</div>
                 <div className="text-white/70 text-xs md:text-sm">
-                  {current.role} at {current.company}
+                  {current.role} {current.company}
                 </div>
               </div>
             </div>
