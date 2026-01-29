@@ -145,7 +145,7 @@ const MobileServicesCarousel: React.FC = () => {
   };
 
   return (
-    <section className="md:hidden w-full bg-[#F5F5F5] py-8 flex flex-col">
+    <section className="md:hidden w-full bg-[#F5F5F5] py-16 flex flex-col">
       {/* Mobile Title */}
       <div className="text-center mb-6 px-6">
         <span className="text-brand-purple font-bold tracking-widest uppercase text-xs mb-2 block">
@@ -179,12 +179,7 @@ const MobileServicesCarousel: React.FC = () => {
         <div className="flex items-center justify-center gap-6 mt-6 pb-4">
           <button
             onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-              currentIndex === 0
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                : 'bg-brand-purple text-white hover:bg-brand-purple/90 shadow-lg hover:shadow-xl active:scale-95'
-            }`}
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-brand-purple text-white hover:bg-brand-purple/90 shadow-lg hover:shadow-xl active:scale-95"
             aria-label="Previous service"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,12 +208,7 @@ const MobileServicesCarousel: React.FC = () => {
 
           <button
             onClick={handleNext}
-            disabled={currentIndex === services.length - 1}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-              currentIndex === services.length - 1
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                : 'bg-brand-purple text-white hover:bg-brand-purple/90 shadow-lg hover:shadow-xl active:scale-95'
-            }`}
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-brand-purple text-white hover:bg-brand-purple/90 shadow-lg hover:shadow-xl active:scale-95"
             aria-label="Next service"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
