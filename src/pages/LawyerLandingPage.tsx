@@ -42,15 +42,15 @@ const LawyerLandingPage: React.FC = () => {
         
         {/* Featured Case Study */}
         <CaseStudies />
-        
-        {/* Trusted Industries */}
-        <TrustBar />
+
+        {/* Video Section */}
+        <VideoSection />
         
         {/* Client Testimonials */}
         <Testimonials />
 
-        {/* Video Section */}
-        <VideoSection />
+        {/* Trusted Industries */}
+        <TrustBar />
         
         {/* Final CTA */}
         <Contact />
