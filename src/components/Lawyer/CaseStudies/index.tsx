@@ -41,7 +41,7 @@ const CaseStudies: React.FC = () => {
                 <div>
                   <h4 className="text-[#F5E6D3] font-bold uppercase tracking-widest text-xs mb-2">What We Did</h4>
                   <p className="text-white/60 leading-relaxed">
-                    Instead of trying to outspend competitors, we expanded visibility beyond paid search—reinforcing the firm's digital footprint, improving organic coverage across key locations, and supporting it with focused, continuously optimized ad campaigns.
+                    Instead of trying to outspend competitors, we expanded visibility beyond paid search, reinforcing the firm's digital footprint, improving organic coverage across key locations, and supporting it with focused, continuously optimized ad campaigns.
                   </p>
                 </div>
               </div>
