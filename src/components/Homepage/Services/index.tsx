@@ -227,9 +227,10 @@ const MobileServicesCarousel: React.FC = () => {
 interface ServiceCardProps {
   serviceIndex: number;
   isOverlay?: boolean;
+  isActive?: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ serviceIndex, isOverlay = false }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ serviceIndex, isOverlay = false, isActive = true }) => {
   const service = services[serviceIndex];
   
   if (!service) return null;
@@ -279,10 +280,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ serviceIndex, isOverlay = fal
 };
 
 // Create individual components for each service card (Desktop only)
-export const ServiceCard1: React.FC = () => <ServiceCard serviceIndex={0} isOverlay={false} />;
-export const ServiceCard2: React.FC = () => <ServiceCard serviceIndex={1} isOverlay={true} />;
-export const ServiceCard3: React.FC = () => <ServiceCard serviceIndex={2} isOverlay={true} />;
-export const ServiceCard4: React.FC = () => <ServiceCard serviceIndex={3} isOverlay={true} />;
+export const ServiceCard1: React.FC<any> = (props) => <ServiceCard serviceIndex={0} isOverlay={false} {...props} />;
+export const ServiceCard2: React.FC<any> = (props) => <ServiceCard serviceIndex={1} isOverlay={true} {...props} />;
+export const ServiceCard3: React.FC<any> = (props) => <ServiceCard serviceIndex={2} isOverlay={true} {...props} />;
+export const ServiceCard4: React.FC<any> = (props) => <ServiceCard serviceIndex={3} isOverlay={true} {...props} />;
 
 // Export mobile carousel
 export { MobileServicesCarousel };

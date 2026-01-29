@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
+        className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
           isScrolled
             ? "bg-brand-black/95 backdrop-blur-sm border-brand-white/10 py-4"
             : "bg-transparent border-transparent py-6"
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden z-50 relative"
+            className="md:hidden z-[101] relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
 
       {/* Mobile Nav Overlay */}
       <div
-        className={`fixed inset-0 bg-brand-black z-40 transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed inset-0 bg-brand-black z-[90] transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex flex-col gap-8 text-center">
           <a

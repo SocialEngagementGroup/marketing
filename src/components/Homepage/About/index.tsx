@@ -4,15 +4,27 @@ interface HomepageAboutProps {
   isActive?: boolean;
   isTransitioning?: boolean;
   currentSlide?: number;
+  isSplit?: boolean;
+  videoId?: string;
+  title?: string;
+  label?: string;
 }
 
-const HomepageAbout: React.FC<HomepageAboutProps> = ({ isActive, isTransitioning, currentSlide }) => {
+const HomepageAbout: React.FC<HomepageAboutProps> = ({ 
+  isActive, 
+  isTransitioning, 
+  currentSlide, 
+  isSplit: propIsSplit,
+  videoId = "wlIkMShCiYg",
+  title = "Hey! This is Rahee..",
+  label = "Watch Introduction"
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   
-  const isSplit = currentSlide === 6 || currentSlide === 8;
+  const isSplit = propIsSplit ?? (currentSlide === 7 || currentSlide === 9);
   const transitionBase = "transition-[transform,opacity,filter] duration-[1000ms] cubic-bezier(0.16, 1, 0.3, 1)";
   const transitionColor = "transition-colors duration-[1000ms] ease-in-out";
 
@@ -86,7 +98,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({ isActive, isTransitioning
             {/* YouTube Video Section */}
             <div className={`relative w-full z-0 transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${isSplit ? 'opacity-0 -translate-y-20' : 'opacity-100 translate-y-0'}`}>
               <div className="mb-5 md:mb-6 text-center">
-                 <p className="text-brand-purple text-xs md:text-sm uppercase tracking-[0.4em] font-bold">Watch Introduction</p>
+                 <p className="text-brand-purple text-xs md:text-sm uppercase tracking-[0.4em] font-bold">{label}</p>
               </div>
               <div 
                 className="relative aspect-video overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.2)] group cursor-pointer"
@@ -99,8 +111,8 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({ isActive, isTransitioning
                 */}
                 <iframe 
                   ref={iframeRef}
-                  src="https://www.youtube.com/embed/wlIkMShCiYg?rel=0&modestbranding=1&enablejsapi=1" 
-                  title="Hey! This is Rahee.." 
+                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`} 
+                  title={title} 
                   className="absolute inset-0 w-full h-full transform scale-[1.01] pointer-events-none transition-all duration-700"
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
