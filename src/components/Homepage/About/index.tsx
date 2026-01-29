@@ -73,6 +73,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
     if (shouldBePlaying) {
       // Small delay to ensure the slide is visible/ready
       const timer = setTimeout(() => {
+        sendCommand('unMute');
         sendCommand('playVideo');
         setIsPlaying(true);
       }, 500);
@@ -116,7 +117,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
                 */}
                 <iframe 
                   ref={iframeRef}
-                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1&mute=1&controls=0&iv_load_policy=3&loop=1&playlist=${videoId}`} 
+                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1&controls=0&iv_load_policy=3&loop=1&playlist=${videoId}`} 
                   title={title} 
                   className="absolute inset-0 w-full h-full transform scale-[1.01] pointer-events-none transition-all duration-700"
                   frameBorder="0" 
