@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Header from '../components/Common/Header';
+import SEO from '../components/Common/SEO';
 import HomepageHero from '../components/Homepage/Hero';
 import { ServiceCard1, ServiceCard2, ServiceCard3, ServiceCard4, MobileServicesCarousel } from '../components/Homepage/Services';
 import HomepagePortfolio from '../components/Homepage/Industries';
@@ -198,6 +199,10 @@ const HomepageLandingPage: React.FC = () => {
   // Desktop Layout
   return (
     <div className="h-screen w-screen overflow-hidden bg-brand-offwhite relative perspective-1000">
+      <SEO 
+        title="Where Human Creativity Meets AI-Powered Business Growth | SEG"
+        description="Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call."
+      />
       <Header theme={theme} />
       
       {/* Slide Container */}
