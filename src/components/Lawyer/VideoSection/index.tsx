@@ -1,30 +1,103 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Reveal from '../../Common/ui/Reveal';
 
 const VideoSection: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Intersection Observer for Autoplay/Pause logic
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Trigger when 50% visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Control video via YouTube IFrame API
+  const sendCommand = (func: 'playVideo' | 'pauseVideo') => {
+    if (!iframeRef.current) return;
+    iframeRef.current.contentWindow?.postMessage(JSON.stringify({
+      event: 'command',
+      func: func,
+      args: ''
+    }), '*');
+  };
+
+  const toggleVideo = () => {
+    const newState = !isPlaying;
+    sendCommand(newState ? 'playVideo' : 'pauseVideo');
+    setIsPlaying(newState);
+  };
+
+  // Autoplay when active/in-view, pause when inactive
+  useEffect(() => {
+    if (isInView) {
+      // Small delay to ensure the slide is visible/ready
+      const timer = setTimeout(() => {
+        sendCommand('playVideo');
+        setIsPlaying(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    } else {
+      sendCommand('pauseVideo');
+      setIsPlaying(false);
+    }
+  }, [isInView]);
+
   return (
-    <section className="bg-brand-beige py-20">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section ref={sectionRef} className="bg-brand-beige py-20">
+      <div className="container mx-auto px-6 max-w-6xl">
         <Reveal>
           <div className="text-center mb-12">
             <span className="text-brand-brick font-bold tracking-widest uppercase text-xs mb-3 block">Watch Our Story</span>
              <h2 className="text-4xl md:text-6xl font-serif text-brand-black mb-6">
-              See How We <span className="italic text-brand-brick">Transform</span> Firms
+              See How We <br className="md:hidden" /> <span className="italic text-brand-brick">Transform</span> Firms
             </h2>
            
           </div>
         </Reveal>
 
         <Reveal delay={200}>
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-brand-black/5 group hover:shadow-brand-brick/20 hover:scale-[1.02] transition-all duration-500">
-            {/* Google Drive Video Embed */}
+          <div 
+            className="relative aspect-video overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.2)] bg-brand-black/5 group cursor-pointer"
+            onClick={toggleVideo}
+          >
+            {/* 
+              The iframe is permanently pointer-events-none to prevent interception of clicks/scrolls.
+              We add enablejsapi=1 to allow control via togglevideo function.
+            */}
             <iframe 
-              src="https://drive.google.com/file/d/1Hm3t6r3dOMm4SmiGFHFwGqPluPSInoom/preview" 
-              className="absolute inset-0 w-full h-full scale-[1.01]"
-              allow="autoplay; encrypted-media; picture-in-picture"
+              ref={iframeRef}
+              src="https://www.youtube.com/embed/qd8RD-CqLDI?rel=0&modestbranding=1&enablejsapi=1&controls=0&iv_load_policy=3&loop=1&playlist=qd8RD-CqLDI" 
+              title="Soulution for Lawyers - SEG (Social Engagement Group)"
+              className="absolute inset-0 w-full h-full transform scale-[1.01] pointer-events-none transition-all duration-700"
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
               allowFullScreen
-              title="Social Engagement Group Video"
-            ></iframe>
+            />
+            
+            {/* Interaction Overlay: High-Z Transparent Layer that provides Custom Controls */}
+            <div className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500 ${isPlaying ? 'bg-transparent group-hover:bg-black/10' : 'bg-black/10'}`}>
+              {/* Custom Play/Pause Button */}
+              <div className={`w-24 h-24 bg-brand-purple/90 rounded-full flex items-center justify-center text-white shadow-2xl transform transition-all duration-500 ${isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90' : 'opacity-100 scale-100 animate-pulse'}`}>
+                {isPlaying ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                )}
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

@@ -23,9 +23,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <Reveal delay={delay}>
-      <div className="group relative h-full bg-gradient-to-b from-black/20 to-black/40 border border-white/10 rounded-xl p-8 hover:border-white/30 hover:from-black/30 transition-all duration-500 overflow-hidden flex flex-col">
+      <div className="group relative h-full bg-gradient-to-b from-black/20 to-black/40 border border-white/10 rounded-xl p-8 transition-all duration-500 overflow-hidden flex flex-col">
         {/* Large Number - Top Right Only */}
-        <div className="absolute -right-4 -top-6 text-[8rem] font-serif font-bold text-white/[0.05] group-hover:text-white/[0.1] transition-colors duration-500 select-none pointer-events-none leading-none">
+        <div className="absolute -right-4 -top-6 text-[8rem] font-serif font-bold text-white/[0.05] transition-colors duration-500 select-none pointer-events-none leading-none">
           {number}
         </div>
 
