@@ -2,7 +2,7 @@
 import React from 'react';
 import Reveal from '../../Common/ui/Reveal';
 import FeatureCard from './FeatureCard';
-import { Search, ShieldCheck, LineChart, ArrowRight } from 'lucide-react';
+import { Search, ShieldCheck, LineChart, Wallet } from 'lucide-react';
 
 const Features: React.FC = () => {
   const features = [
@@ -29,6 +29,14 @@ const Features: React.FC = () => {
       desc: "You'll have clear visibility into what's driving calls and where momentum is building, so you can double down on what's working and adjust what's not.",
       stat: "Real-Time",
       statLabel: "Performance Data"
+    },
+    {
+      number: "04",
+      icon: <Wallet className="w-6 h-6" />,
+      title: "Transparent Pricing,<br/>Built on Experience",
+      desc: "Our pricing is straightforward and fair. Years of experience across competitive industries let us focus on what matters most, keeping pricing reasonable without sacrificing quality.",
+      stat: "Fair Value",
+      statLabel: "Consistent Pricing"
     }
   ];
 
@@ -60,8 +68,8 @@ const Features: React.FC = () => {
           
         </div>
 
-        {/* 3 Cards Side by Side */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* 2x2 Grid on Web */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
