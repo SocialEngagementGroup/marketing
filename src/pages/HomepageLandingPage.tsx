@@ -365,9 +365,9 @@ const HomepageLandingPage: React.FC = () => {
       {/* Slide Counter */}
       <div className="hidden md:block fixed bottom-8 left-8 z-50 overflow-hidden">
         <div className={`flex items-center gap-2 font-display text-lg tracking-widest transition-colors duration-500 ${accentColor}`}>
-          <span className="relative h-7 w-8 block overflow-hidden">
+          <span className="relative h-7 w-6 block overflow-hidden">
             <span 
-              key={currentSlide /* Key change triggers animation even within services group? Or should we keep same number? User said "count all service pages as one" -> So number should NOT change inside services. */}
+              key={currentSlide}
               className="block absolute inset-0 animate-[revealText_0.5s_cubic-bezier(0.16,1,0.3,1)_forwards] text-center"
             >
               {(() => {
@@ -382,7 +382,7 @@ const HomepageLandingPage: React.FC = () => {
               })()}
             </span>
           </span>
-          <span className="opacity-50">—</span>
+          <span className="opacity-50 ml-0 mr-1.2">|</span>
           {/* Total Logic Pages: 6 */}
           <span className="opacity-50">06</span>
         </div>
