@@ -65,7 +65,7 @@ const HomepageContact: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-white leading-[1.1] tracking-tight">
                   Let’s create the <br />
                   next chapter of <br />
-                  your <span className="italic">Story</span>
+                  Your <span className="italic">Story</span>
                 </h2>
                 <div className="flex justify-center lg:justify-start">
                   <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-lg font-light border-l-[3px] border-brand-brick/60 pl-4 md:pl-6 text-left">
