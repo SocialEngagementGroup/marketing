@@ -34,7 +34,7 @@ const Features: React.FC = () => {
       number: "04",
       icon: <Wallet className="w-6 h-6" />,
       title: "Transparent Pricing,<br/>Built on Experience",
-      desc: "Our pricing is straightforward and fair. Years of experience across competitive industries let us focus on what matters most, keeping pricing reasonable without sacrificing quality.",
+      desc: "Our pricing is straightforward and fair. Years of experience let's us focus on what matters most, keeping pricing reasonable without sacrificing quality.",
       stat: "Fair Value",
       statLabel: "Consistent Pricing"
     }
