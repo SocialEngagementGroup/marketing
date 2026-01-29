@@ -61,8 +61,8 @@ const ContactForm: React.FC = () => {
             <div className="space-y-8 md:space-y-12 py-4">
               <div className="space-y-6 md:space-y-8">
                 <h2 className="text-4xl md:text-6xl font-serif font-medium text-white leading-[1.1] tracking-tight">
-                  Let’s create <br className="hidden lg:block" />
-                  the next chapter of <br className="hidden lg:block" />
+                  Let’s create the <br />
+                  next chapter of <br />
                   your <span className="italic">Story</span>
                 </h2>
                 <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg font-light border-l-2 border-brand-brick/30 pl-6">
@@ -157,7 +157,7 @@ const ContactForm: React.FC = () => {
                   <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
-                    className={`bg-brand-brick hover:bg-brand-brick/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-brand-brick/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
+                    className={`w-full md:w-auto bg-brand-brick hover:bg-brand-brick/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-brand-brick/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
                   >
                     {status === 'loading' ? (
                       <>

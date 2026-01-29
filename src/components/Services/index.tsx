@@ -31,7 +31,7 @@ const Services: React.FC = () => {
       <div className="absolute -left-20 top-40 w-96 h-96 bg-brand-brick/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-0 lg:gap-16 items-start">
           
           {/* Left Side - Title & Decorative Element */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
@@ -42,7 +42,7 @@ const Services: React.FC = () => {
             </Reveal>
             
             <Reveal delay={100}>
-              <h2 className="text-4xl md:text-6xl font-serif text-brand-black leading-tight mb-8">
+              <h2 className="text-4xl md:text-6xl font-serif text-brand-black leading-tight mb-6 md:mb-8">
                 A Partner You <br/>Can <span className="italic text-brand-brick">Trust.</span>
               </h2>
             </Reveal>

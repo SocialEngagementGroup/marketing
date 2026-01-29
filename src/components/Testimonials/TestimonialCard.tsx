@@ -51,7 +51,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, rating, author
       {/* Content Container */}
       <div className="pb-0 md:pb-8">
         {/* Quote Text */}
-        <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light">
+        <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light min-h-[200px] sm:min-h-[160px] md:min-h-0">
           {quote}
         </p>
 
