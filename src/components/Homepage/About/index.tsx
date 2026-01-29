@@ -45,7 +45,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
   }, []);
 
   // Control video via YouTube IFrame API
-  const sendCommand = (func: 'playVideo' | 'pauseVideo') => {
+  const sendCommand = (func: 'playVideo' | 'pauseVideo' | 'mute' | 'unMute') => {
     if (!iframeRef.current) return;
     iframeRef.current.contentWindow?.postMessage(JSON.stringify({
       event: 'command',
@@ -56,7 +56,12 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
 
   const toggleVideo = () => {
     const newState = !isPlaying;
-    sendCommand(newState ? 'playVideo' : 'pauseVideo');
+    if (newState) {
+      sendCommand('unMute');
+      sendCommand('playVideo');
+    } else {
+      sendCommand('pauseVideo');
+    }
     setIsPlaying(newState);
   };
 
@@ -111,7 +116,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
                 */}
                 <iframe 
                   ref={iframeRef}
-                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`} 
+                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1&mute=1&controls=0&iv_load_policy=3&loop=1&playlist=${videoId}`} 
                   title={title} 
                   className="absolute inset-0 w-full h-full transform scale-[1.01] pointer-events-none transition-all duration-700"
                   frameBorder="0" 

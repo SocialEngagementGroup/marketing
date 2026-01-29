@@ -196,7 +196,6 @@ const HomepageLandingPage: React.FC = () => {
             return (
               <div key={slide.id + (index === 1 ? "-top" : "")} className="relative w-full">
                 <SlideComponent 
-                    isActive={false} // On mobile all are rendered
                     currentSlide={currentSlide}
                     isSplit={false} // On mobile vertical stack we typically don't want the split effect
                     {...(index === 1 ? {
