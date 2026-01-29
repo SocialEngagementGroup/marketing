@@ -76,7 +76,7 @@ const HomepageHero: React.FC = () => {
       <div className="relative z-20 text-center px-6 max-w-5xl">
         
         {/* Main Headline */}
-        <h1 className="font-display text-4xl md:text-7xl lg:text-[6.5rem] leading-[1] tracking-tight uppercase flex flex-col items-center text-center">
+        <h1 className="font-display text-5xl md:text-7xl lg:text-[6.5rem] leading-[1] tracking-tight uppercase flex flex-col items-center text-center">
           <div className="reveal-text-container">
             <span className="reveal-text-item text-brand-black" style={{ animationDelay: '0.1s' }}>
               Where Human Creativity
@@ -87,7 +87,15 @@ const HomepageHero: React.FC = () => {
               className="reveal-text-item text-white" 
               style={{ animationDelay: '0.2s' }}
             >
-              Meets AI-Powered Growth
+              <span className="md:inline-block">Meets</span> <span className="hidden md:inline-block">AI-Powered Growth</span>
+            </span>
+          </div>
+          <div className="reveal-text-container md:hidden">
+            <span 
+              className="reveal-text-item text-white" 
+              style={{ animationDelay: '0.25s' }}
+            >
+              AI-Powered Growth
             </span>
           </div>
         </h1>
@@ -120,11 +128,11 @@ const HomepageHero: React.FC = () => {
       </div>
       {/* Scroll Indicator */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="font-display text-xs md:text-sm tracking-[0.3em] text-white/60 uppercase">
+        <span className="font-display text-xs md:text-sm tracking-[0.3em] text-brand-black/70 uppercase">
           Explore
         </span>
-        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/40 rounded-full flex justify-center p-1.5">
-          <div className="w-1 h-1.5 md:w-1.5 md:h-2 bg-white/60 rounded-full animate-scroll-dot" />
+        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-brand-black/40 rounded-full flex justify-center p-1.5">
+          <div className="w-1 h-1.5 md:w-1.5 md:h-2 bg-brand-black/70 rounded-full animate-scroll-dot" />
         </div>
       </div>
 

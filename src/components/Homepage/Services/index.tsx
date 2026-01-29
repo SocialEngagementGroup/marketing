@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface Service {
   id: number;
@@ -85,22 +85,42 @@ const ServiceCardInner: React.FC<ServiceCardInnerProps> = ({ service, className 
  */
 const MobileServicesCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      const newIndex = currentIndex - 1;
-      setCurrentIndex(newIndex);
-      scrollToCard(newIndex);
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    autoPlayTimerRef.current = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % services.length;
+      setCurrentIndex(nextIndex);
+      scrollToCard(nextIndex);
+    }, 4000);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayTimerRef.current) {
+      clearInterval(autoPlayTimerRef.current);
     }
   };
 
-  const handleNext = () => {
-    if (currentIndex < services.length - 1) {
-      const newIndex = currentIndex + 1;
-      setCurrentIndex(newIndex);
-      scrollToCard(newIndex);
+  useEffect(() => {
+    if (isAutoPlaying) {
+      startAutoPlay();
     }
+    return () => stopAutoPlay();
+  }, [currentIndex, isAutoPlaying]);
+
+  const handlePrev = () => {
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : services.length - 1;
+    setCurrentIndex(newIndex);
+    scrollToCard(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % services.length;
+    setCurrentIndex(newIndex);
+    scrollToCard(newIndex);
   };
 
   const scrollToCard = (index: number) => {
