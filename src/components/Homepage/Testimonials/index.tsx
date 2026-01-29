@@ -31,9 +31,9 @@ const testimonials: Testimonial[] = [
     id: 3,
     quote: "SEG helped bring our vision to life. They took the time to listen to what we wanted & turned our ideas into a brand we’re proud of. We got brand guidelines, logo, menus & social media content. Highly recommend working with them.",
     author: "Zakia Sumi",
-    role: "Owner",
+    role: "CEO",
     company: "The Munch Yard",
-    image: "",
+    image: "/testimonial/restaurant1.png",
   },
 ];
 
