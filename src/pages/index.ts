@@ -6,6 +6,7 @@
  */
 
 export { default as LawyerLandingPage } from './LawyerLandingPage';
+export { default as HomepageLandingPage } from './HomepageLandingPage';
 
 // Future landing pages can be exported here:
 // export { default as HealthcareLandingPage } from './HealthcareLandingPage';
