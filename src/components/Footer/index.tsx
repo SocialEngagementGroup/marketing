@@ -19,17 +19,17 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/socialengagementgroup" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Instagram className="w-4 h-4" /></a>
-            <a href="https://www.linkedin.com/company/social-engagement-group" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Linkedin className="w-4 h-4" /></a>
-            <a href="https://www.facebook.com/seg.socialengagementgroup/" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Facebook className="w-4 h-4" /></a>
+            <a href="https://www.instagram.com/socialengagementgroup" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Instagram className="w-4 h-4" /></a>
+            <a href="https://www.linkedin.com/company/social-engagement-group" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Linkedin className="w-4 h-4" /></a>
+            <a href="https://www.facebook.com/seg.socialengagementgroup/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Facebook className="w-4 h-4" /></a>
           </div>
 
           {/* Mobile Links - Stacked Vertical */}
           <div className="flex md:hidden flex-col items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
-            <a href="https://www.socialengagementgroup.com/terms-and-conditions" className="hover:text-white transition-colors">Terms and Conditions</a>
-            <a href="https://www.socialengagementgroup.com/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="https://www.socialengagementgroup.com/cookies" className="hover:text-white transition-colors">Cookies</a>
-            <a href="https://www.socialengagementgroup.com/legal-notice" className="hover:text-white transition-colors">Legal Notice</a>
+            <a href="https://www.socialengagementgroup.com/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms and Conditions</a>
+            <a href="https://www.socialengagementgroup.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="https://www.socialengagementgroup.com/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Cookies</a>
+            <a href="https://www.socialengagementgroup.com/legal-notice" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Legal Notice</a>
           </div>
 
         </div>
@@ -39,10 +39,10 @@ const Footer: React.FC = () => {
           
           {/* Desktop Links - Row */}
           <div className="hidden md:flex gap-6">
-            <a href="https://www.socialengagementgroup.com/terms-and-conditions" className="hover:text-white transition-colors">Terms and Conditions</a>
-            <a href="https://www.socialengagementgroup.com/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="https://www.socialengagementgroup.com/cookies" className="hover:text-white transition-colors">Cookies</a>
-            <a href="https://www.socialengagementgroup.com/legal-notice" className="hover:text-white transition-colors">Legal Notice</a>
+            <a href="https://www.socialengagementgroup.com/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms and Conditions</a>
+            <a href="https://www.socialengagementgroup.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="https://www.socialengagementgroup.com/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Cookies</a>
+            <a href="https://www.socialengagementgroup.com/legal-notice" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Legal Notice</a>
           </div>
         </div>
       </div>
