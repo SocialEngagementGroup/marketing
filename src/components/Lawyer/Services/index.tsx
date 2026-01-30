@@ -10,11 +10,11 @@ const Services: React.FC = () => {
       desc: "Every law firm is different. We take the time to understand where your firm is today, what's already working, and where we can have the biggest impact for your firm. From there, we build a marketing approach that fits your goals.",
     },
     {
-      title: "We Treat Your Firm Like<br className=\"md:hidden\" /> It's Our Own",
+      title: "We Treat Your Firm Like<br class=\"md:hidden\" /> It's Our Own",
       desc: "We don't \"set it and forget it\". We actively manage, monitor, and refine your marketing so you can focus on running your practice, while we focus on making sure you keep getting leads.",
     },
     {
-      title: "Focused on Outcomes<br className=\"md:hidden\" /> That Matter",
+      title: "Focused on Outcomes<br class=\"md:hidden\" /> That Matter",
       desc: "Everything we do ties back to one thing: helping you grow the right way. More of the cases you want, fewer distractions, and a marketing effort you can actually trust.",
     }
   ];
