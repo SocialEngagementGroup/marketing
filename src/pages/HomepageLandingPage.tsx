@@ -351,7 +351,7 @@ const HomepageLandingPage: React.FC = () => {
           const isVisible = 
             isActive || 
             (isTransitioning && index === prevSlideIndex) ||
-            (!isJump && index === 1 && (currentSlide === 0 || currentSlide === 2)) || // Special case for About Top background (only if not jumping)
+            (!isJump && index === 1 && (currentSlide === 0 || currentSlide === 2) && (!isTransitioning || prevSlideIndex <= 2)) || // Only show index 1 background if not coming from Services/beyond
             ((currentSlide >= 3 && currentSlide <= 6 || (isTransitioning && prevSlideIndex >= 3 && prevSlideIndex <= 6)) && index >= 3 && index <= 6); // Keep services block visible during service transitions
 
           return (
