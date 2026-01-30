@@ -2,35 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react'; // Removing unused import
 import TestimonialCard from './TestimonialCard';
 
-interface Testimonial {
-  id: number;
-  quote: string;
-  author: string;
-  position: string;
-  rating: number;
-  image?: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    quote: "Working with the Social Engagement Group allowed me to focus on my business instead of worrying about marketing. Their team truly understands what law firms need to grow their online presence.",
-    author: "Michael F. Campopiano",
-    position: "CEO at MFC Law",
-    rating: 5,
-    image: "/testimonial/law1.png",
-  },
-  {
-    id: 2,
-    quote: "Social Engagement Group built our website from the ground up and gave us a real online presence. We finally started showing up in search and the results speak for themselves.",
-    author: "Sharif Aref",
-    position: "Owner at Aref Law",
-    rating: 5,
-    image: "/testimonial/law2.png",
-  },
-];
+import { allTestimonials } from '../../../data/testimonials';
 
 const Testimonials: React.FC = () => {
+  // Filter for only legal industry testimonials
+  const testimonials = allTestimonials.filter(t => t.category === 'legal');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
@@ -86,9 +62,9 @@ const Testimonials: React.FC = () => {
             <div className="relative">
               <TestimonialCard
                 quote={current.quote}
-                rating={current.rating}
+                rating={current.rating || 5}
                 author={current.author}
-                position={current.position}
+                position={`${current.role} ${current.company}`}
                 image={current.image}
                 onNext={nextTestimonial}
                 onPrev={prevTestimonial}
