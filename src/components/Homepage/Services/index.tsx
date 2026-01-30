@@ -24,13 +24,13 @@ const services: Service[] = [
     id: 3,
     title: 'Marketing',
     description: 'Data-driven marketing campaigns that generate leads, increase conversions, and maximize ROI.',
-    details: ['SEO & SEM', 'Social Media', 'Content Marketing', 'Email Campaigns'],
+    details: ['SEO & SEM', 'Social Media Marketing', 'Content Marketing', 'Email Campaigns'],
   },
   {
     id: 4,
     title: 'Development',
     description: 'Building robust, scalable digital solutions that power your business growth, ensuring seamless performance.',
-    details: ['Web Development', 'App Development', 'E-commerce', 'Custom Solutions'],
+    details: ['Web Development', 'Ai Automations', 'E-commerce Platforms', 'Custom Solutions'],
   },
 ];
 
