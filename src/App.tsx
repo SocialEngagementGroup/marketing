@@ -19,7 +19,7 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<HomepageLandingPage />} />
-      <Route path="/lawyer" element={<LawyerLandingPage />} />
+      <Route path="/marketing-for-law-firm" element={<LawyerLandingPage />} />
     </Routes>
   );
 };

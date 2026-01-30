@@ -7,6 +7,10 @@ import FAQItem from './FAQItem';
 const FAQ: React.FC = () => {
   const faqs = [
     {
+      question: "What types of lawyers do you work with?",
+      answer: "We specialize in partnering with growth-oriented firms, with a primary focus on personal injury, criminal law, and family law. In general, we work with any practice looking to scale through high-intent lead generation."
+    },
+    {
       question: "How do you decide what makes sense for our firm?",
       answer: "We start by understanding where your firm is today, what's already working, what isn't, and where the real opportunities are. From there, we prioritize the channels and tactics most likely to drive meaningful results for your practice, not a generic template."
     },

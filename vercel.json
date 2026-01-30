@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/lawyer",
+      "destination": "/marketing-for-law-firm",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/|assets/|_next/|favicon.ico).*)",
