@@ -34,7 +34,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.2 } // Trigger when 20% visible for better mobile response
+      { threshold: 0.5 } // Trigger when 50% visible (matching Lawyer page)
     );
 
     if (sectionRef.current) {
@@ -73,6 +73,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
     if (shouldBePlaying) {
       // Small delay to ensure the slide is visible/ready
       const timer = setTimeout(() => {
+        sendCommand('unMute');
         sendCommand('playVideo');
         setIsPlaying(true);
       }, 500);
