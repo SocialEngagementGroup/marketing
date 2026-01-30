@@ -4,10 +4,11 @@ import { Plus, Minus } from 'lucide-react';
 interface FAQItemProps {
   question: string;
   answer: string;
+  initialOpen?: boolean;
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, initialOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(initialOpen);
 
   return (
     <div className="border-b border-brand-black/10">

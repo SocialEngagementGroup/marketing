@@ -148,7 +148,7 @@ const HomepageTestimonials: React.FC = () => {
                     key={`logo-1-${index}`}
                     src={`/logos/clients/${logo}`}
                     alt="Client Logo"
-                    className="h-10 md:h-12 w-auto object-contain opacity-60 brightness-0 invert hover:opacity-100 transition-opacity duration-300"
+                    className="h-10 md:h-12 w-auto object-contain opacity-75 brightness-0 invert hover:opacity-100 transition-opacity duration-300"
                   />
                 ))}
               </div>
@@ -173,7 +173,7 @@ const HomepageTestimonials: React.FC = () => {
                     key={`logo-2-${index}`}
                     src={`/logos/clients/${logo}`}
                     alt="Client Logo"
-                    className="h-10 md:h-12 w-auto object-contain opacity-60 brightness-0 invert hover:opacity-100 transition-opacity duration-300"
+                    className="h-10 md:h-12 w-auto object-contain opacity-100 brightness-0 invert hover:opacity-100 transition-opacity duration-300"
                   />
                 ))}
               </div>

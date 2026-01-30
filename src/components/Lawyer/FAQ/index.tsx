@@ -38,7 +38,12 @@ const FAQ: React.FC = () => {
         
         <div className="bg-white px-8 md:px-12 py-4 shadow-lg border-t-4 border-brand-brick">
           {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            <FAQItem 
+              key={index} 
+              question={faq.question} 
+              answer={faq.answer} 
+              initialOpen={index === 0}
+            />
           ))}
         </div>
       </div>
