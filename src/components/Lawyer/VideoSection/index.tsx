@@ -88,9 +88,9 @@ const VideoSection: React.FC = () => {
             />
             
             {/* Interaction Overlay: High-Z Transparent Layer that provides Custom Controls */}
-            <div className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500 ${isPlaying ? 'bg-transparent group-hover:bg-black/10' : 'bg-black/10'}`}>
+            <div className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500 ${isPlaying ? 'bg-transparent md:group-hover:bg-black/10' : 'bg-black/10'}`}>
               {/* Custom Play/Pause Button */}
-              <div className={`w-24 h-24 bg-brand-purple/90 rounded-full flex items-center justify-center text-white shadow-2xl transform transition-all duration-500 ${isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90' : 'opacity-100 scale-100 animate-pulse'}`}>
+              <div className={`w-24 h-24 bg-brand-purple/90 rounded-full flex items-center justify-center text-white shadow-2xl transform transition-all duration-500 ${isPlaying ? 'opacity-0 md:group-hover:opacity-100 scale-90' : 'opacity-100 scale-100 animate-pulse'}`}>
                 {isPlaying ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                 ) : (
