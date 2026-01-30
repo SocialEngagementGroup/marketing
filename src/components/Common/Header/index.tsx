@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
+        className={`fixed top-0 w-full z-[1200] transition-all duration-500 border-b ${
           isScrolled
             ? "bg-brand-black/95 backdrop-blur-sm border-brand-white/10 py-4"
             : "bg-transparent border-transparent py-6"

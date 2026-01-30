@@ -24,6 +24,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
  */
 const HomepageLandingPage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlideIndex, setPrevSlideIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [direction, setDirection] = useState<"down" | "up">("down"); // For animation direction
   const accumulatedDelta = useRef(0);
@@ -61,6 +62,7 @@ const HomepageLandingPage: React.FC = () => {
       if (index < 0 || index >= slides.length) return;
 
       setDirection(index > currentSlide ? "down" : "up");
+      setPrevSlideIndex(currentSlide);
       setIsTransitioning(true);
       setCurrentSlide(index);
       accumulatedDelta.current = 0;
@@ -246,7 +248,6 @@ const HomepageLandingPage: React.FC = () => {
                 transform: isActive ? "scale(1)" : "scale(1.1)",
                 filter: isActive ? "blur(0px)" : "blur(20px)",
                 zIndex: 10,
-                visibility: isActive ? "visible" : "hidden",
               };
             }
 
@@ -255,7 +256,6 @@ const HomepageLandingPage: React.FC = () => {
               return {
                 transition: baseTransition,
                 zIndex: 15,
-                opacity: 1,
                 transform: isActive
                   ? "translateY(0)"
                   : isNext
@@ -263,26 +263,22 @@ const HomepageLandingPage: React.FC = () => {
                     : currentSlide === 0 || currentSlide === 2
                       ? "translateY(0) scale(1)"
                       : "translateY(-100%) scale(0.9)",
-                visibility:
-                  isActive || isNext || currentSlide === 0 || currentSlide === 2
-                    ? "visible"
-                    : "hidden",
               };
             }
 
-            // 3. Portfolio (2): Slides UP over Hero/About
+            // 3. Portfolio (2): Slides UP over Hero/About, Slides LEFT to Services
             if (index === 2) {
               return {
                 transition: baseTransition,
                 zIndex: isActive ? 40 : 25,
-                opacity: 1, // Keep opaque to cover background slides
+                opacity: isActive || isTransitioning ? 1 : 0,
                 transform: isActive
-                  ? "translateY(0)"
+                  ? "translate(0,0)"
                   : isNext
                     ? "translateY(100%)"
-                    : "scale(0.95)",
-                // Removed blur to prevent flickering on some browsers
-                visibility: isActive || isNext ? "visible" : "hidden",
+                    : (currentSlide >= 3 && currentSlide <= 6)
+                      ? "translateX(-100%)"
+                      : "translateY(-100%) scale(0.95)",
               };
             }
 
@@ -311,9 +307,6 @@ const HomepageLandingPage: React.FC = () => {
                 transition: baseTransition,
                 zIndex: 30 + index,
                 transform: transform,
-                opacity: 1, // Keep opaque so it "reveals" by moving up
-                // Ensure it stays visible while transitioning even if currentSlide is 2 or 7+
-                visibility: currentSlide >= 2 ? "visible" : "hidden",
               };
             }
 
@@ -324,8 +317,7 @@ const HomepageLandingPage: React.FC = () => {
                 opacity: isActive ? 1 : 0,
                 transform: isActive ? "scale(1)" : "scale(1.1)",
                 filter: isActive ? "blur(0px)" : "blur(20px)",
-                zIndex: 20,
-                visibility: isActive ? "visible" : "hidden",
+                zIndex: 42, // Increased from 20 to ensure it's above Slide 2-6
               };
             }
 
@@ -337,7 +329,6 @@ const HomepageLandingPage: React.FC = () => {
                 transform: isActive ? "scale(1)" : "scale(1.1)",
                 filter: isActive ? "blur(0px)" : "blur(20px)",
                 zIndex: 45, // Higher than Testimonials (20)
-                visibility: isActive || currentSlide === 9 ? "visible" : "hidden",
               };
             }
 
@@ -345,15 +336,23 @@ const HomepageLandingPage: React.FC = () => {
             return {
               transition: baseTransition,
               zIndex: 50,
-              opacity: 1,
               transform: isActive
                 ? "translateY(0)"
                 : isNext
                   ? "translateY(100%)"
                   : "translateY(-100%)",
-              visibility: isActive || isNext ? "visible" : "hidden",
             };
           };
+
+          // Determine if we are performing a direct JUMP (e.g. via navigation dots)
+          const isJump = isTransitioning && Math.abs(currentSlide - prevSlideIndex) > 1;
+
+          // Determine visibility based on whether it's active or part of the current transition
+          const isVisible = 
+            isActive || 
+            (isTransitioning && index === prevSlideIndex) ||
+            (!isJump && index === 1 && (currentSlide === 0 || currentSlide === 2)) || // Special case for About Top background (only if not jumping)
+            ((currentSlide >= 3 && currentSlide <= 6 || (isTransitioning && prevSlideIndex >= 3 && prevSlideIndex <= 6)) && index >= 3 && index <= 6); // Keep services block visible during service transitions
 
           return (
             <div
@@ -362,6 +361,8 @@ const HomepageLandingPage: React.FC = () => {
               style={{
                 ...getTransitionStyle(),
                 pointerEvents: isActive ? "auto" : "none",
+                visibility: isVisible ? "visible" : "hidden",
+                zIndex: isJump && isActive ? 1000 : getTransitionStyle().zIndex,
               }}
             >
               <SlideComponent
@@ -391,7 +392,7 @@ const HomepageLandingPage: React.FC = () => {
       </div>
 
       {/* Navigation Dots */}
-      <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col gap-4">
+      <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-[1100] flex-col gap-4">
         {[
           { id: "hero", label: "Hero", realIndex: 0 },
           { id: "about-top", label: "About", realIndex: 1 },
@@ -423,7 +424,7 @@ const HomepageLandingPage: React.FC = () => {
       </div>
 
       {/* Slide Counter */}
-      <div className="hidden md:block fixed bottom-8 left-8 z-50 overflow-hidden">
+      <div className="hidden md:block fixed bottom-8 left-8 z-[1100] overflow-hidden">
         <div
           className={`flex items-center gap-2 font-display text-lg tracking-widest transition-colors duration-500 ${accentColor}`}
         >
