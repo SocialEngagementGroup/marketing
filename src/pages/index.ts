@@ -8,6 +8,7 @@
 export { default as LawyerLandingPage } from './LawyerLandingPage';
 export { default as HomepageLandingPage } from './HomepageLandingPage';
 export { default as ThankYouCalPage } from './ThankYouCalPage';
+export { default as NotFoundPage } from './NotFoundPage';
 
 // Future landing pages can be exported here:
 // export { default as HealthcareLandingPage } from './HealthcareLandingPage';
