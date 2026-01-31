@@ -33,10 +33,10 @@ const industries: Industry[] = [
   },
   {
     id: 3,
-    title: 'Real Estate',
-    industry: 'Property',
-    description: 'Elegant solutions for real estate agencies',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+    title: 'Jewelry',
+    industry: 'Luxury Goods',
+    description: 'High-end marketing for jewelry brands and boutiques',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80',
     route: '#',
     status: 'coming-soon',
   },
@@ -105,13 +105,14 @@ const HomepagePortfolio: React.FC = () => {
                   
                   {/* Status Badge */}
                   {item.status === 'coming-soon' && (
-                    <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                    <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm px-4 h-8 rounded-full border border-white/10 flex items-center">
                       <span className="text-[10px] text-white/80 uppercase tracking-wider font-bold">Coming Soon</span>
                     </div>
                   )}
                   {isLive && (
-                    <div className="absolute top-3 right-3 bg-[#F5E6D3] px-3 py-1 rounded-full shadow-[0_0_15px_rgba(245,230,211,0.3)]">
-                      <span className="text-[10px] text-brand-brick uppercase tracking-wider font-bold">Live</span>
+                    <div className="absolute top-3 right-3 bg-green-500/25 backdrop-blur-xl px-4 h-8 rounded-full border border-green-400/50 flex items-center gap-1.5 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                      <span className="text-[10px] text-white uppercase tracking-wider font-bold">Live</span>
                     </div>
                   )}
 
@@ -119,7 +120,7 @@ const HomepagePortfolio: React.FC = () => {
                     <span className="hidden md:block text-[#F5E6D3] text-[10px] uppercase tracking-widest font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                       {item.industry}
                     </span>
-                    <h3 className="text-xl font-display text-white uppercase tracking-tight flex items-center gap-2">
+                    <h3 className="text-xl font-display text-white uppercase tracking-tight flex items-center gap-2 h-7">
                       {item.title}
                       {isLive && <ArrowRight className="w-4 h-4 text-[#F5E6D3]" />}
                     </h3>
@@ -130,15 +131,15 @@ const HomepagePortfolio: React.FC = () => {
                       </p>
                     </div>
                     
-                     {isLive && (
-                      <div className="hidden md:grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out-expo mt-2">
-                        <div className="overflow-hidden">
+                    <div className={`hidden md:grid transition-[grid-template-rows] duration-500 ease-out-expo mt-2 ${isLive ? 'grid-rows-[0fr] group-hover:grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                      <div className="overflow-hidden">
+                        {isLive && (
                           <span className="inline-flex items-center gap-2 text-[#F5E6D3] text-xs font-bold uppercase tracking-wider">
                             View <ExternalLink className="w-3 h-3" />
                           </span>
-                        </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </Wrapper>
               </div>
