@@ -2,20 +2,30 @@
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TRPG9JZW');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TRPG9JZW");
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call." />
+    <meta
+      name="description"
+      content="Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call."
+    />
     <title>Where Human Creativity Meets AI-Powered Business Growth | SEG</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -26,6 +36,8 @@
               serif: ['"Playfair Display"', "serif"],
               sans: ['"Inter"', "sans-serif"],
               display: ['"Bebas Neue"', "sans-serif"],
+              outfit: ['"Outfit"', "sans-serif"],
+              cormorant: ['"Cormorant Garamond"', "serif"],
             },
             colors: {
               brand: {
@@ -44,37 +56,37 @@
               "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
             },
             animation: {
-              'marquee': 'marquee 20s linear infinite',
-              'marquee-reverse': 'marquee-reverse 20s linear infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'float-delayed': 'float 6s ease-in-out infinite 3s',
-              'spin-slow': 'spin 20s linear infinite',
-              'wave': 'wave 8s ease-in-out infinite',
-              'scroll-dot': 'scrollDot 2s ease-in-out infinite',
+              marquee: "marquee 20s linear infinite",
+              "marquee-reverse": "marquee-reverse 20s linear infinite",
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 6s ease-in-out infinite 3s",
+              "spin-slow": "spin 20s linear infinite",
+              wave: "wave 8s ease-in-out infinite",
+              "scroll-dot": "scrollDot 2s ease-in-out infinite",
             },
             keyframes: {
               marquee: {
-                '0%': { transform: 'translateX(0%)' },
-                '100%': { transform: 'translateX(-50%)' },
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" },
               },
-              'marquee-reverse': {
-                '0%': { transform: 'translateX(-50%)' },
-                '100%': { transform: 'translateX(0%)' },
+              "marquee-reverse": {
+                "0%": { transform: "translateX(-50%)" },
+                "100%": { transform: "translateX(0%)" },
               },
               float: {
-                '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+                "50%": { transform: "translateY(-20px) rotate(5deg)" },
               },
               wave: {
-                '0%, 100%': { transform: 'translateX(0) translateY(0)' },
-                '25%': { transform: 'translateX(10px) translateY(-5px)' },
-                '50%': { transform: 'translateX(-5px) translateY(5px)' },
-                '75%': { transform: 'translateX(-10px) translateY(-3px)' },
+                "0%, 100%": { transform: "translateX(0) translateY(0)" },
+                "25%": { transform: "translateX(10px) translateY(-5px)" },
+                "50%": { transform: "translateX(-5px) translateY(5px)" },
+                "75%": { transform: "translateX(-10px) translateY(-3px)" },
               },
               scrollDot: {
-                '0%, 100%': { transform: 'translateY(0)', opacity: 1 },
-                '50%': { transform: 'translateY(10px)', opacity: 0.5 },
-                '100%': { transform: 'translateY(0)', opacity: 1 },
+                "0%, 100%": { transform: "translateY(0)", opacity: 1 },
+                "50%": { transform: "translateY(10px)", opacity: 0.5 },
+                "100%": { transform: "translateY(0)", opacity: 1 },
               },
             },
           },
@@ -147,7 +159,9 @@
         animation: revealText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
       @keyframes revealText {
-        to { transform: translateY(0); }
+        to {
+          transform: translateY(0);
+        }
       }
     </style>
     <script type="importmap">
@@ -161,14 +175,19 @@
         }
       }
     </script>
-
   </head>
   <body
     class="bg-white text-brand-black antialiased selection:bg-brand-brick selection:text-white"
   >
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRPG9JZW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TRPG9JZW"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>

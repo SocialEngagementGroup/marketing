@@ -4,9 +4,10 @@ import Logo from "../ui/Logo";
 
 interface HeaderProps {
   theme?: 'light' | 'dark';
+  showHomeButton?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
+const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -65,20 +66,35 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center">
-            <a
-              href="https://calendly.com/itseg/segmeet"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
-                isScrolled
-                  ? "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black"
-                  : theme === 'dark'
-                    ? "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
-                    : "bg-white border-white text-brand-black hover:bg-transparent hover:text-white"
-              }`}
-            >
-              Book Consultation
-            </a>
+            {showHomeButton ? (
+              <a
+                href="/"
+                className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+                  isScrolled
+                    ? "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black"
+                    : theme === 'dark'
+                      ? "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
+                      : "bg-white border-white text-brand-black hover:bg-transparent hover:text-white"
+                }`}
+              >
+                Back to Home
+              </a>
+            ) : (
+              <a
+                href="https://calendly.com/itseg/segmeet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+                  isScrolled
+                    ? "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black"
+                    : theme === 'dark'
+                      ? "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
+                      : "bg-white border-white text-brand-black hover:bg-transparent hover:text-white"
+                }`}
+              >
+                Book Consultation
+              </a>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -104,15 +120,25 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark' }) => {
         className={`fixed inset-0 bg-brand-black z-[90] transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex flex-col gap-8 text-center">
-          <a
-            href="https://calendly.com/itseg/segmeet"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="bg-brand-brick text-white px-8 py-4 text-sm font-bold uppercase tracking-widest"
-          >
-            Book Consultation
-          </a>
+          {showHomeButton ? (
+            <a
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="bg-brand-brick text-white px-8 py-4 text-sm font-bold uppercase tracking-widest"
+            >
+              Back to Home
+            </a>
+          ) : (
+            <a
+              href="https://calendly.com/itseg/segmeet"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="bg-brand-brick text-white px-8 py-4 text-sm font-bold uppercase tracking-widest"
+            >
+              Book Consultation
+            </a>
+          )}
         </div>
       </div>
     </>
