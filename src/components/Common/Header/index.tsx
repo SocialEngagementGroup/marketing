@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
             <img 
-              src="/logos/logo.svg"
+              src="/assets/logos/logo.svg"
               alt="Social Engagement Group"
               style={{ 
                 filter: `url(#clean-logo-filter) brightness(0) ${isScrolled || isMobileMenuOpen || theme === 'light' ? 'invert(1)' : ''}`

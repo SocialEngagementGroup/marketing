@@ -16,7 +16,7 @@ export const allTestimonials: Testimonial[] = [
     author: "Michael F. Campopiano",
     role: "CEO at",
     company: "The MFC Law",
-    image: "/testimonial/law1.png",
+    image: "/assets/testimonial/Michael F. Campopiano.png",
     category: "legal",
     rating: 5
   },
@@ -26,7 +26,7 @@ export const allTestimonials: Testimonial[] = [
     author: "Sharif Aref",
     role: "Owner at",
     company: "Aref Law Firm",
-    image: "/testimonial/law2.png",
+    image: "/assets/testimonial/Sharif Aref.png",
     category: "legal",
     rating: 5
   },
@@ -36,7 +36,7 @@ export const allTestimonials: Testimonial[] = [
     author: "Zakia Sumi",
     role: "CEO at",
     company: "The Munch Yard",
-    image: "/testimonial/restaurant1.png",
+    image: "/assets/testimonial/Zakia Sumi.png",
     category: "restaurant",
     rating: 5
   },

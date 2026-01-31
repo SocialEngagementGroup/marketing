@@ -7,18 +7,22 @@ import Header from '../components/Common/Header';
 
 const NotFoundPage: React.FC = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center font-outfit selection:bg-indigo-500/30">
+    <div 
+      className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center font-outfit selection:bg-indigo-500/30 bg-[#050505]"
+      style={{ height: '100dvh' }}
+    >
       <SEO title="Page Not Found | Social Engagement Group" description="Oops! It looks like this page has drifted off into space." />
       
       {/* Site Navbar */}
       <Header theme="light" showHomeButton={true} />
 
       {/* Custom Background Image - Sharp and Sharp */}
-      <div className="absolute inset-0 z-0 bg-[#050505]">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/assets/images/bg_404.jpg" 
           alt="Cosmic Background" 
           className="w-full h-full object-cover object-center" 
+          loading="eager"
         />
         {/* Dark Overlay for Depth and Contrast */}
         <div className="absolute inset-0 bg-black/40" />

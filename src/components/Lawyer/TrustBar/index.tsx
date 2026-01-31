@@ -52,7 +52,7 @@ const TrustBar: React.FC = () => {
                 ].map((logo, index) => (
                   <img
                     key={`logo-1-${index}`}
-                    src={`/logos/clients/${logo}`}
+                    src={`/assets/logos/clients/${logo}`}
                     alt="Client Logo"
                     className="h-10 md:h-12 w-auto object-contain opacity-90 grayscale-0"
                   />
@@ -77,7 +77,7 @@ const TrustBar: React.FC = () => {
                 ].map((logo, index) => (
                   <img
                     key={`logo-2-${index}`}
-                    src={`/logos/clients/${logo}`}
+                    src={`/assets/logos/clients/${logo}`}
                     alt="Client Logo"
                     className="h-10 md:h-12 w-auto object-contain opacity-90 grayscale-0"
                   />

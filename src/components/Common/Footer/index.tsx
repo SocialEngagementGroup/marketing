@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-3">
             <img 
-              src="/logos/seg.png" 
+              src="/assets/logos/logo.svg" 
               alt="Social Engagement Group" 
-              className="w-10 h-10 object-contain"
+              className="w-10 h-10 object-contain brightness-0 invert"
             />
             <span className="font-sans font-bold text-sm tracking-widest uppercase text-white">
               Social Engagement Group

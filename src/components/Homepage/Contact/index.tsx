@@ -51,7 +51,7 @@ const HomepageContact: React.FC = () => {
     <section className="min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden relative bg-brand-black perspective-1000 py-20 md:py-0">
       {/* Background Image with Blur */}
       <div 
-        className="absolute inset-0 bg-[url('/Rectangle1.png')] bg-cover bg-center bg-no-repeat blur-xl transform scale-105 opacity-50"
+        className="absolute inset-0 bg-[url('/assets/images/bg_contact.png')] bg-cover bg-center bg-no-repeat blur-xl transform scale-105 opacity-50"
         style={{ zIndex: 0 }}
       />
       
