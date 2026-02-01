@@ -196,19 +196,27 @@ const HomepageLandingPage: React.FC = () => {
             const SlideComponent = slide.component;
 
             return (
-              <div key={slide.id + (index === 1 ? "-top" : "")} className="relative w-full">
-                <SlideComponent 
-                    currentSlide={currentSlide}
-                    isSplit={false} // On mobile vertical stack we typically don't want the split effect
-                    {...(index === 1 ? {
-                      videoId: "ujt54JDgbYo",
-                      title: "Social Engagement Group | Grow With Us",
-                      label: "Showcase Video"
-                    } : index === 5 ? { // In mobileSlides, the second About is at index 5
-                      videoId: "wlIkMShCiYg",
-                      title: "Founder Introduction",
-                      label: "Meet the Founder"
-                    } : {})}
+              <div
+                key={slide.id + (index === 1 ? "-top" : "")}
+                className="relative w-full"
+              >
+                <SlideComponent
+                  currentSlide={currentSlide}
+                  isSplit={false} // On mobile vertical stack we typically don't want the split effect
+                  {...(index === 1
+                    ? {
+                        videoId: "ujt54JDgbYo",
+                        title: "Social Engagement Group | Grow With Us",
+                        label: "Showcase Video",
+                      }
+                    : index === 5
+                      ? {
+                          // In mobileSlides, the second About is at index 5
+                          videoId: "wlIkMShCiYg",
+                          title: "Founder Introduction",
+                          label: "Meet the Founder",
+                        }
+                      : {})}
                 />
               </div>
             );
@@ -260,7 +268,7 @@ const HomepageLandingPage: React.FC = () => {
                   ? "translateY(0)"
                   : isNext
                     ? "translateY(100%)"
-                    : currentSlide === 0 || currentSlide === 2
+                    : currentSlide === 0
                       ? "translateY(0) scale(1)"
                       : "translateY(-100%) scale(0.9)",
               };
@@ -276,7 +284,7 @@ const HomepageLandingPage: React.FC = () => {
                   ? "translate(0,0)"
                   : isNext
                     ? "translateY(100%)"
-                    : (currentSlide >= 3 && currentSlide <= 6)
+                    : currentSlide >= 3 && currentSlide <= 6
                       ? "translateX(-100%)"
                       : "translateY(-100%) scale(0.95)",
               };
@@ -296,7 +304,8 @@ const HomepageLandingPage: React.FC = () => {
               }
 
               // Base horizontal transition between service cards
-              let transform = isActive || isPrev ? "translateX(0)" : "translateX(100%)";
+              let transform =
+                isActive || isPrev ? "translateX(0)" : "translateX(100%)";
 
               // If we are moving to Testimonials or beyond, slide the whole services block UP
               if (currentSlide >= 7 && isPrev) {
@@ -345,14 +354,23 @@ const HomepageLandingPage: React.FC = () => {
           };
 
           // Determine if we are performing a direct JUMP (e.g. via navigation dots)
-          const isJump = isTransitioning && Math.abs(currentSlide - prevSlideIndex) > 1;
+          const isJump =
+            isTransitioning && Math.abs(currentSlide - prevSlideIndex) > 1;
 
           // Determine visibility based on whether it's active or part of the current transition
-          const isVisible = 
-            isActive || 
+          const isVisible =
+            isActive ||
             (isTransitioning && index === prevSlideIndex) ||
-            (!isJump && index === 1 && (currentSlide === 0 || currentSlide === 2) && (!isTransitioning || prevSlideIndex <= 2)) || // Only show index 1 background if not coming from Services/beyond
-            ((currentSlide >= 3 && currentSlide <= 6 || (isTransitioning && prevSlideIndex >= 3 && prevSlideIndex <= 6)) && index >= 3 && index <= 6); // Keep services block visible during service transitions
+            (!isJump &&
+              index === 1 &&
+              currentSlide === 0 &&
+              (!isTransitioning || prevSlideIndex <= 2)) || // Only show index 1 background if not coming from Services/beyond
+            (((currentSlide >= 3 && currentSlide <= 6) ||
+              (isTransitioning &&
+                prevSlideIndex >= 3 &&
+                prevSlideIndex <= 6)) &&
+              index >= 3 &&
+              index <= 6); // Keep services block visible during service transitions
 
           return (
             <div
@@ -370,21 +388,25 @@ const HomepageLandingPage: React.FC = () => {
                 isTransitioning={isTransitioning}
                 currentSlide={currentSlide}
                 isSplit={
-                  index === 1 
-                    ? (currentSlide === 0 || currentSlide === 2) 
-                    : index === 8 
+                  index === 1
+                    ? currentSlide === 0 || currentSlide === 2
+                    : index === 8
                       ? false // Changed to false for fade effect
                       : undefined
                 }
-                {...(index === 1 ? {
-                  videoId: "ujt54JDgbYo",
-                  title: "Social Engagement Group | Grow With Us",
-                  label: "Showcase Video"
-                } : index === 8 ? {
-                  videoId: "wlIkMShCiYg",
-                  title: "Founder Introduction",
-                  label: "Meet the Founder"
-                } : {})}
+                {...(index === 1
+                  ? {
+                      videoId: "ujt54JDgbYo",
+                      title: "Social Engagement Group | Grow With Us",
+                      label: "Showcase Video",
+                    }
+                  : index === 8
+                    ? {
+                        videoId: "wlIkMShCiYg",
+                        title: "Founder Introduction",
+                        label: "Meet the Founder",
+                      }
+                    : {})}
               />
             </div>
           );
@@ -436,12 +458,16 @@ const HomepageLandingPage: React.FC = () => {
               {(() => {
                 let displayIndex = 1;
                 if (currentSlide === 0) displayIndex = 1;
-                else if (currentSlide === 1) displayIndex = 2; // About Top
-                else if (currentSlide === 2) displayIndex = 3; // Portfolio
+                else if (currentSlide === 1)
+                  displayIndex = 2; // About Top
+                else if (currentSlide === 2)
+                  displayIndex = 3; // Portfolio
                 else if (currentSlide >= 3 && currentSlide <= 6)
                   displayIndex = 4; // Services
-                else if (currentSlide === 7) displayIndex = 5; // Testimonials
-                else if (currentSlide === 8) displayIndex = 6; // About Bottom
+                else if (currentSlide === 7)
+                  displayIndex = 5; // Testimonials
+                else if (currentSlide === 8)
+                  displayIndex = 6; // About Bottom
                 else if (currentSlide === 9) displayIndex = 7; // Contact
                 return String(displayIndex).padStart(2, "0");
               })()}
