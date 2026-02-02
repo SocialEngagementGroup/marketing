@@ -40,12 +40,17 @@
               cormorant: ['"Cormorant Garamond"', "serif"],
             },
             colors: {
+              neon: "#BEEB9F",
+              "neon-dark": "#A8D98A",
+              dark: "#0a0a0a",
               brand: {
                 black: "#000000", // Pure Black
                 brick: "#975554", // Brand Brick Red
                 beige: "#EBE0D8", // Brand Beige
+                forest: "#2D3E1F", // New forest green from reference
+                "beige-light": "#F9F7F2", // New light beige from reference
                 white: "#FFFFFF",
-                gray: "#F5F5F5",
+                gray: "#F5F5F3",
                 // Homepage specific colors
                 lime: "#BEEB9F", // Light Lime Green
                 purple: "#9067C6", // Purple Accent
@@ -54,6 +59,10 @@
             },
             backgroundImage: {
               "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+            },
+            boxShadow: {
+              neon: "0 0 20px rgba(212, 255, 0, 0.3)",
+              "neon-strong": "0 0 30px rgba(212, 255, 0, 0.5)",
             },
             animation: {
               marquee: "marquee 20s linear infinite",
@@ -80,8 +89,6 @@
               wave: {
                 "0%, 100%": { transform: "translateX(0) translateY(0)" },
                 "25%": { transform: "translateX(10px) translateY(-5px)" },
-                "50%": { transform: "translateX(-5px) translateY(5px)" },
-                "75%": { transform: "translateX(-10px) translateY(-3px)" },
               },
               scrollDot: {
                 "0%, 100%": { transform: "translateY(0)", opacity: 1 },
@@ -100,6 +107,39 @@
       }
 
       /* Custom Utilities */
+      .glass {
+        background: rgba(26, 26, 26, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-strong {
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #d4ff00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .grain-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      }
+
       .text-outline {
         -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
         color: transparent;

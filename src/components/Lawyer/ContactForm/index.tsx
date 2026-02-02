@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Phone, Mail, Loader2, CheckCircle2, AlertCircle, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -34,6 +36,8 @@ const ContactForm: React.FC = () => {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', phone: '', email: '', business: '', message: '' });
+        // Redirect to tracking Thank You page
+        navigate('/marketing-for-law-firm/thank-you-cal');
       } else {
         setStatus('error');
       }
