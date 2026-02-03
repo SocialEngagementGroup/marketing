@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import Logo from "../ui/Logo";
 
 interface HeaderProps {
   theme?: 'light' | 'dark';
@@ -29,9 +28,6 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
-
-  const isDarkTheme = theme === "dark" && !isScrolled;
-  const logoColor = isScrolled || isMobileMenuOpen || theme === "light" ? "#F5E6D3" : "#0F172A";
 
   return (
     <>

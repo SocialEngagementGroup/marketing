@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import SEO from '../components/Common/SEO';
 import Header from '../components/Common/Header';
 import Footer from '../components/Common/Footer';

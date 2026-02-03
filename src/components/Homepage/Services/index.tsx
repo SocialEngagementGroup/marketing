@@ -88,6 +88,7 @@ const MobileServicesCarousel: React.FC = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const startAutoPlay = () => {
     stopAutoPlay();
@@ -110,6 +111,23 @@ const MobileServicesCarousel: React.FC = () => {
     }
     return () => stopAutoPlay();
   }, [currentIndex, isAutoPlaying]);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCurrentIndex(0);
+          scrollToCard(0);
+        }
+      },
+      { threshold: 0.6 },
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handlePrev = () => {
     const newIndex = currentIndex > 0 ? currentIndex - 1 : services.length - 1;
@@ -145,7 +163,10 @@ const MobileServicesCarousel: React.FC = () => {
   };
 
   return (
-    <section className="md:hidden w-full bg-[#F5F5F5] py-16 flex flex-col">
+    <section
+      ref={sectionRef}
+      className="md:hidden w-full bg-[#F5F5F5] py-16 flex flex-col"
+    >
       {/* Mobile Title */}
       <div className="text-center mb-6 px-6">
         <span className="text-brand-purple font-bold tracking-widest uppercase text-xs mb-2 block">
