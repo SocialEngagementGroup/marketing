@@ -5,24 +5,30 @@ import SEO from '../components/Common/SEO';
 import CareersHero from '../components/Careers/CareersHero';
 import JobFilters from '../components/Careers/JobFilters';
 import JobList from '../components/Careers/JobList';
-import { jobs, JobDepartment } from '../data/jobsData';
+import { allJobs, jobs, JobFilter } from '../data/jobsData';
 
 /**
  * CareersPage Component
  * 
  * Full careers listing page with clean, minimal design.
- * Jobs are loaded from jobs.json and filtered by department.
- * Seamless hero-to-content transition with unified background.
- * Fully responsive for mobile devices.
+ * Simple filters: View All and Open Positions.
+ * Shows "no jobs" message if no positions available.
  */
 const CareersPage: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<JobDepartment>('all');
+  const [activeFilter, setActiveFilter] = useState<JobFilter>('all');
 
   const filteredJobs = useMemo(() => {
-    if (activeFilter === 'all') {
-      return jobs;
+    if (activeFilter === 'open') {
+      // Only jobs with deadline in the future are "open"
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Reset to start of day
+      return allJobs.filter(job => {
+        if (!job.deadline || job.deadline.trim() === '') return false;
+        const deadlineDate = new Date(job.deadline);
+        return deadlineDate >= today;
+      });
     }
-    return jobs.filter((job) => job.department === activeFilter);
+    return allJobs; // All jobs
   }, [activeFilter]);
 
   return (
@@ -34,7 +40,7 @@ const CareersPage: React.FC = () => {
       <Header theme="dark" showHomeButton />
       
       <main className="min-h-screen bg-[#F5F5F3] relative overflow-hidden">
-        {/* Unified gradient blob accents - spans both hero and content */}
+        {/* Unified gradient blob accents */}
         <div 
           className="absolute -right-20 top-20 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] pointer-events-none"
           style={{
@@ -53,7 +59,7 @@ const CareersPage: React.FC = () => {
         {/* Hero Section */}
         <CareersHero />
         
-        {/* Jobs Section - seamless continuation */}
+        {/* Jobs Section */}
         <section className="pb-16 sm:pb-24 relative z-10">
           <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             {/* Filters */}
@@ -62,8 +68,24 @@ const CareersPage: React.FC = () => {
               onFilterChange={setActiveFilter} 
             />
             
-            {/* Job Listings */}
-            <JobList jobs={filteredJobs} />
+            {/* Job Listings or No Jobs Message */}
+            {filteredJobs.length > 0 ? (
+              <JobList jobs={filteredJobs} />
+            ) : (
+              <div className="text-center py-20">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-brick/10 mb-6">
+                  <svg className="w-8 h-8 text-brand-brick" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="font-sans text-2xl font-bold text-gray-900 mb-3">
+                  No open positions
+                </h3>
+                <p className="font-sans text-lg text-gray-500 max-w-md mx-auto">
+                  We don't have any open positions at the moment, but check back soon for new opportunities!
+                </p>
+              </div>
+            )}
           </div>
         </section>
       </main>

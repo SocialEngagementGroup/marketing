@@ -134,31 +134,31 @@ const JobDetailPage: React.FC = () => {
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
                       <span className="font-sans text-base sm:text-lg text-gray-600">
-                        <strong className="text-gray-900">Remote-first culture</strong> — Work from anywhere with flexible hours
+                        <strong className="text-gray-900">Remote-first culture:</strong> Work from anywhere with flexible hours
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
                       <span className="font-sans text-base sm:text-lg text-gray-600">
-                        <strong className="text-gray-900">Competitive compensation</strong> — {job.compensation}
+                        <strong className="text-gray-900">Competitive compensation:</strong> {job.compensation}
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
                       <span className="font-sans text-base sm:text-lg text-gray-600">
-                        <strong className="text-gray-900">Growth opportunities</strong> — Learn and grow with a fast-paced team
+                        <strong className="text-gray-900">Growth opportunities:</strong> Learn and grow with a fast-paced team
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
                       <span className="font-sans text-base sm:text-lg text-gray-600">
-                        <strong className="text-gray-900">Collaborative environment</strong> — Flat hierarchy with open communication
+                        <strong className="text-gray-900">Collaborative environment:</strong> Flat hierarchy with open communication
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
                       <span className="font-sans text-base sm:text-lg text-gray-600">
-                        <strong className="text-gray-900">Meaningful work</strong> — Make real impact on client success
+                        <strong className="text-gray-900">Meaningful work:</strong> Make real impact on client success
                       </span>
                     </li>
                   </ul>

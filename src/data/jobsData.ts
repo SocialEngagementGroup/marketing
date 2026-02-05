@@ -7,6 +7,8 @@
 
 import jobsJson from './jobs.json';
 
+export type JobFilter = 'all' | 'open';
+
 export type JobDepartment = 
   | 'all'
   | 'Development'
@@ -33,22 +35,19 @@ export interface Job {
   requirements: string[];
 }
 
-export const jobDepartments: { value: JobDepartment; label: string }[] = [
+// Simplified filters: View All and Open Positions
+export const jobFilters: { value: JobFilter; label: string }[] = [
   { value: 'all', label: 'View All' },
-  { value: 'Development', label: 'Development' },
-  { value: 'Design', label: 'Design' },
-  { value: 'Marketing', label: 'Marketing' },
-  { value: 'Operations', label: 'Operations' },
+  { value: 'open', label: 'Open Positions' },
 ];
 
-// Load and filter active jobs from JSON
-export const jobs: Job[] = (jobsJson as Job[]).filter(job => job.active);
+// Load all jobs from JSON
+export const allJobs: Job[] = jobsJson as Job[];
+
+// Load only active/open jobs
+export const jobs: Job[] = allJobs.filter(job => job.active);
 
 // Get a single job by slug
 export const getJobBySlug = (slug: string): Job | undefined => {
   return jobs.find(job => job.slug === slug);
 };
-
-// Legacy exports for backwards compatibility
-export type JobCategory = JobDepartment;
-export const jobCategories = jobDepartments;
