@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Globe, Clock, Calendar } from 'lucide-react';
+import { ArrowUpRight, Clock, Calendar } from 'lucide-react';
 import { Job } from '../../../data/jobsData';
 
 interface JobCardProps {
@@ -11,7 +11,7 @@ interface JobCardProps {
  * JobCard Component
  * 
  * Clean row-based job listing with clickable title, deadline, and Apply link.
- * Fully responsive for mobile devices.
+ * Removed remote/location tag - only shows on JD page.
  * Primary: brand-brick, Hover: black
  */
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
@@ -44,12 +44,8 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           {job.summary}
         </p>
         
-        {/* Tags with icons */}
+        {/* Tags - removed location/remote, only type and deadline */}
         <div className="flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
-            <Globe className="w-3.5 h-3.5" />
-            {job.location}
-          </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
             <Clock className="w-3.5 h-3.5" />
             {job.type}

@@ -65,10 +65,6 @@ const JobDetailPage: React.FC = () => {
                 {/* Job Meta Pills */}
                 <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
-                    <Globe className="w-3.5 h-3.5" />
-                    {job.location}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
                     <Clock className="w-3.5 h-3.5" />
                     {job.type}
                   </span>
@@ -79,6 +75,10 @@ const JobDetailPage: React.FC = () => {
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
                     <Calendar className="w-3.5 h-3.5" />
                     Apply by {job.deadline}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white border border-gray-200 text-gray-600">
+                    <Globe className="w-3.5 h-3.5" />
+                    {job.location}
                   </span>
                 </div>
               </div>
@@ -170,14 +170,17 @@ const JobDetailPage: React.FC = () => {
                     <h3 className="font-sans text-lg sm:text-xl font-bold text-gray-900 mb-3">
                       Interested in this role?
                     </h3>
-                    <p className="font-sans text-gray-600 text-base sm:text-lg leading-relaxed">
+                    <p className="font-sans text-gray-600 text-base sm:text-lg leading-relaxed mb-3">
                       Send your resume and portfolio (if applicable) to{' '}
                       <a 
-                        href={`mailto:communication@socialengagementgroup.com?subject=Application: ${job.title}`}
+                        href={`mailto:communications@socialengagementgroup.com?subject=${encodeURIComponent(`${job.title} - [Your Name]`)}`}
                         className="text-brand-brick font-semibold hover:text-gray-900 hover:underline transition-colors break-all"
                       >
-                        communication@socialengagementgroup.com
+                        communications@socialengagementgroup.com
                       </a>
+                    </p>
+                    <p className="font-sans text-gray-500 text-sm">
+                      Use subject format: <span className="font-medium text-gray-700">{job.title} - [Your Name]</span>
                     </p>
                   </div>
                 </section>
