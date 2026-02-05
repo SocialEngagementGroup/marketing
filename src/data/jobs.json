@@ -1,0 +1,145 @@
+[
+  {
+    "id": "full-stack-web-developer",
+    "title": "Full Stack Web Developer",
+    "department": "Development",
+    "type": "Full-time",
+    "location": "100% Remote",
+    "experience": "2–3 years",
+    "compensation": "Competitive, based on experience",
+    "deadline": "December 31, 2025",
+    "summary": "Build high-performance websites and landing pages using modern tools and frameworks.",
+    "slug": "full-stack-web-developer",
+    "active": true,
+    "aboutRole": "We are looking for a versatile Full Stack Web Developer to join our growing digital team. In this role, you will build and maintain high-performance websites and landing pages that support marketing campaigns, enhance user experience, and drive measurable results. You will work across both code-based and modern no-code tools, collaborating closely with designers and marketers to ship fast, conversion-focused web experiences.",
+    "responsibilities": [
+      "Build and maintain responsive websites using WordPress (Elementor), Framer, and custom-coded solutions",
+      "Develop fast-loading landing pages optimized for performance, UX, and conversions",
+      "Implement analytics, tracking pixels, SEO metadata, and schema markup",
+      "Troubleshoot front-end issues using HTML, CSS, JavaScript, and modern frameworks",
+      "Optimize websites for Core Web Vitals, accessibility, and technical SEO",
+      "Collaborate with cross-functional teams to align web builds with campaign goals",
+      "Integrate forms, APIs, and automation tools to streamline lead capture",
+      "Maintain hosting environments, deployments, backups, and uptime"
+    ],
+    "requirements": [
+      "2–3 years of experience in full-stack or front-end web development",
+      "Strong knowledge of WordPress, modern JS frameworks, and responsive design",
+      "Portfolio or live project links demonstrating real-world work",
+      "Comfortable working remotely in a fast-paced environment"
+    ]
+  },
+  {
+    "id": "graphic-designer",
+    "title": "Graphic Designer – Branding & Social Media",
+    "department": "Design",
+    "type": "Full-time",
+    "location": "100% Remote",
+    "experience": "3+ years",
+    "compensation": "Competitive, based on experience",
+    "deadline": "November 30, 2025",
+    "summary": "Create visually engaging brand and social media assets.",
+    "slug": "graphic-designer",
+    "active": true,
+    "aboutRole": "We're seeking a creative Graphic Designer to help shape brand identities and produce high-quality visual content across digital platforms. You'll collaborate with marketing and content teams to deliver designs that are both visually compelling and strategically aligned.",
+    "responsibilities": [
+      "Design branding assets, social media content, and marketing materials",
+      "Create platform-specific designs for Instagram, Facebook, and digital campaigns",
+      "Translate creative briefs into polished visuals across multiple formats",
+      "Maintain visual consistency across all brand assets",
+      "Manage design files, versions, and deliverables efficiently",
+      "Stay updated on design trends and visual best practices"
+    ],
+    "requirements": [
+      "Minimum 3 years of professional graphic design experience",
+      "Strong proficiency in Photoshop, Illustrator, and Canva",
+      "Solid understanding of typography, color theory, and layout",
+      "Portfolio showcasing branding and social media design work"
+    ]
+  },
+  {
+    "id": "digital-marketer",
+    "title": "Digital Marketer",
+    "department": "Marketing",
+    "type": "Full-time",
+    "location": "100% Remote",
+    "experience": "5+ years",
+    "compensation": "Competitive, based on experience",
+    "deadline": "October 15, 2025",
+    "summary": "Manage and optimize paid media campaigns across major platforms.",
+    "slug": "digital-marketer",
+    "active": true,
+    "aboutRole": "We are looking for a performance-driven Digital Marketer who thrives on data, experimentation, and continuous optimization. You will manage paid campaigns across multiple platforms and turn insights into actionable growth strategies.",
+    "responsibilities": [
+      "Launch, manage, and optimize paid campaigns across Google, Meta, and TikTok",
+      "Conduct audience, keyword, and competitor research",
+      "Set up and manage conversion tracking and A/B testing",
+      "Monitor performance metrics and optimize for ROI",
+      "Build clear, actionable performance reports",
+      "Collaborate with creative teams on ads and landing pages",
+      "Stay up to date with platform updates and industry trends"
+    ],
+    "requirements": [
+      "5+ years of hands-on paid media experience",
+      "Strong analytical and reporting skills",
+      "Experience managing budgets and scaling campaigns",
+      "Clear communication and strategic thinking"
+    ]
+  },
+  {
+    "id": "video-editor",
+    "title": "Video Editor – Short Form Content",
+    "department": "Marketing",
+    "type": "Full-time",
+    "location": "100% Remote",
+    "experience": "4+ years",
+    "compensation": "Competitive, based on experience",
+    "deadline": "September 20, 2025",
+    "summary": "Edit high-retention short-form videos for social platforms.",
+    "slug": "video-editor",
+    "active": true,
+    "aboutRole": "We are seeking a highly creative Video Editor to produce engaging short-form content for Instagram Reels, TikTok, and YouTube Shorts. You'll craft fast-paced, high-retention edits that align with trends and brand voice.",
+    "responsibilities": [
+      "Edit short-form videos optimized for social platforms",
+      "Add motion graphics, transitions, sound design, and text animations",
+      "Repurpose long-form content into high-impact short clips",
+      "Implement hooks and trends to maximize retention",
+      "Maintain organized assets and version control",
+      "Collaborate closely with content and marketing teams"
+    ],
+    "requirements": [
+      "4+ years of professional video editing experience",
+      "Strong command of Premiere Pro, After Effects, Final Cut Pro, or CapCut",
+      "Portfolio showcasing short-form social content",
+      "Strong sense of pacing, storytelling, and visual rhythm"
+    ]
+  },
+  {
+    "id": "hr-intern",
+    "title": "HR Intern",
+    "department": "Operations",
+    "type": "Internship",
+    "location": "Remote (US Time Zones)",
+    "experience": "Entry Level",
+    "compensation": "Competitive stipend",
+    "deadline": "August 31, 2025",
+    "summary": "Support recruitment and staffing operations.",
+    "slug": "hr-intern",
+    "active": true,
+    "aboutRole": "As an HR Intern, you will support our staffing and recruitment operations while gaining hands-on exposure to US IT staffing and digital marketing workflows.",
+    "responsibilities": [
+      "Format and prepare consultant resumes for client submissions",
+      "Source and organize job requirements",
+      "Coordinate with vendors and consultants",
+      "Maintain submission trackers and CRM records",
+      "Support compliance and documentation processes",
+      "Research industry trends and market demands"
+    ],
+    "requirements": [
+      "Students or recent graduates in HR, Business, IT, or related fields",
+      "Strong communication and organizational skills",
+      "Proficiency in Google Workspace",
+      "Interest in recruitment and staffing operations"
+    ]
+  }
+]

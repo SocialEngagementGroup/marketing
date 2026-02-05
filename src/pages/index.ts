@@ -10,6 +10,8 @@ export { default as HomepageLandingPage } from './HomepageLandingPage';
 export { default as WebSolutionsLandingPage } from './WebSolutionsLandingPage';
 export { default as ThankYouCalPage } from './ThankYouCalPage';
 export { default as NotFoundPage } from './NotFoundPage';
+export { default as CareersPage } from './CareersPage';
+export { default as JobDetailPage } from './JobDetailPage';
 
 // Future landing pages can be exported here:
 // export { default as HealthcareLandingPage } from './HealthcareLandingPage';

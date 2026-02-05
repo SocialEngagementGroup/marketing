@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { LawyerLandingPage, HomepageLandingPage, WebSolutionsLandingPage, ThankYouCalPage, NotFoundPage } from './pages';
+import { LawyerLandingPage, HomepageLandingPage, WebSolutionsLandingPage, ThankYouCalPage, NotFoundPage, CareersPage, JobDetailPage } from './pages';
 
 /**
  * App Component
@@ -23,6 +23,8 @@ const App: React.FC = () => {
       {/* <Route path="/website-solutions" element={<WebSolutionsLandingPage />} /> */}
       <Route path="/thank-you-cal" element={<ThankYouCalPage />} />
       <Route path="/marketing-for-law-firm/thank-you-cal" element={<ThankYouCalPage />} />
+      <Route path="/careers" element={<CareersPage />} />
+      <Route path="/careers/:slug" element={<JobDetailPage />} />
       <Route path="/404" element={<NotFoundPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
