@@ -24,7 +24,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
             to={`/careers/${job.slug}`}
             className="block flex-1 min-w-0"
           >
-            <h3 className="font-sans text-lg sm:text-xl md:text-2xl font-bold text-brand-brick hover:text-gray-900 transition-colors duration-200 leading-snug">
+            <h3 className="font-outfit text-lg sm:text-xl md:text-2xl font-bold text-brand-brick hover:text-gray-900 transition-colors duration-200 leading-snug">
               {job.title}
             </h3>
           </Link>
@@ -40,7 +40,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
         
         {/* Summary - larger text */}
-        <p className="font-sans text-gray-500 text-sm sm:text-base leading-relaxed">
+        <p className="font-outfit text-gray-500 text-sm sm:text-base leading-relaxed">
           {job.summary}
         </p>
         

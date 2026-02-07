@@ -22,12 +22,12 @@ const CareersHero: React.FC = () => {
           </div>
           
           {/* Headline - responsive font sizes */}
-          <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold text-gray-900 leading-[1.1] tracking-tight mb-5 sm:mb-6">
+          <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold text-gray-900 leading-[1.1] tracking-tight mb-5 sm:mb-6">
             Be part of our mission
           </h1>
           
           {/* Subtext - larger for readability */}
-          <p className="font-sans text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+          <p className="font-outfit text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
             We're looking for passionate people to join us on our mission. We value
             flat hierarchies, clear communication, and full ownership and responsibility.
           </p>

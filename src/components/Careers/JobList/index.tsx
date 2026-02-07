@@ -15,10 +15,10 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
   if (jobs.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="font-sans text-lg text-brand-black/50">
+        <p className="font-outfit text-lg text-brand-black/50">
           No positions available in this category at the moment.
         </p>
-        <p className="font-sans text-sm text-brand-black/40 mt-2">
+        <p className="font-outfit text-sm text-brand-black/40 mt-2">
           Check back soon or browse other categories.
         </p>
       </div>

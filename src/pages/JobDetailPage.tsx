@@ -51,14 +51,14 @@ const JobDetailPage: React.FC = () => {
             className="inline-flex items-center gap-2 text-brand-brick hover:text-gray-900 transition-colors mb-6 sm:mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span className="font-sans text-sm font-medium">Back to all positions</span>
+            <span className="font-outfit text-sm font-medium">Back to all positions</span>
           </Link>
           
           {job ? (
             <div>
               {/* Job Header */}
               <div className="mb-8 sm:mb-10">
-                <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 sm:mb-6">
+                <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 sm:mb-6">
                   {job.title}
                 </h1>
                 
@@ -87,24 +87,24 @@ const JobDetailPage: React.FC = () => {
               <div className="space-y-10 sm:space-y-12">
                 {/* About the Role */}
                 <section>
-                  <h2 className="font-sans text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="font-outfit text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                     About the Role
                   </h2>
-                  <p className="font-sans text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <p className="font-outfit text-base sm:text-lg text-gray-600 leading-relaxed">
                     {job.aboutRole}
                   </p>
                 </section>
                 
                 {/* What You'll Do */}
                 <section>
-                  <h2 className="font-sans text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="font-outfit text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                     What You'll Do
                   </h2>
                   <ul className="space-y-3">
                     {job.responsibilities.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-brand-brick" />
-                        <span className="font-sans text-base sm:text-lg text-gray-600">{item}</span>
+                        <span className="font-outfit text-base sm:text-lg text-gray-600">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -112,14 +112,14 @@ const JobDetailPage: React.FC = () => {
                 
                 {/* What We're Looking For */}
                 <section>
-                  <h2 className="font-sans text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="font-outfit text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                     What We're Looking For
                   </h2>
                   <ul className="space-y-3">
                     {job.requirements.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-brand-brick" />
-                        <span className="font-sans text-base sm:text-lg text-gray-600">{item}</span>
+                        <span className="font-outfit text-base sm:text-lg text-gray-600">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -127,37 +127,37 @@ const JobDetailPage: React.FC = () => {
                 
                 {/* What We Offer */}
                 <section>
-                  <h2 className="font-sans text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  <h2 className="font-outfit text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                     What We Offer
                   </h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
-                      <span className="font-sans text-base sm:text-lg text-gray-600">
+                      <span className="font-outfit text-base sm:text-lg text-gray-600">
                         <strong className="text-gray-900">Remote-first culture:</strong> Work from anywhere with flexible hours
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
-                      <span className="font-sans text-base sm:text-lg text-gray-600">
+                      <span className="font-outfit text-base sm:text-lg text-gray-600">
                         <strong className="text-gray-900">Competitive compensation:</strong> {job.compensation}
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
-                      <span className="font-sans text-base sm:text-lg text-gray-600">
+                      <span className="font-outfit text-base sm:text-lg text-gray-600">
                         <strong className="text-gray-900">Growth opportunities:</strong> Learn and grow with a fast-paced team
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
-                      <span className="font-sans text-base sm:text-lg text-gray-600">
+                      <span className="font-outfit text-base sm:text-lg text-gray-600">
                         <strong className="text-gray-900">Collaborative environment:</strong> Flat hierarchy with open communication
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 text-brand-brick mt-0.5" />
-                      <span className="font-sans text-base sm:text-lg text-gray-600">
+                      <span className="font-outfit text-base sm:text-lg text-gray-600">
                         <strong className="text-gray-900">Meaningful work:</strong> Make real impact on client success
                       </span>
                     </li>
@@ -167,10 +167,10 @@ const JobDetailPage: React.FC = () => {
                 {/* Apply CTA */}
                 <section className="pt-6 border-t border-gray-200">
                   <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200">
-                    <h3 className="font-sans text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="font-outfit text-lg sm:text-xl font-bold text-gray-900 mb-3">
                       Interested in this role?
                     </h3>
-                    <p className="font-sans text-gray-600 text-base sm:text-lg leading-relaxed mb-3">
+                    <p className="font-outfit text-gray-600 text-base sm:text-lg leading-relaxed mb-3">
                       Send your resume and portfolio (if applicable) to{' '}
                       <a 
                         href={`mailto:communications@socialengagementgroup.com?subject=${encodeURIComponent(`${job.title} - [Your Name]`)}`}
@@ -179,7 +179,7 @@ const JobDetailPage: React.FC = () => {
                         communications@socialengagementgroup.com
                       </a>
                     </p>
-                    <p className="font-sans text-gray-500 text-sm">
+                    <p className="font-outfit text-gray-500 text-sm">
                       Use subject format: <span className="font-medium text-gray-700">{job.title} - [Your Name]</span>
                     </p>
                   </div>
@@ -188,10 +188,10 @@ const JobDetailPage: React.FC = () => {
             </div>
           ) : (
             <div className="text-center py-12 sm:py-16">
-              <h1 className="font-sans text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              <h1 className="font-outfit text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Position Not Found
               </h1>
-              <p className="font-sans text-base sm:text-lg text-gray-500 mb-6 sm:mb-8">
+              <p className="font-outfit text-base sm:text-lg text-gray-500 mb-6 sm:mb-8">
                 The job you're looking for doesn't exist or has been filled.
               </p>
               <Link
