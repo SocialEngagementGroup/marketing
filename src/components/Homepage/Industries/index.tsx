@@ -29,8 +29,8 @@ const industries: Industry[] = [
     industry: 'Healthcare',
     description: 'Modern marketing for clinics and healthcare providers',
     image: 'https://images.unsplash.com/photo-1640876777002-badf6aee5bcc?w=800&q=80',
-    route: '/marketing-for-doctors',
-    status: 'live',
+    route: '#',
+    status: 'coming-soon',
   },
   {
     id: 3,
@@ -38,9 +38,9 @@ const industries: Industry[] = [
     industry: 'Food & Dining',
     description: 'Strategic marketing to fill tables and build reputation',
     image: 'https://images.unsplash.com/photo-1554679665-f5537f187268?w=800&q=80',
-    route: '/marketing-for-restaurants',
+    route: '#',
     position: 'object-bottom',
-    status: 'live',
+    status: 'coming-soon',
   },
   {
     id: 4,
