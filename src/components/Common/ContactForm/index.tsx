@@ -29,7 +29,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
     setStatus('loading');
 
     try {
-      const response = await fetch('https://seg.app.n8n.cloud/webhook/form-submission', {
+      const response = await fetch('https://n8n.socialengagementgroup.com/webhook/form-submission', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
   };
 
   return (
-    <section className="min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden relative bg-brand-black perspective-1000 py-16 md:py-0">
+    <section className="min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden relative bg-brand-black perspective-1000 py-16 md:py-0 font-sans">
       {/* Background Image with Blur */}
       <div 
         className="absolute inset-0 bg-[url('/assets/images/bg_contact.png')] bg-cover bg-center bg-no-repeat blur-xl transform scale-105"

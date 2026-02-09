@@ -11,7 +11,7 @@ const TrustBar: React.FC = () => {
               Trusted by Clients <br /> <span className="italic text-brand-brick">Across Competitive Industries</span>
             </h2>
             <p className="text-lg md:text-xl text-brand-black/80 leading-relaxed">
-              We work closely with law firms, applying systems built from experience across other high-competition industries including healthcare, hospitality, and retail, where visibility, trust, and conversion matter just as much.
+              We work closely with law firms, applying systems built from experience across other high-competition industries including healthcare, hospitality, retail, where visibility, trust & conversion matters.
             </p>
           </div>
         </Reveal>

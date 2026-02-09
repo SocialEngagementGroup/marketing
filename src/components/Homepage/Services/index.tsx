@@ -291,7 +291,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ serviceIndex, isOverlay = fal
       <div className={`container mx-auto px-6 relative z-20 h-full w-full flex flex-col justify-center ${isOverlay ? 'pointer-events-auto' : ''}`}>
         {/* Card Container */}
         <div className="w-full max-w-4xl mx-auto relative h-[450px] flex items-center translate-y-12">
-          <div className="relative absolute inset-0 w-full h-full flex items-center">
+          <div className="absolute inset-0 w-full h-full flex items-center">
             <ServiceCardInner service={service} />
           </div>
         </div>

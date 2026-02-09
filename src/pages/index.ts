@@ -12,8 +12,8 @@ export { default as ThankYouCalPage } from './ThankYouCalPage';
 export { default as NotFoundPage } from './NotFoundPage';
 export { default as CareersPage } from './CareersPage';
 export { default as JobDetailPage } from './JobDetailPage';
+export { default as DoctorLandingPage } from './DoctorLandingPage';
+export { default as RestaurantLandingPage } from './RestaurantLandingPage';
 
 // Future landing pages can be exported here:
-// export { default as HealthcareLandingPage } from './HealthcareLandingPage';
-// export { default as RestaurantLandingPage } from './RestaurantLandingPage';
 // export { default as RetailLandingPage } from './RetailLandingPage';

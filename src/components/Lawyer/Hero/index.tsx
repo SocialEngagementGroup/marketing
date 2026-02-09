@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
                   <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-brand-black/90 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-end h-1/2">
                     <div className="border-l-2 border-brand-brick pl-4 mb-2">
                         <p className="font-serif text-3xl italic mb-1">"Volume & Quality"</p>
-                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-80 font-sans">Est. Standards</p>
+                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-80 font-outfit">Est. Standards</p>
                     </div>
                   </div>
                </div>

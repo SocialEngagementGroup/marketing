@@ -33,14 +33,14 @@ const CaseStudies: React.FC = () => {
             <Reveal delay={200}>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-[#F5E6D3] font-bold uppercase tracking-widest text-xs mb-2">The Situation</h4>
-                  <p className="text-white/60 leading-relaxed">
-                    An established personal injury firm operating in a competitive market, where larger competitors were outspending them on ads. Despite having a solid digital foundation, rising ad costs made it harder to consistently show up when potential clients were searching.
+                  <h4 className="text-[#F5E6D3] font-bold uppercase tracking-widest text-sm mb-2">The Situation</h4>
+                  <p className="text-lg text-white/60 leading-relaxed">
+                    An established personal injury firm operating in a competitive market, where larger competitors were outspending them on ads. Despite having a solid digital foundation, rising ad costs made it harder to consistently show up when clients were searching.
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[#F5E6D3] font-bold uppercase tracking-widest text-xs mb-2">What We Did</h4>
-                  <p className="text-white/60 leading-relaxed">
+                  <h4 className="text-[#F5E6D3] font-bold uppercase tracking-widest text-sm mb-2">What We Did</h4>
+                  <p className="text-lg text-white/60 leading-relaxed">
                     Instead of trying to outspend competitors, we expanded visibility beyond paid search, reinforcing the firm's digital footprint, improving organic coverage across key locations, and supporting it with focused, continuously optimized ad campaigns.
                   </p>
                 </div>

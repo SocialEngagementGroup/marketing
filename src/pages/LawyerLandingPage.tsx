@@ -29,7 +29,7 @@ import SEO from '../components/Common/SEO';
  */
 const LawyerLandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-900">
+    <div className="min-h-screen flex flex-col font-outfit text-slate-900">
       <SEO 
         title="Legal Marketing Experts | Grow Your Law Practice with SEG"
         description="Premier digital marketing for attorneys and law firms across the USA. Specialized strategies to build your brand authority and dominate your local market. Schedule a consultation."

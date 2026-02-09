@@ -9,6 +9,7 @@ interface Industry {
   description: string;
   image: string;
   route: string;
+  position?: string;
   status: 'live' | 'coming-soon';
 }
 
@@ -24,28 +25,29 @@ const industries: Industry[] = [
   },
   {
     id: 2,
-    title: 'Web Solutions',
-    industry: 'Digital Development',
-    description: 'AI-powered website building that\'s fast and effective',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-    route: '/website-solutions',
-    status: 'coming-soon',
+    title: 'Doctors',
+    industry: 'Healthcare',
+    description: 'Modern marketing for clinics and healthcare providers',
+    image: 'https://images.unsplash.com/photo-1640876777002-badf6aee5bcc?w=800&q=80',
+    route: '/marketing-for-doctors',
+    status: 'live',
   },
   {
     id: 3,
-    title: 'Healthcare',
-    industry: 'Medical',
-    description: 'Modern marketing for clinics and healthcare providers',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
-    route: '#',
-    status: 'coming-soon',
+    title: 'Restaurants',
+    industry: 'Food & Dining',
+    description: 'Strategic marketing to fill tables and build reputation',
+    image: 'https://images.unsplash.com/photo-1554679665-f5537f187268?w=800&q=80',
+    route: '/marketing-for-restaurants',
+    position: 'object-bottom',
+    status: 'live',
   },
   {
     id: 4,
-    title: 'Jewelry',
-    industry: 'Luxury Goods',
-    description: 'High-end marketing for jewelry brands and boutiques',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80',
+    title: 'Web Solution',
+    industry: 'Digital Services',
+    description: "AI-powered website building that's fast and effective",
+    image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80',
     route: '#',
     status: 'coming-soon',
   },
@@ -97,14 +99,10 @@ const HomepagePortfolio: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-110"
+                      className={`w-full h-full object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-110 ${item.position || 'object-center'}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
                     
-                    <div className="absolute top-3 right-3 bg-green-500/25 backdrop-blur-xl px-4 h-8 rounded-full border border-green-400/50 flex items-center gap-1.5 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                      <span className="text-[10px] text-white uppercase tracking-wider font-bold">Live</span>
-                    </div>
 
                     <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end md:translate-y-2 transition-transform duration-500 ease-out-expo">
                       <span className="hidden md:block text-[#F5E6D3] text-[10px] uppercase tracking-widest font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
@@ -144,7 +142,7 @@ const HomepagePortfolio: React.FC = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover opacity-50 transition-transform duration-1000 ease-out-expo"
+                    className="w-full h-full object-cover transition-transform duration-1000 ease-out-expo"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
                   
