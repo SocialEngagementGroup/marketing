@@ -67,7 +67,7 @@ const HomepageTestimonials: React.FC = () => {
               </svg>
             </div>
 
-            <blockquote className="text-lg md:text-2xl text-white leading-relaxed mb-6 mt-6 md:mt-8">
+            <blockquote className="font-outfit text-lg md:text-2xl text-white leading-relaxed mb-6 mt-6 md:mt-8">
               {current.quote}
             </blockquote>
 
@@ -84,8 +84,8 @@ const HomepageTestimonials: React.FC = () => {
                 </div>
               )}
               <div>
-                <div className="text-white font-bold text-sm md:text-base">{current.author}</div>
-                <div className="text-white/70 text-xs md:text-sm">
+                <div className="font-outfit text-white font-bold text-sm md:text-base">{current.author}</div>
+                <div className="font-outfit text-white/70 text-xs md:text-sm">
                   {current.role} {current.company}
                 </div>
               </div>

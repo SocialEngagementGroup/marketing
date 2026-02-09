@@ -103,7 +103,7 @@ const HomepageHero: React.FC = () => {
         {/* Subtitle */}
         <div className="reveal-text-container mt-8 max-w-2xl mx-auto">
           <p 
-            className="reveal-text-item text-brand-black/70 text-base md:text-lg leading-relaxed" 
+            className="reveal-text-item font-outfit text-brand-black/70 text-lg md:text-xl leading-relaxed" 
             style={{ animationDelay: '0.3s' }}
           >
             We tell your story across every digital touchpoint, blending creativity and automation so your business grows & converts.

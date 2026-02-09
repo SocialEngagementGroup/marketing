@@ -106,17 +106,17 @@ const HomepagePortfolio: React.FC = () => {
                       <span className="text-[10px] text-white uppercase tracking-wider font-bold">Live</span>
                     </div>
 
-                    <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500 ease-out-expo">
+                    <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end md:translate-y-2 transition-transform duration-500 ease-out-expo">
                       <span className="hidden md:block text-[#F5E6D3] text-[10px] uppercase tracking-widest font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                         {item.industry}
                       </span>
-                      <h3 className="text-xl font-display text-white uppercase tracking-tight flex items-center gap-2 h-7">
+                      <h3 className="text-xl font-outfit font-bold text-white tracking-tight flex items-center gap-2 h-7 whitespace-nowrap">
                         {item.title}
                         <ArrowRight className="w-4 h-4 text-[#F5E6D3]" />
                       </h3>
                       
                       <div className="hidden md:block min-h-[40px] mt-2">
-                        <p className="text-white/60 text-xs leading-relaxed line-clamp-2">
+                        <p className="font-outfit text-white/60 text-sm leading-relaxed line-clamp-2">
                            {item.description}
                         </p>
                       </div>
@@ -153,11 +153,11 @@ const HomepagePortfolio: React.FC = () => {
                   </div>
 
                   <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
-                    <h3 className="text-xl font-display text-white uppercase tracking-tight flex items-center gap-2 h-7">
+                    <h3 className="text-xl font-outfit font-bold text-white tracking-tight flex items-center gap-2 h-7 whitespace-nowrap">
                       {item.title}
                     </h3>
                     <div className="hidden md:block min-h-[40px] mt-2">
-                      <p className="text-white/60 text-xs leading-relaxed line-clamp-2">
+                      <p className="font-outfit text-white/60 text-sm leading-relaxed line-clamp-2">
                          {item.description}
                       </p>
                     </div>

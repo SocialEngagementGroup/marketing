@@ -58,7 +58,7 @@ const ServiceCardInner: React.FC<ServiceCardInnerProps> = ({ service, className 
           <h3 className="text-3xl md:text-6xl font-display text-brand-purple uppercase tracking-tight leading-[0.9]">
             {service.title}
           </h3>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+          <p className="font-outfit text-base md:text-lg text-gray-600 leading-relaxed">
             {service.description}
           </p>
         </div>
@@ -71,7 +71,7 @@ const ServiceCardInner: React.FC<ServiceCardInnerProps> = ({ service, className 
               className="flex items-center gap-3 md:gap-4 p-2.5 md:p-4 bg-gray-50 rounded-lg md:rounded-xl hover:bg-white hover:shadow-lg hover:scale-105 transition-all duration-300 border border-transparent hover:border-gray-100 group-inner"
             >
               <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-brand-purple transition-transform flex-shrink-0" />
-              <span className="font-bold text-gray-800 text-sm md:text-base tracking-wide">{detail}</span>
+              <span className="font-outfit font-bold text-gray-800 text-base md:text-lg tracking-wide">{detail}</span>
             </div>
           ))}
         </div>

@@ -103,7 +103,7 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({
             {/* YouTube Video Section */}
             <div className={`relative w-full z-0 transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${isSplit ? 'opacity-0 -translate-y-20' : 'opacity-100 translate-y-0'}`}>
               <div className="mb-5 md:mb-6 text-center">
-                 <p className="text-brand-purple text-xs md:text-sm uppercase tracking-[0.4em] font-bold">{label}</p>
+                 <p className="font-outfit text-brand-purple text-xs md:text-sm uppercase tracking-[0.4em] font-bold">{label}</p>
               </div>
               <div 
                 className="relative aspect-video overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.2)] group cursor-pointer"
