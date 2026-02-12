@@ -1,103 +1,73 @@
 import React from 'react';
-import { ArrowUpRight, TrendingUp, Users, MousePointer, DollarSign } from 'lucide-react';
+import { ArrowUpRight, TrendingUp, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const CaseStudy: React.FC = () => {
-  return (
-    <section id="results" className="py-32 bg-brand-black text-white relative overflow-hidden">
-      {/* Abstract Background Element */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-brick/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+import CountUp from '../../Common/ui/CountUp';
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+const CaseStudy: React.FC = () => {
+  const metrics = [
+    { label: "Organic Website Traffic", value: 82, suffix: "%", prefix: "+" },
+    { label: "New Patient Appointments", value: 68, suffix: "%", prefix: "+" },
+    { label: "Google Maps Ranking", value: 3, prefix: "Top " }
+  ];
+
+  return (
+    <section id="results" className="py-20 md:py-32 bg-[#0A2647] overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
           
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-brand-brick font-bold tracking-widest uppercase text-sm mb-4 block">Case Study: City Medical's Patient Growth</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-              Driving Real Engagement & <br /> <span className="text-brand-brick">Measurable ROI</span>
+            <span className="text-cyan-400 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Featured Case Study</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight font-outfit">
+              North Island <br /> 
+              Podiatry Associates
             </h2>
             
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed font-light">
-              We partnered with City Medical Group to execute a high-impact digital acquisition campaign. The goal was to maximize local reach and drive new patient appointments for their expanded cardiology wing.
-            </p>
-
-            <div className="border-l-2 border-brand-brick pl-6 py-2">
-              <p className="text-xl font-medium text-white italic">
-                "Consistently turning marketing spend into tangible healthcare growth."
-              </p>
+            <div className="space-y-8 text-gray-400 font-medium mb-12 lg:mb-12">
+              <div>
+                <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">The Challenge:</p>
+                <p className="text-base text-gray-300 border-l-2 border-white/10 pl-6 font-outfit">An established family practice with an outdated website, no online review strategy, and minimal visibility in local search results.</p>
+              </div>
+              
+              <div>
+                <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">Our Solution:</p>
+                <p className="text-base text-gray-300 border-l-2 border-cyan-400/50 pl-6 font-outfit">A mobile-optimized website redesign, Google Business Profile optimization, automated review requests, and targeted Search Ads.</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Results Grid - Real Data from Report */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              className="bg-gray-900/50 backdrop-blur-sm p-8 border border-gray-800 hover:border-brand-brick/50 transition-colors group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <Users className="text-brand-brick h-6 w-6" />
-                <span className="text-green-400 text-xs font-bold bg-green-900/30 px-2 py-1 rounded">+377%</span>
-              </div>
-              <h3 className="text-4xl font-bold text-white mb-1">107,831</h3>
-              <p className="text-gray-500 text-sm">Total Impressions</p>
-            </motion.div>
+          {/* Metrics Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:-mt-12">
+            {metrics.map((metric, index) => {
+              const Icon = index === 0 ? TrendingUp : index === 1 ? Phone : MapPin;
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 flex flex-col justify-center items-start lg:items-center text-left lg:text-center group hover:bg-white/10 transition-all duration-300 relative overflow-hidden lg:min-h-[300px]"
+                >
+                  <div className="relative z-10 flex flex-col">
+                    <h3 className="text-4xl sm:text-5xl font-bold text-white font-outfit">
+                      <CountUp end={metric.value} prefix={metric.prefix} suffix={metric.suffix} />
+                    </h3>
+                    <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-2 font-outfit">{metric.label}</p>
+                  </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              className="bg-gray-900/50 backdrop-blur-sm p-8 border border-gray-800 hover:border-brand-brick/50 transition-colors group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <TrendingUp className="text-brand-brick h-6 w-6" />
-                <span className="text-green-400 text-xs font-bold bg-green-900/30 px-2 py-1 rounded">+312%</span>
-              </div>
-              <h3 className="text-4xl font-bold text-white mb-1">81,301</h3>
-              <p className="text-gray-500 text-sm">People Reached</p>
-            </motion.div>
-
-             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              className="bg-gray-900/50 backdrop-blur-sm p-8 border border-gray-800 hover:border-brand-brick/50 transition-colors group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <MousePointer className="text-brand-brick h-6 w-6" />
-                <span className="text-green-400 text-xs font-bold bg-green-900/30 px-2 py-1 rounded">High Intent</span>
-              </div>
-              <h3 className="text-4xl font-bold text-white mb-1">75,548</h3>
-              <p className="text-gray-500 text-sm">3-Second Video Plays</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              whileHover={{ y: -5 }}
-              className="bg-gray-900/50 backdrop-blur-sm p-8 border border-gray-800 hover:border-brand-brick/50 transition-colors group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <DollarSign className="text-brand-brick h-6 w-6" />
-                <span className="text-gray-400 text-xs font-bold bg-gray-800 px-2 py-1 rounded">Efficient</span>
-              </div>
-              <h3 className="text-4xl font-bold text-white mb-1">$0.23</h3>
-              <p className="text-gray-500 text-sm">Avg. Cost Per Engagement</p>
-            </motion.div>
+                  {/* Background Icon Watermark */}
+                  <div className="absolute -right-6 -bottom-6 opacity-10 transform rotate-[-15deg] group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+                    <Icon className="text-white w-[160px] h-[160px]" />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>

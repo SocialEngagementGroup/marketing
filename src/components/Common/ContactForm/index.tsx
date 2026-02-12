@@ -4,10 +4,16 @@ import { useNavigate } from 'react-router-dom';
 
 interface ContactFormProps {
   successRedirect?: string;
+  accent?: 'brick' | 'lime';
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
+const ContactForm: React.FC<ContactFormProps> = ({ successRedirect, accent = 'brick' }) => {
   const navigate = useNavigate();
+  
+  const accentBorderClass = accent === 'lime' ? 'focus:border-brand-healist-lime/50' : 'focus:border-brand-brick/50';
+  const accentButtonClass = accent === 'lime' ? 'bg-brand-healist-lime text-brand-healist-charcoal hover:bg-white' : 'bg-brand-brick text-white hover:bg-white hover:text-brand-brick';
+  const accentShadowClass = accent === 'lime' ? 'shadow-brand-healist-lime/20' : 'shadow-brand-brick/20';
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -54,7 +60,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
   };
 
   return (
-    <section className="min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden relative bg-brand-black perspective-1000 py-16 md:py-0 font-sans">
+    <section className="min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden relative bg-brand-black perspective-1000 py-20 md:py-0 font-sans">
       {/* Background Image with Blur */}
       <div 
         className="absolute inset-0 bg-[url('/assets/images/bg_contact.png')] bg-cover bg-center bg-no-repeat blur-xl transform scale-105"
@@ -96,7 +102,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-brick/50 focus:bg-white/10 transition-all font-light"
+                      className={`w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none ${accentBorderClass} focus:bg-white/10 transition-all font-light`}
                       placeholder="John Doe"
                     />
                   </div>
@@ -110,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                       required
                       value={formData.business}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-brick/50 focus:bg-white/10 transition-all font-light"
+                      className={`w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none ${accentBorderClass} focus:bg-white/10 transition-all font-light`}
                       placeholder="Company Name"
                     />
                   </div>
@@ -124,7 +130,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-brick/50 focus:bg-white/10 transition-all font-light"
+                      className={`w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none ${accentBorderClass} focus:bg-white/10 transition-all font-light`}
                       placeholder="john@example.com"
                     />
                   </div>
@@ -138,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-brick/50 focus:bg-white/10 transition-all font-light"
+                      className={`w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none ${accentBorderClass} focus:bg-white/10 transition-all font-light`}
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -153,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-brick/50 focus:bg-white/10 transition-all resize-none font-light"
+                    className={`w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none ${accentBorderClass} focus:bg-white/10 transition-all resize-none font-light`}
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -169,7 +175,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect }) => {
                   <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
-                    className={`w-full md:w-auto bg-brand-brick hover:bg-brand-brick/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-brand-brick/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
+                    className={`w-full md:w-auto ${accentButtonClass} font-bold py-4 px-8 rounded-full transition-all shadow-lg ${accentShadowClass} flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed ${status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}`}
                   >
                     {status === 'loading' ? (
                       <>

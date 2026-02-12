@@ -2,21 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Marquee: React.FC = () => {
-  const marqueeText = "STRATEGY • CREATIVE • GROWTH • COMMUNITY • BRANDING • PERFORMANCE • ";
+  const marqueeText = "STRATEGY • PATIENT ACQUISITION • DATA SCIENCE • MEDICAL GROWTH • REPUTATION MGMT • ";
   
   return (
-    <div className="bg-brand-brick py-4 overflow-hidden border-y border-brand-brick flex relative z-20">
+    <div className="bg-brand-healist-charcoal py-6 overflow-hidden flex relative z-20">
       <motion.div 
         className="whitespace-nowrap flex"
         animate={{ x: [0, -1000] }}
         transition={{ 
           repeat: Infinity, 
           ease: "linear", 
-          duration: 20 
+          duration: 30 
         }}
       >
-        {[...Array(4)].map((_, i) => (
-          <span key={i} className="text-white font-bold text-lg md:text-2xl tracking-[0.2em] mx-4 uppercase">
+        {[...Array(6)].map((_, i) => (
+          <span key={i} className="text-brand-healist-lime font-bold text-lg md:text-xl tracking-[0.2em] mx-6 uppercase">
             {marqueeText}
           </span>
         ))}

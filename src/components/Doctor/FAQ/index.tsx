@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "What makes Social Engagement Group different?",
-    answer: "We are a full-service 360-degree agency focusing on authentic connections. We combine data-driven paid strategies with organic storytelling to build not just audiences, but communities."
+    question: "How will you help patients find our practice on Google?",
+    answer: "We optimize your website and Google Business Profile to rank for local, high-intent searches like 'doctor near me' and specialty-specific queries."
   },
   {
-    question: "Do you specialize in Medical Marketing?",
-    answer: "Yes, while our principles apply broadly, we have deep expertise in building patient acquisition systems for medical practices, ensuring compliance and high-intent targeting."
+    question: "Do you only build websites?",
+    answer: "No. We build the website and manage SEO, paid ads, and reputation building to consistently bring in new patients."
   },
   {
-    question: "How do you measure success?",
-    answer: "We focus on tangible ROI. We track impressions, engagement cost, click-through rates, and most importantly, the number of qualified appointments generated for your practice."
+    question: "Can you help us get more patient reviews?",
+    answer: "Yes. We automate review requests after appointments and help you showcase positive feedback across platforms."
   },
   {
-    question: "What is your onboarding process?",
-    answer: "We start with a deep dive into your brand's mission and audience. We then build a tailored strategy, set up tracking, and launch campaigns that align with your growth goals."
+    question: "How do you track what's working?",
+    answer: "With real-time dashboards that show which campaigns generate appointment requests and which patients convert to actual visits."
+  },
+  {
+    question: "How are you different from other marketing agencies?",
+    answer: "We focus on qualified patient acquisition and measurable outcomes, not just clicks or impressions."
+  },
+  {
+    question: "Is this customized for my specialty and location?",
+    answer: "Yes. Strategy, keywords, and ads are tailored to your specific practice area, location, and ideal patient demographics."
   }
 ];
 
@@ -25,57 +33,62 @@ const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-32 bg-[#132333] border-t border-white/5">
-      <div className="max-w-4xl mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-            <span className="text-brand-brick font-bold text-sm tracking-widest uppercase mb-4 block">FAQ</span>
-            <h2 className="text-4xl font-bold text-brand-black">Frequently Asked Questions</h2>
-        </motion.div>
-        
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="border-b border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
+    <section id="faq" className="py-20 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-[1fr,1.5fr] gap-6 lg:gap-20 items-center">
+          
+          {/* Left: Header */}
+          <div className="lg:sticky lg:top-32 text-center lg:text-left">
+            <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-8 text-left focus:outline-none"
-              >
-                <span className="font-semibold text-brand-black text-xl">{faq.question}</span>
-                {openIndex === index ? (
-                  <Minus className="h-6 w-6 text-brand-brick flex-shrink-0" />
-                ) : (
-                  <Plus className="h-6 w-6 text-gray-400 flex-shrink-0" />
-                )}
-              </button>
-              
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-8 pb-8 text-gray-600 leading-relaxed text-lg">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                <h3 className="text-4xl md:text-5xl font-bold text-[#144272] mb-0 lg:mb-6 leading-tight font-outfit">
+                  Frequently <br className="hidden lg:block" />Asked Questions
+                </h3>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Right: Modern Accordion */}
+          <div className="space-y-2">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl transition-all duration-300 ${openIndex === index ? 'bg-[#EBF4F8]' : 'bg-[#F5F9FB]'}`}
+              >
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between gap-4 p-6 text-left focus:outline-none"
+                >
+                  <span className={`text-xl font-bold transition-colors font-outfit ${openIndex === index ? 'text-brand-healist-charcoal' : 'text-gray-600'}`}>
+                    {faq.question}
+                  </span>
+                  <div className={`shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                    <Plus className={`h-5 w-5 ${openIndex === index ? 'text-brand-healist-charcoal' : 'text-gray-400'}`} />
+                  </div>
+                </button>
+                
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <div className="px-6 pb-6 text-gray-500 text-lg font-medium leading-relaxed font-outfit">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

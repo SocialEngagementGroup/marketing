@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Common/Header';
 import Hero from '../components/Doctor/Hero';
-import Marquee from '../components/Doctor/Marquee';
-import LogoCloud from '../components/Doctor/LogoCloud';
 import AboutMission from '../components/Doctor/AboutMission';
-import Process from '../components/Doctor/Process';
-import Services from '../components/Doctor/Services';
 import WhyChooseUs from '../components/Doctor/WhyChooseUs';
 import CaseStudy from '../components/Doctor/CaseStudy';
+import VideoSection from '../components/Doctor/VideoSection';
 import Testimonials from '../components/Doctor/Testimonials';
+import TrustBar from '../components/Doctor/TrustBar';
 import FAQ from '../components/Doctor/FAQ';
 import CTA from '../components/Doctor/CTA';
+
+import ScrollProgress from '../components/Common/ScrollProgress';
 
 import SEO from '../components/Common/SEO';
 import Footer from '../components/Common/Footer';
@@ -24,27 +24,26 @@ const DoctorLandingPage: React.FC<DoctorLandingPageProps> = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-brand-brick selection:text-white relative">
-
-
+    <div className="min-h-screen bg-white text-brand-healist-charcoal font-sans selection:bg-[#629FAD] selection:text-white relative">
+      <ScrollProgress color="bg-white" />
+      <div className="grain-overlay opacity-[0.03]" />
       <SEO
         title="Marketing for Doctors | Personal Branding & Digital Strategy"
         description="We build meaningful digital relationships. Our patient acquisition systems turn audiences into communities for medical practices."
       />
-      <Header />
+      <Header accent="brick" />
         <main>
           <Hero />
-          <Marquee />
-          <LogoCloud />
           <AboutMission />
-          <Process />
-          <Services />
           <WhyChooseUs />
           <CaseStudy />
+          <VideoSection />
           <Testimonials />
-          <FAQ />
+          <TrustBar />
           <CTA />
-          <ContactForm />
+          <FAQ />
+          <ContactForm accent="brick" />
+
         </main>
         <Footer />
     </div>

@@ -28,6 +28,9 @@ export default {
           lime: "#BEEB9F",
           purple: "#9067C6",
           offwhite: "#F5F5F5",
+          "healist-lime": "#D4FF80",
+          "healist-charcoal": "#1F1F1F",
+          "healist-blue": "#144272",
         },
       },
       backgroundImage: {

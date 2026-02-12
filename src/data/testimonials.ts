@@ -5,8 +5,9 @@ export interface Testimonial {
   role: string;
   company: string;
   image: string;
-  category: 'legal' | 'restaurant' | 'ecommerce' | 'other';
+  category: 'legal' | 'restaurant' | 'ecommerce' | 'medical' | 'other';
   rating?: number;
+  time?: string;
 }
 
 export const allTestimonials: Testimonial[] = [

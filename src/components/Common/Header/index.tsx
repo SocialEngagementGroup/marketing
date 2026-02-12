@@ -4,9 +4,14 @@ import { Menu, X } from "lucide-react";
 interface HeaderProps {
   theme?: 'light' | 'dark';
   showHomeButton?: boolean;
+  accent?: 'brick' | 'navy' | 'lime';
 }
 
-const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false }) => {
+const Header: React.FC<HeaderProps> = ({
+  theme = 'dark',
+  showHomeButton = false,
+  accent = 'brick'
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,6 +34,20 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
     };
   }, [isMobileMenuOpen]);
 
+  const accentClass =
+    accent === 'navy'
+      ? "bg-[#0A2647] border-[#0A2647] text-white hover:bg-white hover:text-[#0A2647]"
+      : accent === 'lime'
+        ? "bg-brand-healist-lime border-brand-healist-lime text-brand-healist-charcoal hover:bg-white"
+        : "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black";
+
+  const mobileAccentClass =
+    accent === 'navy'
+      ? "bg-[#0A2647] text-white"
+      : accent === 'lime'
+        ? "bg-brand-healist-lime text-brand-healist-charcoal"
+        : "bg-brand-brick text-white";
+
   return (
     <>
       <header
@@ -41,10 +60,10 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
-            <img 
+            <img
               src="/assets/logos/logo.svg"
               alt="Social Engagement Group"
-              style={{ 
+              style={{
                 filter: `url(#clean-logo-filter) brightness(0) ${isScrolled || isMobileMenuOpen || theme === 'light' ? 'invert(1)' : ''}`
               }}
               className="w-10 h-10 transition-all duration-500 transform group-hover:scale-110"
@@ -52,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
             <span
               className={`font-sans font-bold text-sm tracking-widest uppercase transition-all duration-500 ${
                 isScrolled || isMobileMenuOpen || theme === 'light'
-                  ? "text-white" 
+                  ? "text-white"
                   : "text-brand-black"
               }`}
             >
@@ -67,9 +86,13 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
                 href="/"
                 className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
                   isScrolled
-                    ? "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black"
+                    ? accentClass
                     : theme === 'dark'
-                      ? "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
+                      ? accent === 'navy'
+                          ? "bg-[#0A2647] border-[#0A2647] text-white hover:bg-white hover:text-[#0A2647]"
+                          : accent === 'lime'
+                            ? "bg-brand-healist-lime border-brand-healist-lime text-brand-healist-charcoal hover:bg-white"
+                            : "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
                       : "bg-white border-white text-brand-black hover:bg-transparent hover:text-white"
                 }`}
               >
@@ -82,9 +105,13 @@ const Header: React.FC<HeaderProps> = ({ theme = 'dark', showHomeButton = false 
                 rel="noopener noreferrer"
                 className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
                   isScrolled
-                    ? "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black"
+                    ? accentClass
                     : theme === 'dark'
-                      ? "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
+                      ? accent === 'navy'
+                          ? "bg-[#0A2647] border-[#0A2647] text-white hover:bg-white hover:text-[#0A2647]"
+                          : accent === 'lime'
+                            ? "bg-brand-healist-lime border-brand-healist-lime text-brand-healist-charcoal hover:bg-white"
+                            : "bg-brand-black border-brand-black text-white hover:bg-brand-brick hover:border-brand-brick"
                       : "bg-white border-white text-brand-black hover:bg-transparent hover:text-white"
                 }`}
               >

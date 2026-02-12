@@ -23,11 +23,24 @@ interface Message {
   text: string;
 }
 
-const ChatBot: React.FC = () => {
+interface ChatBotProps {
+  accent?: 'brick' | 'lime';
+}
+
+const ChatBot: React.FC<ChatBotProps> = ({ accent = 'brick' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
+  
+  const accentClass = accent === 'lime' ? 'bg-brand-healist-lime text-brand-healist-charcoal hover:bg-white' : 'bg-brand-brick text-white hover:shadow-brand-brick/50';
+  const accentTextClass = accent === 'lime' ? 'text-brand-healist-lime' : 'text-brand-brick';
+  const accentBgClass = accent === 'lime' ? 'bg-brand-healist-lime/20' : 'bg-brand-brick/20';
+  const accentUserMsgClass = accent === 'lime' ? 'bg-brand-healist-lime text-brand-healist-charcoal' : 'bg-brand-brick text-white';
+  const accentFocusClass = accent === 'lime' ? 'focus:border-brand-healist-lime focus:ring-brand-healist-lime' : 'focus:border-brand-brick focus:ring-brand-brick';
+  
+  const assistantName = accent === 'lime' ? "Healist Assistant" : "Seggy";
+
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: "Hi there! 👋 I'm Seggy. I help medical practices grow their patient base. How can I help you today?" }
+    { role: 'model', text: `Hi there! 👋 I'm ${assistantName}. I help medical practices grow their patient base. How can I help you today?` }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -71,7 +84,7 @@ const ChatBot: React.FC = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-[60] bg-brand-brick text-white p-4 rounded-full shadow-2xl hover:shadow-brand-brick/50 transition-all"
+        className={`fixed bottom-6 right-6 z-[60] p-4 rounded-full shadow-2xl transition-all ${accentClass}`}
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </motion.button>
@@ -83,16 +96,16 @@ const ChatBot: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-24 right-4 md:right-6 z-[60] w-[90vw] md:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden font-outfit"
+            className="fixed bottom-24 right-4 md:right-6 z-[60] w-[90vw] md:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden font-sans"
           >
             {/* Header */}
-            <div className="bg-brand-black p-4 flex items-center justify-between border-b border-gray-800">
+            <div className="bg-brand-healist-charcoal p-4 flex items-center justify-between border-b border-gray-800">
               <div className="flex items-center gap-3">
-                <div className="bg-brand-brick/20 p-2 rounded-lg">
-                  <Sparkles className="text-brand-brick h-5 w-5" />
+                <div className={`${accentBgClass} p-2 rounded-lg`}>
+                  <Sparkles className={`${accentTextClass} h-5 w-5`} />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-sm">SEG Assistant</h3>
+                  <h3 className="text-white font-bold text-sm">{assistantName}</h3>
                   <span className="flex items-center gap-1.5 text-xs text-green-400">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -111,14 +124,14 @@ const ChatBot: React.FC = () => {
                   key={idx} 
                   className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
                 >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-gray-200' : 'bg-brand-black'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-gray-200' : 'bg-brand-healist-charcoal'}`}>
                     {msg.role === 'user' ? <User size={16} className="text-gray-600" /> : <Bot size={16} className="text-white" />}
                   </div>
                   <div 
                     className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
                       msg.role === 'user' 
-                        ? 'bg-brand-brick text-white rounded-tr-none' 
-                        : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'
+                        ? `${accentUserMsgClass} rounded-tr-none shadow-md` 
+                        : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none font-medium'
                     }`}
                   >
                      {/* Very simple markdown parser for links */}
@@ -134,7 +147,7 @@ const ChatBot: React.FC = () => {
               ))}
               {isLoading && (
                  <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-brand-black flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-brand-healist-charcoal flex items-center justify-center flex-shrink-0">
                         <Bot size={16} className="text-white" />
                     </div>
                     <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 flex items-center gap-1">
@@ -156,19 +169,19 @@ const ChatBot: React.FC = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about patient growth..."
-                  className="w-full bg-gray-50 text-gray-800 text-sm rounded-xl py-3 pl-4 pr-12 border border-gray-200 focus:outline-none focus:border-brand-brick focus:ring-1 focus:ring-brand-brick transition-all"
+                  className={`w-full bg-gray-50 text-gray-800 text-sm rounded-xl py-3 pl-4 pr-12 border border-gray-200 focus:outline-none ${accentFocusClass} focus:ring-1 transition-all font-medium`}
                   disabled={isLoading}
                 />
                 <button 
                   onClick={handleSend}
                   disabled={isLoading || !input.trim()}
-                  className="absolute right-2 p-2 bg-brand-black text-white rounded-lg hover:bg-brand-brick transition-colors disabled:opacity-50 disabled:hover:bg-brand-black"
+                  className={`absolute right-2 p-2 rounded-lg transition-colors disabled:opacity-50 ${accentUserMsgClass}`}
                 >
                   <Send size={16} />
                 </button>
               </div>
               <div className="text-center mt-2">
-                 <p className="text-[10px] text-gray-400">AI growth assistant for SEG.</p>
+                 <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{assistantName} AI</p>
               </div>
             </div>
           </motion.div>

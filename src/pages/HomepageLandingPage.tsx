@@ -182,7 +182,7 @@ const HomepageLandingPage: React.FC = () => {
   if (!isDesktop) {
     // Mobile Layout: Standard Vertical Stack
     return (
-      <div className="w-full bg-brand-offwhite overflow-x-hidden min-h-screen flex flex-col">
+      <div className="w-full bg-brand-offwhite overflow-x-hidden min-h-screen flex flex-col selection:bg-brand-purple selection:text-white">
         {/* Fixed Header */}
         <div className="fixed top-0 left-0 w-full z-50">
           <Header theme="dark" />{" "}
@@ -229,7 +229,7 @@ const HomepageLandingPage: React.FC = () => {
 
   // Desktop Layout
   return (
-    <div className="h-screen w-screen overflow-hidden bg-brand-offwhite relative perspective-1000">
+    <div className="h-screen w-screen overflow-hidden bg-brand-offwhite relative perspective-1000 selection:bg-brand-purple selection:text-white">
       <SEO
         title="Where Human Creativity Meets AI-Powered Business Growth | SEG"
         description="Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call."

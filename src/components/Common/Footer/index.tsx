@@ -1,7 +1,14 @@
 import React from 'react';
 import { Linkedin, Facebook, Instagram } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  accent?: 'brick' | 'lime';
+}
+
+const Footer: React.FC<FooterProps> = ({ accent = 'brick' }) => {
+  const accentClass = accent === 'lime' ? 'bg-brand-healist-lime text-brand-healist-charcoal border-brand-healist-lime' : 'bg-brand-brick border-brand-brick text-white';
+
+
   return (
     <footer className="bg-brand-black text-white pt-20 pb-10 border-t border-white/10">
       <div className="container mx-auto px-6">
@@ -13,15 +20,15 @@ const Footer: React.FC = () => {
               alt="Social Engagement Group" 
               className="w-10 h-10 object-contain brightness-0 invert"
             />
-            <span className="font-sans font-bold text-sm tracking-widest uppercase text-white">
+            <span className="font-sans font-bold text-[14px] tracking-widest uppercase text-white">
               Social Engagement Group
             </span>
           </div>
 
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/socialengagementgroup" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Instagram className="w-4 h-4" /></a>
-            <a href="https://www.linkedin.com/company/social-engagement-group" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Linkedin className="w-4 h-4" /></a>
-            <a href="https://www.facebook.com/seg.socialengagementgroup/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-brick border border-brand-brick text-white hover:scale-110 transition-all duration-300"><Facebook className="w-4 h-4" /></a>
+            <a href="https://www.instagram.com/socialengagementgroup" target="_blank" rel="noopener noreferrer" className={`w-10 h-10 flex items-center justify-center rounded-full ${accentClass} hover:scale-110 transition-all duration-300`}><Instagram className="w-4 h-4" /></a>
+            <a href="https://www.linkedin.com/company/social-engagement-group" target="_blank" rel="noopener noreferrer" className={`w-10 h-10 flex items-center justify-center rounded-full ${accentClass} hover:scale-110 transition-all duration-300`}><Linkedin className="w-4 h-4" /></a>
+            <a href="https://www.facebook.com/seg.socialengagementgroup/" target="_blank" rel="noopener noreferrer" className={`w-10 h-10 flex items-center justify-center rounded-full ${accentClass} hover:scale-110 transition-all duration-300`}><Facebook className="w-4 h-4" /></a>
           </div>
 
           {/* Mobile Links - Stacked Vertical */}
@@ -34,7 +41,7 @@ const Footer: React.FC = () => {
 
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest gap-4 md:gap-0">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 font-outfit font-normal uppercase tracking-[0.1em] gap-4 md:gap-0">
           <p>All rights reserved &copy; {new Date().getFullYear()}</p>
           
           {/* Desktop Links - Row */}

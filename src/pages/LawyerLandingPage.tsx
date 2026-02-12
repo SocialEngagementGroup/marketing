@@ -12,6 +12,7 @@ import ContactForm from '../components/Lawyer/ContactForm';
 import FAQ from '../components/Lawyer/FAQ';
 import Footer from '../components/Common/Footer';
 import SEO from '../components/Common/SEO';
+import ScrollProgress from '../components/Common/ScrollProgress';
 
 /**
  * Lawyer Landing Page
@@ -34,6 +35,7 @@ const LawyerLandingPage: React.FC = () => {
         title="Legal Marketing Experts | Grow Your Law Practice with SEG"
         description="Premier digital marketing for attorneys and law firms across the USA. Specialized strategies to build your brand authority and dominate your local market. Schedule a consultation."
       />
+      <ScrollProgress color="bg-brand-beige" />
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}

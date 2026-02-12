@@ -44,9 +44,9 @@ const RestaurantLandingPage: React.FC<RestaurantLandingPageProps> = () => {
           <Testimonials />
           <FAQ />
           <CTA />
-          <ContactForm />
+          <ContactForm accent="lime" />
         </main>
-        <Footer />
+        <Footer accent="lime" />
     </div>
   );
 };
