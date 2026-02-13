@@ -20,10 +20,6 @@ import ContactForm from '../components/Common/ContactForm';
 interface RestaurantLandingPageProps {}
 
 const RestaurantLandingPage: React.FC<RestaurantLandingPageProps> = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#A64942] selection:text-white relative">
       <ScrollProgress color="bg-white" />

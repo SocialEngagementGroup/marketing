@@ -19,10 +19,6 @@ import ContactForm from '../components/Common/ContactForm';
 interface DoctorLandingPageProps {}
 
 const DoctorLandingPage: React.FC<DoctorLandingPageProps> = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white text-brand-healist-charcoal font-sans selection:bg-brand-healist-blue selection:text-white relative">
       <ScrollProgress color="bg-white" />

@@ -13,10 +13,6 @@ import CTA from '../components/WebsiteSolutions/CTA';
 import FAQ from '../components/WebsiteSolutions/FAQ';
 
 const WebSolutionsLandingPage: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="bg-white min-h-screen text-brand-forest selection:bg-brand-forest selection:text-white">
       <SEO 
