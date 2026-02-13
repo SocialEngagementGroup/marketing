@@ -56,8 +56,10 @@ const TrustBar: React.FC = () => {
             .animate-marquee {
               animation: marquee 35s linear infinite;
             }
-            .animate-marquee:hover {
-              animation-play-state: paused;
+            @media (min-width: 1024px) {
+              .animate-marquee:hover {
+                animation-play-state: paused;
+              }
             }
           `}
         </style>

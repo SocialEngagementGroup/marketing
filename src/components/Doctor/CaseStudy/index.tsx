@@ -52,7 +52,7 @@ const CaseStudy: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 flex flex-col justify-center items-start lg:items-center text-left lg:text-center group hover:bg-white/10 transition-all duration-300 relative overflow-hidden lg:min-h-[300px]"
+                  className="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 flex flex-col justify-center items-start lg:items-center text-left lg:text-center group lg:hover:bg-white/10 transition-all duration-300 relative overflow-hidden lg:min-h-[300px]"
                 >
                   <div className="relative z-10 flex flex-col">
                     <h3 className="text-4xl sm:text-5xl font-bold text-white font-outfit">
@@ -62,7 +62,7 @@ const CaseStudy: React.FC = () => {
                   </div>
 
                   {/* Background Icon Watermark */}
-                  <div className="absolute -right-6 -bottom-6 opacity-10 transform rotate-[-15deg] group-hover:scale-110 transition-transform duration-500 pointer-events-none">
+                  <div className="absolute -right-6 -bottom-6 opacity-10 transform rotate-[-15deg] lg:group-hover:scale-110 transition-transform duration-500 pointer-events-none">
                     <Icon className="text-white w-[160px] h-[160px]" />
                   </div>
                 </motion.div>

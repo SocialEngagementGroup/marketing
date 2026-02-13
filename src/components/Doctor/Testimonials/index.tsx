@@ -56,7 +56,7 @@ const Testimonials: React.FC = () => {
             <div className="hidden lg:flex items-center gap-6">
               <button 
                 onClick={() => handleManualNav('prev')}
-                className="text-white/40 hover:text-white transition-colors"
+                className="text-white/40 lg:hover:text-white transition-colors"
                 aria-label="Previous"
               >
                 <ArrowDownRight className="w-8 h-8 rotate-[135deg]" />
@@ -73,7 +73,7 @@ const Testimonials: React.FC = () => {
 
               <button 
                 onClick={() => handleManualNav('next')}
-                className="text-white/40 hover:text-white transition-colors"
+                className="text-white/40 lg:hover:text-white transition-colors"
                 aria-label="Next"
               >
                 <ArrowDownRight className="w-8 h-8 -rotate-45" />
@@ -130,7 +130,7 @@ const Testimonials: React.FC = () => {
             <div className="flex lg:hidden items-center gap-6 mt-12 justify-center">
               <button 
                 onClick={() => handleManualNav('prev')}
-                className="text-white/40 hover:text-white transition-colors"
+                className="text-white/40 lg:hover:text-white transition-colors"
                 aria-label="Previous"
               >
                 <ArrowDownRight className="w-8 h-8 rotate-[135deg]" />
@@ -147,7 +147,7 @@ const Testimonials: React.FC = () => {
 
               <button 
                 onClick={() => handleManualNav('next')}
-                className="text-white/40 hover:text-white transition-colors"
+                className="text-white/40 lg:hover:text-white transition-colors"
                 aria-label="Next"
               >
                 <ArrowDownRight className="w-8 h-8 -rotate-45" />

@@ -40,10 +40,10 @@ const CTA: React.FC = () => {
           <div className="flex justify-center">
             <button 
               onClick={() => window.open('https://calendly.com/itseg/segmeet', '_blank')}
-              className="bg-white text-[#296374] px-10 py-5 rounded-xl font-bold flex items-center gap-3 hover:bg-[#629FAD] hover:text-white hover:ring-1 hover:ring-white/30 transition-all duration-300 shadow-2xl group/btn text-lg"
+              className="bg-white text-[#296374] px-10 py-5 rounded-xl font-bold flex items-center gap-3 lg:hover:bg-[#629FAD] lg:hover:text-white lg:hover:ring-1 lg:hover:ring-white/30 transition-all duration-300 shadow-2xl group/btn text-lg"
             >
               Schedule a Strategy Call
-              <ArrowUpRight className="w-6 h-6 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-6 h-6 lg:group-hover/btn:translate-x-0.5 lg:group-hover/btn:-translate-y-0.5 transition-transform" />
             </button>
           </div>
         </motion.div>

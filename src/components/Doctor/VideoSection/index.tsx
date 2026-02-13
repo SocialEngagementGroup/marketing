@@ -92,8 +92,8 @@ const VideoSection: React.FC = () => {
             allowFullScreen
           />
           
-          <div className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500 ${isPlaying ? 'bg-transparent group-hover:bg-black/10' : 'bg-black/10'}`}>
-            <div className={`w-20 h-20 sm:w-24 sm:h-24 bg-[#0A2647]/90 rounded-full flex items-center justify-center text-white shadow-2xl transform transition-all duration-500 ${isPlaying ? 'opacity-0 group-hover:opacity-100 scale-90' : 'opacity-100 scale-100 animate-pulse'}`}>
+          <div className={`absolute inset-0 z-20 flex items-center justify-center transition-all duration-500 ${isPlaying ? 'bg-transparent lg:group-hover:bg-black/10' : 'bg-black/10'}`}>
+            <div className={`w-20 h-20 sm:w-24 sm:h-24 bg-[#0A2647]/90 rounded-full flex items-center justify-center text-white shadow-2xl transform transition-all duration-500 ${isPlaying ? 'opacity-0 lg:group-hover:opacity-100 scale-90' : 'opacity-100 scale-100 animate-pulse'}`}>
               {isPlaying ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
               ) : (

@@ -57,15 +57,17 @@ const WhyChooseUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="p-10 rounded-[2.5rem] border border-gray-100 bg-[#F9FBFA] transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
+              className="p-10 rounded-[2.5rem] border border-gray-100 bg-[#F9FBFA] transition-all duration-500 group lg:hover:shadow-2xl lg:hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
             >
               {/* Background Number */}
-              <div className="absolute top-[-1rem] -right-8 text-[12rem] font-bold text-[#0A2647]/5 leading-none pointer-events-none group-hover:text-[#0A2647]/10 transition-all duration-500 font-outfit">
+              <div className="absolute top-[-1rem] -right-8 text-[12rem] font-bold text-[#0A2647]/5 leading-none pointer-events-none lg:group-hover:text-[#0A2647]/10 transition-all duration-500 font-outfit"
+>
                 {card.number}
               </div>
 
               <div className="relative z-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-white shadow-sm text-[#0A2647] group-hover:scale-110 transition-transform duration-500">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-white shadow-sm text-[#0A2647] lg:group-hover:scale-110 transition-transform duration-500"
+>
                   {card.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-[#0A2647] mb-4 tracking-tight font-outfit leading-tight">{card.title}</h3>
@@ -73,7 +75,8 @@ const WhyChooseUs: React.FC = () => {
               </div>
 
               {/* Subtle bottom indicator */}
-              <div className="absolute bottom-0 left-0 h-1 bg-[#0A2647]/0 group-hover:w-full group-hover:bg-[#0A2647]/20 transition-all duration-700" style={{ width: '0%' }} />
+              <div className="absolute bottom-0 left-0 h-1 bg-[#0A2647]/0 lg:group-hover:w-full lg:group-hover:bg-[#0A2647]/20 transition-all duration-700" style={{ width: '0%' }}
+ />
             </motion.div>
           ))}
         </div>

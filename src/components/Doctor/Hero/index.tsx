@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-5 w-full"
             >
               <button 
-                className="w-full sm:w-auto px-8 py-4 lg:px-10 lg:py-5 bg-[#0A2647] text-white text-base lg:text-xl font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-[#081f3a] transition-all duration-300 shadow-xl"
+                className="w-full sm:w-auto px-8 py-4 lg:px-10 lg:py-5 bg-[#0A2647] text-white text-base lg:text-xl font-bold rounded-xl flex items-center justify-center gap-3 lg:hover:bg-[#081f3a] transition-all duration-300 shadow-xl"
                 onClick={() => window.open('https://calendly.com/itseg/segmeet', '_blank')}
               >
                 Schedule a Strategy Call
