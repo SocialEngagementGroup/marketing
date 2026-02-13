@@ -41,4 +41,14 @@ export const allTestimonials: Testimonial[] = [
     category: "restaurant",
     rating: 5
   },
+  {
+    id: 4,
+    quote: "Social Engagement Group has been exceptional at marketing our practice. Their strategic approach and consistent execution have helped us attract more patients and strengthen our online presence.",
+    author: "Dr. Junior King",
+    role: "Medical Director at",
+    company: "North Island Podiatry Associates",
+    image: "/assets/testimonial/Dr. Junior King.png",
+    category: "medical",
+    rating: 5
+  },
 ];

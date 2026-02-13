@@ -6,7 +6,7 @@ const pillars = [
   {
     number: "01",
     title: "Get Found by Patients Searching Now",
-    description: "Patients are looking for a doctor, but your practice isn't showing up. Poor local SEO lets competitors capture appointments meant for you. We rank your practice for searches like 'primary care doctor near me' and 'pediatrician accepting new patients' so the right patients find you at the right moment.",
+    description: "Patients are looking for a doctor, but your practice isn't showing up. Poor local SEO lets competitors capture appointments meant for you. We rank your practice for searches like \"primary care doctor near me\" and \"pediatrician accepting new patients\" so the right patients find you at the right moment.",
   },
   {
     number: "02",

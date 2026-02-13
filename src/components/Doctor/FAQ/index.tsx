@@ -4,27 +4,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "How will you help patients find our practice on Google?",
-    answer: "We optimize your website and Google Business Profile to rank for local, high-intent searches like 'doctor near me' and specialty-specific queries."
+    question: "1. How will you help patients find our practice on Google?",
+    answer: "We optimize your website and Google Business Profile to rank for local, high-intent searches like \"doctor near me\" and specialty-specific queries."
   },
   {
-    question: "Do you only build websites?",
-    answer: "No. We build the website and manage SEO, paid ads, and reputation building to consistently bring in new patients."
+    question: "2. Do you only build websites?",
+    answer: "Yes. We build both the website and manage SEO, paid ads, and reputation building to consistently bring in new patients."
   },
   {
-    question: "Can you help us get more patient reviews?",
+    question: "3. Can you help us get more patient reviews?",
     answer: "Yes. We automate review requests after appointments and help you showcase positive feedback across platforms."
   },
   {
-    question: "How do you track what's working?",
+    question: "4. How do you track what's working?",
     answer: "With real-time dashboards that show which campaigns generate appointment requests and which patients convert to actual visits."
   },
   {
-    question: "How are you different from other marketing agencies?",
+    question: "5. How are you different from other marketing agencies?",
     answer: "We focus on qualified patient acquisition and measurable outcomes, not just clicks or impressions."
   },
   {
-    question: "Is this customized for my specialty and location?",
+    question: "6. Is this customized for my specialty and location?",
     answer: "Yes. Strategy, keywords, and ads are tailored to your specific practice area, location, and ideal patient demographics."
   }
 ];

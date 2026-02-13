@@ -35,11 +35,11 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-32 bg-brand-black relative text-white overflow-hidden">
+    <section id="services" className="py-32 bg-white relative text-brand-black overflow-hidden">
       
       {/* Background Gradients */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-brick/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-900/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#A64942]/5 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#B95D56]/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -52,18 +52,19 @@ const Services: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="text-brand-brick font-bold tracking-[0.2em] uppercase text-sm mb-6">What We Provide</h2>
-                <h3 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-none">
+                <h2 className="text-[#A64942] font-bold tracking-[0.3em] uppercase text-xs mb-6 block">What We Provide</h2>
+                <h3 className="text-5xl md:text-6xl font-bold text-brand-black mb-8 leading-none">
                     Complete <br/>
-                    <span className="text-gray-500">Dining Engine.</span>
+                    <span className="text-gray-400">Dining Engine.</span>
                 </h3>
-                <p className="text-lg text-gray-400 font-light mb-8 leading-relaxed">
+                <p className="text-lg text-gray-500 font-light mb-8 leading-relaxed">
                     Siloed marketing fails. We build interconnected systems where SEO, reviews, and ads work together to turn hungry searchers into loyal regulars.
                 </p>
-                <div className="hidden lg:block w-full h-[1px] bg-white/10 mt-12"></div>
+                <div className="hidden lg:block w-full h-[1px] bg-gray-100 mt-12"></div>
                 <div className="hidden lg:flex items-center gap-4 mt-8">
-                     <div className="h-2 w-2 rounded-full bg-brand-brick animate-pulse"></div>
-                     <span className="text-xs uppercase tracking-widest text-gray-500">Accepting New Partners</span>
+                     <div className="w-12 h-12 rounded-2xl bg-[#A64942]/10 flex items-center justify-center text-[#A64942] mb-8">
+</div>
+                     <span className="text-xs uppercase tracking-widest text-gray-400">Accepting New Partners</span>
                 </div>
             </motion.div>
 
@@ -76,33 +77,31 @@ const Services: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 0.8, type: "spring" }}
-                        className="group relative bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all duration-500 overflow-hidden"
+                        className="p-8 pb-12 rounded-[2.5rem] bg-[#F9EFEE] border border-gray-100 hover:border-[#A64942]/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col h-full"
                     >
                         {/* Hover Glow Effect */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-brick/20 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-brand-brick/40 transition-all duration-500"></div>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-[#A64942]/5 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-[#A64942]/10 transition-all duration-500"></div>
 
                         <div className="relative z-10 flex flex-col h-full justify-between min-h-[280px]">
                             <div className="flex justify-between items-start">
-                                <div className="p-3 bg-white/5 rounded-lg text-brand-brick group-hover:text-white group-hover:bg-brand-brick transition-all duration-300">
+                                <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#A64942] mb-8 group-hover:scale-110 transition-transform duration-500">
                                     {service.icon}
                                 </div>
-                                <ArrowUpRight className="text-gray-600 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                                <ArrowUpRight className="text-gray-400 group-hover:text-brand-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                             </div>
 
                             <div className="mt-8">
-                                <span className="text-brand-brick text-xs font-bold uppercase tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                                <div className="text-xs font-bold tracking-widest text-[#B95D56] uppercase mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                     {service.subtitle}
-                                </span>
-                                <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-brick transition-colors">
-                                    {service.title}
-                                </h4>
-                                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                                </div>
+                                <h4 className="text-2xl font-bold text-[#A64942] font-outfit mb-4 leading-tight">{service.title}</h4>
+                                <p className="text-gray-500 text-sm leading-relaxed mb-6">
                                     {service.description}
                                 </p>
                             </div>
 
-                            <div className="border-t border-white/10 pt-4 mt-auto">
-                                <span className="text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
+                            <div className="border-t border-gray-100 pt-4 mt-auto">
+                                <span className="text-xs font-mono text-gray-400 group-hover:text-brand-black transition-colors">
                                     Impact: {service.stats}
                                 </span>
                             </div>

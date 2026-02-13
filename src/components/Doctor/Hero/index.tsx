@@ -4,7 +4,7 @@ import { ArrowUpRight, Plus } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-28 pb-20 lg:pt-16 lg:pb-12">
+    <section className="relative min-h-[95vh] lg:min-h-screen flex items-center overflow-hidden bg-white pt-28 pb-20 lg:pt-16 lg:pb-12">
       
       {/* Subtle Background & DNA Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-2xl font-medium font-outfit"
             >
-              We help healthcare providers attract the right patients and run targeted campaigns that turn searches into scheduled appointments.
+              We help healthcare providers attract the right patients, build trust with a strong online reputation, and run targeted campaigns that turn searches into scheduled appointments so you can focus on caring for patients, not chasing leads
             </motion.p>
 
             <motion.div 

@@ -24,12 +24,12 @@ const DoctorLandingPage: React.FC<DoctorLandingPageProps> = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-brand-healist-charcoal font-sans selection:bg-[#629FAD] selection:text-white relative">
+    <div className="min-h-screen bg-white text-brand-healist-charcoal font-sans selection:bg-brand-healist-blue selection:text-white relative">
       <ScrollProgress color="bg-white" />
       <div className="grain-overlay opacity-[0.03]" />
       <SEO
-        title="Marketing for Doctors | Personal Branding & Digital Strategy"
-        description="We build meaningful digital relationships. Our patient acquisition systems turn audiences into communities for medical practices."
+        title="Marketing for Medical Practices That Fills Your Appointment Calendar"
+        description="We help healthcare providers attract the right patients, build trust with a strong online reputation, and run targeted campaigns that turn searches into scheduled appointments."
       />
       <Header accent="brick" />
         <main>

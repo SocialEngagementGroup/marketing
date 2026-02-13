@@ -27,7 +27,7 @@ const TrustBar: React.FC = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A2647] mb-6 leading-tight font-outfit"
           >
-            Trusted by <br className="lg:hidden" /> Healthcare Leaders <br /> <span className="text-[#144272]">Across the Nation</span>
+            Top Clients & Partners
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const TrustBar: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-gray-500 max-w-4xl mx-auto mb-8 font-medium font-outfit"
           >
-            We partner with leading medical practices and healthcare organizations to implement digital systems that drive patient acquisition and long-term practice growth.
+            We've helped medical practices grow their patient base and establish strong digital authority. Join our list of satisfied healthcare providers and take your practice to the next level.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

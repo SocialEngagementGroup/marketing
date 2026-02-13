@@ -36,7 +36,7 @@ const CaseStudy: React.FC = () => {
               
               <div>
                 <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">Our Solution:</p>
-                <p className="text-base text-gray-300 border-l-2 border-cyan-400/50 pl-6 font-outfit">A mobile-optimized website redesign, Google Business Profile optimization, automated review requests, and targeted Search Ads.</p>
+                <p className="text-base text-gray-300 border-l-2 border-cyan-400/50 pl-6 font-outfit">A mobile-optimized website redesign, Google Business Profile optimization, automated review requests, and targeted Search Ads/Local Service Ads for insurance-accepting physicians.</p>
               </div>
             </div>
           </motion.div>

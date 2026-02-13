@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ArrowDownRight } from 'lucide-react';
 import { allTestimonials } from '../../../data/testimonials';
 
-const medicalTestimonials = allTestimonials.filter(t => t.category === 'medical');
-const testimonials = medicalTestimonials.length > 0 ? medicalTestimonials : allTestimonials;
+const testimonials = allTestimonials;
 
 const AUTO_PLAY_INTERVAL = 5000;
 const PAUSE_AFTER_CLICK = 8000;

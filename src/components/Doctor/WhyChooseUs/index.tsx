@@ -6,20 +6,20 @@ const WhyChooseUs: React.FC = () => {
   const cards = [
     {
       number: "01",
-      title: "We Build Patient Acquisition Systems, Not Just Websites",
-      description: "Every part of our strategy—SEO, ads, and reputation management—is designed to bring in qualified patients, not just website visitors.",
+      title: "We Find New Patients",
+      description: "We use ads and search results to bring real people to your clinic. We focus on getting you appointments, not clicks.",
       icon: <Target className="w-6 h-6" />,
     },
     {
       number: "02",
-      title: "Tailored for Medical Practices",
-      description: "We understand what patients look for: expertise, accessibility, and trustworthiness. Every campaign positions your practice as the go-to healthcare provider in your area.",
+      title: "Built For Your Practice",
+      description: "We know patients want doctors they can trust. Our strategy makes your clinic the top choice for everyone in your area.",
       icon: <Heart className="w-6 h-6" />,
     },
     {
       number: "03",
-      title: "Your Growth, Our Mission",
-      description: "We focus on delivering measurable results so your schedule stays full with the patients you want to serve.",
+      title: "Growing Your Medical Business",
+      description: "We work hard to keep your calendar full of the right patients. Your success is the only result that matters here.",
       icon: <TrendingUp className="w-6 h-6" />,
     }
   ];

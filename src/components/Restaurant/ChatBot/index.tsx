@@ -47,7 +47,7 @@ const ChatBot: React.FC = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-[60] bg-brand-brick text-white p-4 rounded-full shadow-2xl hover:shadow-brand-brick/50 transition-all"
+        className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#A64942] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 group border-2 border-white/20"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </motion.button>
@@ -62,15 +62,15 @@ const ChatBot: React.FC = () => {
           >
             <div className="bg-brand-black p-4 flex items-center justify-between border-b border-gray-800">
               <div className="flex items-center gap-3">
-                <div className="bg-brand-brick/20 p-2 rounded-lg">
-                  <Sparkles className="text-brand-brick h-5 w-5" />
+                <div className="bg-[#A64942]/20 p-2 rounded-lg">
+                  <Sparkles className="text-[#EA580C] h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-sm">SEG Assistant</h3>
-                  <span className="flex items-center gap-1.5 text-xs text-green-400">
+                  <span className="flex items-center gap-1.5 text-xs text-red-400">
                     <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                     </span>
                     Online
                   </span>
@@ -84,7 +84,7 @@ const ChatBot: React.FC = () => {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-gray-200' : 'bg-brand-black'}`}>
                     {msg.role === 'user' ? <User size={16} className="text-gray-600" /> : <Bot size={16} className="text-white" />}
                   </div>
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user' ? 'bg-brand-brick text-white rounded-tr-none' : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user' ? 'bg-[#A64942] text-white rounded-tr-none' : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'}`}>
                      {msg.text.split(/(https?:\/\/[^\s]+)/g).map((part: string, i: number) => part.match(/^https?:\/\//) ? <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline font-bold text-inherit">{part}</a> : <span key={i}>{part}</span>)}
                   </div>
                 </div>
@@ -110,10 +110,10 @@ const ChatBot: React.FC = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about restaurant growth..."
-                  className="w-full bg-gray-50 text-gray-800 text-sm rounded-xl py-3 pl-4 pr-12 border border-gray-200 focus:outline-none focus:border-brand-brick focus:ring-1 focus:ring-brand-brick transition-all"
+                   className="w-full bg-gray-50 text-gray-800 text-sm rounded-xl py-3 pl-4 pr-12 border border-gray-200 focus:outline-none focus:border-[#A64942] focus:ring-1 focus:ring-[#A64942] transition-all"
                   disabled={isLoading}
                 />
-                <button onClick={handleSend} disabled={isLoading || !input.trim()} className="absolute right-2 p-2 bg-brand-black text-white rounded-lg hover:bg-brand-brick transition-colors disabled:opacity-50"><Send size={16} /></button>
+                 <button onClick={handleSend} disabled={isLoading || !input.trim()} className="absolute right-2 p-2 bg-brand-black text-white rounded-lg hover:bg-[#A64942] transition-colors disabled:opacity-50"><Send size={16} /></button>
               </div>
               <div className="text-center mt-2 font-outfit"><p className="text-[10px] text-gray-400">AI growth assistant for SEG.</p></div>
             </div>

@@ -1,153 +1,82 @@
 import React from 'react';
-import { ChefHat, TrendingUp, Target, LayoutTemplate, Goal } from 'lucide-react';
+import { Target, ChefHat, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const WhyChooseUs: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+  const cards = [
+    {
+      number: "01",
+      title: "We Build Guest Acquisition Systems, Not Just Websites",
+      description: "Every part of our strategy—SEO, ads, and reputation management—is designed to bring in hungry diners, not just website visitors.",
+      icon: <Target className="w-6 h-6" />,
+    },
+    {
+      number: "02",
+      title: "Tailored Specifically for Restaurants",
+      description: "We understand what guests look for: high-quality visuals, easy menu access, and fast booking. Every campaign positions your venue as the go-to spot.",
+      icon: <ChefHat className="w-6 h-6" />,
+    },
+    {
+      number: "03",
+      title: "Your Growth, Our Mission",
+      description: "We focus on delivering measurable results—increased covers and steady bookings—so your restaurant stays full all week long.",
+      icon: <TrendingUp className="w-6 h-6" />,
     }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
+  ];
 
   return (
-    <section id="values" className="py-32 bg-brand-black text-white relative overflow-hidden">
-        {/* Animated Background Gradients */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <motion.div 
-                animate={{ 
-                    scale: [1, 1.2, 1],
-                    translateY: [0, -50, 0],
-                    translateX: [0, 50, 0]
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-brick/10 rounded-full blur-[120px]" 
-            />
-            <motion.div 
-                animate={{ 
-                    scale: [1, 1.1, 1],
-                    translateY: [0, 50, 0],
-                    translateX: [0, -30, 0]
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-900/20 rounded-full blur-[120px]" 
-            />
-        </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="values" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24">
-            <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="max-w-2xl"
-            >
-                <span className="text-brand-brick font-bold tracking-widest uppercase text-sm mb-4 block">Why Choose Us?</span>
-                <h2 className="text-5xl md:text-6xl font-bold leading-none tracking-tight">
-                    Built for <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-brick to-orange-400">restaurants.</span>
-                </h2>
-            </motion.div>
-            <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mt-8 md:mt-0"
-            >
-                <p className="text-gray-400 max-w-sm text-lg font-light border-l border-gray-700 pl-6">
-                    More than a website, we build a guest-generating engine designed to fill tables.
-                </p>
-            </motion.div>
+        <div className="text-center mb-8 lg:mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-bold tracking-[0.3em] text-[#A64942] uppercase mb-4 block"
+          >
+            Our Philosophy
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold text-[#A64942] mb-6 leading-tight font-outfit"
+          >
+            Why Choose Us?
+          </motion.h2>
+          <div className="w-20 h-1 bg-[#A64942] mx-auto rounded-full" />
         </div>
 
-        {/* Bento Grid Layout */}
-        <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-        >
-            
-            {/* Card 1: Guest Engine - Large */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
             <motion.div 
-                variants={cardVariants}
-                className="md:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-10 hover:bg-white/10 transition-colors duration-300 group relative overflow-hidden"
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              className="p-10 rounded-[2.5rem] border border-gray-100 bg-[#F9EFEE] transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
             >
-                <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 duration-500">
-                    <Target className="h-64 w-64 text-white" />
-                </div>
-                <div className="relative z-10">
-                    <div className="h-12 w-12 bg-brand-brick/20 rounded-xl flex items-center justify-center mb-6 text-brand-brick">
-                        <LayoutTemplate className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-3xl font-bold mb-4">Guest-Generating Engine</h3>
-                    <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-                        This is not a “pretty website” project. It’s a structured system combining local SEO, ads, social proof, and conversion-focused design to consistently bring in guests who are ready to dine.
-                    </p>
-                </div>
-            </motion.div>
+              {/* Background Number */}
+              <div className="absolute top-[-1rem] -right-8 text-[12rem] font-bold text-[#A64942]/5 leading-none pointer-events-none group-hover:text-[#A64942]/10 transition-all duration-500 font-outfit">
+                {card.number}
+              </div>
 
-            {/* Card 2: Built for Restaurants */}
-            <motion.div 
-                variants={cardVariants}
-                className="bg-brand-brick text-white border border-transparent rounded-3xl p-10 hover:bg-brand-brick/90 transition-colors duration-300 relative overflow-hidden"
-            >
-                 <div className="absolute -bottom-10 -right-10 p-10 opacity-20 transform rotate-12">
-                    <ChefHat className="h-48 w-48 text-white" />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-white shadow-sm text-[#A64942] group-hover:scale-110 transition-transform duration-300">
+                  {card.icon}
                 </div>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                    <div>
-                         <div className="h-12 w-12 bg-white/20 rounded-xl flex items-center justify-center mb-6 text-white">
-                            <ChefHat className="h-6 w-6" />
-                        </div>
-                        <h3 className="text-3xl font-bold mb-4">Built for Restaurants</h3>
-                        <p className="text-white/80 text-lg leading-relaxed">
-                            We know what matters: menu clarity, visuals, and fast booking. Every element reduces hesitation.
-                        </p>
-                    </div>
-                </div>
-            </motion.div>
+                <h3 className="text-2xl font-bold text-[#A64942] mb-4 tracking-tight font-outfit leading-tight">{card.title}</h3>
+                <p className="text-base font-medium text-gray-500 leading-relaxed font-outfit">{card.description}</p>
+              </div>
 
-            {/* Card 3: Growth Goal */}
-             <motion.div 
-                variants={cardVariants}
-                className="md:col-span-3 bg-white/5 border border-white/10 rounded-3xl p-10 hover:bg-white/10 transition-colors duration-300"
-            >
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                    <div className="h-16 w-16 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 flex-shrink-0">
-                        <Goal className="h-8 w-8" />
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold mb-2">Your Growth Is the Goal</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            We focus on outcomes: more booked tables, more calls, more repeat guests. You get measurable progress you can actually track, not just vanity metrics.
-                        </p>
-                    </div>
-                </div>
+              {/* Subtle bottom indicator */}
+              <div className="absolute bottom-0 left-0 h-1 bg-[#A64942]/0 group-hover:w-full group-hover:bg-[#A64942]/20 transition-all duration-700" style={{ width: '0%' }} />
             </motion.div>
-            
-        </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
