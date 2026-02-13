@@ -21,7 +21,7 @@ const industries: Industry[] = [
     description: 'Professional marketing for law firms and legal practices',
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80',
     route: '/marketing-for-law-firm',
-    status: 'live',
+    status: 'coming-soon',
   },
   {
     id: 2,
