@@ -33,7 +33,24 @@ const LawyerLandingPage: React.FC = () => {
     <div className="min-h-screen flex flex-col font-outfit text-slate-900">
       <SEO 
         title="Legal Marketing Experts | Grow Your Law Practice with SEG"
-        description="Premier digital marketing for attorneys and law firms across the USA. Specialized strategies to build your brand authority and dominate your local market. Schedule a consultation."
+        description="Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume."
+        ogTitle="Legal Marketing Experts | Social Engagement Group"
+        ogDescription="Specialized digital marketing strategies for law firms. Build authority and automate your growth."
+        ogImage="/assets/images/lawyer-meta.jpg"
+        ogType="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "Social Engagement Group",
+          "description": "Premier digital marketing agency for law firms and attorneys.",
+          "url": "https://digital.socialengagementgroup.com/marketing-for-law-firm",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+          },
+          "serviceType": "Legal Marketing",
+          "areaServed": "USA"
+        }}
       />
       <ScrollProgress color="bg-brand-beige" />
       <Header />
