@@ -152,6 +152,16 @@ const HomepageLandingPage: React.FC = () => {
     if (!isDesktop) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore keyboard events when typing in form fields
+      const target = e.target as HTMLElement;
+      if (
+        target.tagName === 'INPUT' || 
+        target.tagName === 'TEXTAREA' || 
+        target.isContentEditable
+      ) {
+        return;
+      }
+
       if (isTransitioning) return;
       if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
         e.preventDefault();
