@@ -6,9 +6,9 @@ import CountUp from "../../Common/ui/CountUp";
 
 const CaseStudy: React.FC = () => {
   const metrics = [
-    { label: "Location Searches", value: 83, suffix: "%+", prefix: "" },
-    { label: "Increase in Phone Leads", value: 67, suffix: "%+", prefix: "" },
-    { label: "Total Inbound Calls", value: 137, suffix: "", prefix: "" },
+    { label: "Location Searches", value: 83, suffix: "%", prefix: "" },
+    { label: "Increase in Phone Leads", value: 67, suffix: "%", prefix: "" },
+    { label: "Total Inbound Calls", value: 137, suffix: "+", prefix: "" },
   ];
 
   return (
