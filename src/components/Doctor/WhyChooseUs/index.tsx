@@ -71,7 +71,7 @@ const WhyChooseUs: React.FC = () => {
                   {card.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-[#0A2647] mb-4 tracking-tight font-outfit leading-tight">{card.title}</h3>
-                <p className="text-base font-medium text-gray-500 leading-relaxed font-outfit">{card.description}</p>
+                <p className="text-lg md:text-base font-medium text-gray-500 leading-relaxed font-outfit">{card.description}</p>
               </div>
 
               {/* Subtle bottom indicator */}
