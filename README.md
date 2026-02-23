@@ -2,10 +2,6 @@
 
 A high-performance, visually stunning marketing platform for **Social Engagement Group**, featuring immersive landing pages for modern industries and specialized legal marketing.
 
-<div align="center">
-  <img width="1200" alt="Platform Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 ## 🚀 Key Features
 
 ### 🌟 Immersive Experience
@@ -23,7 +19,13 @@ A high-performance, visually stunning marketing platform for **Social Engagement
 ### ⚖️ Specialized Landing Pages
 
 - **Lawyer Landing Page**: A dedicated, high-conversion page specifically for legal marketing experts.
+- **Healthcare & Doctor Landing Page**: Tailored for medical practices focusing on targeted high-intent patients and HIPAA-compliant lead generation.
+- **Restaurant Landing Page**: Engaging visuals and functional layouts for modern diners and restaurant marketing.
 - **Industry Solutions**: Tailored content for various modern industries.
+
+### 🔌 Integrations
+
+- **Webhooks & Lead Capture**: Fully integrated with n8n to automatically capture contact forms and directly route leads into CRMs seamlessly.
 
 ## 🛠️ Technology Stack
 
@@ -58,7 +60,6 @@ A high-performance, visually stunning marketing platform for **Social Engagement
 
 3. **Set up Environment Variables**:
    Create a `.env.local` file and add any necessary keys (e.g., Google Drive links or API keys).
-
 4. **Run the development server**:
 
    ```bash
@@ -66,6 +67,7 @@ A high-performance, visually stunning marketing platform for **Social Engagement
    ```
 
 5. **Build for production**:
+
    ```bash
    npm run build
    ```
