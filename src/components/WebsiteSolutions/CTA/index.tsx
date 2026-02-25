@@ -1,64 +1,52 @@
 import React from 'react';
-import { ArrowRight, Code, Globe, Laptop, Smartphone, Search, Database, Cpu } from 'lucide-react';
-import Reveal from '../../Common/ui/Reveal';
+import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CTA: React.FC = () => {
-  const floatingIcons = [
-    { icon: Code, x: '10%', y: '20%' },
-    { icon: Globe, x: '80%', y: '15%' },
-    { icon: Laptop, x: '15%', y: '70%' },
-    { icon: Smartphone, x: '85%', y: '75%' },
-    { icon: Search, x: '50%', y: '10%' },
-    { icon: Database, x: '30%', y: '85%' },
-    { icon: Cpu, x: '70%', y: '85%' },
-  ];
-
   return (
-    <section id="cta" className="relative py-32 overflow-hidden bg-brand-forest min-h-[70vh] flex items-center">
-      {/* Background with mountain theme */}
-      <div className="absolute inset-0 z-0 opacity-30">
-        <img 
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop" 
-          alt="Mountain background" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-brand-forest/60" />
+    <section className="relative py-20 md:py-32 px-6 overflow-hidden bg-[#064232]">
+      {/* Background Dot Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} 
+      />
+
+      {/* Background Watermark */}
+      <div className="absolute right-0 bottom-0 pointer-events-none select-none overflow-hidden">
+        <h2 className="text-[20rem] font-black text-white/[0.03] leading-none translate-y-1/4 translate-x-[10%] font-outfit uppercase">
+          Build
+        </h2>
       </div>
 
-      {/* Floating Icons arrangement */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        {floatingIcons.map((item, idx) => (
-            <div 
-                key={idx} 
-                className="absolute w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float text-left"
-                style={{ 
-                    left: item.x, 
-                    top: item.y,
-                    animationDelay: `${idx * 0.5}s`,
-                    animationDuration: `${5 + idx}s`
-                }}
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-xs font-bold tracking-[0.3em] text-white/40 uppercase mb-6 block">
+            Ready to get started?
+          </span>
+
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight font-outfit">
+            Ready to Build a <br />
+            Better Website?
+          </h2>
+
+          <p className="text-white/70 text-lg md:text-xl mb-12 max-w-4xl mx-auto font-medium leading-relaxed">
+            If your current site feels outdated or ineffective, there is a better way to do this. Let’s build a website that reflects your business and helps it grow.
+          </p>
+
+          <div className="flex justify-center">
+            <button 
+              onClick={() => window.open('https://calendly.com/itseg/segmeet', '_blank')}
+              className="bg-white text-[#064232] px-10 py-5 rounded-xl font-bold flex items-center gap-3 lg:hover:bg-[#A3E635] lg:hover:text-[#064232] lg:hover:ring-1 lg:hover:ring-white/30 transition-all duration-300 shadow-2xl group/btn text-lg"
             >
-                <item.icon className="w-5 h-5 text-white/40" />
-            </div>
-        ))}
-      </div>
-
-      <div className="container mx-auto px-6 relative z-20 text-center">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
-          <Reveal delay={200}>
-            <h2 className="text-4xl md:text-6xl font-sans font-bold text-white leading-tight mb-8">
-              Ready to <span className="text-white/40 italic">build a</span> <br />
-              better digital presence?
-            </h2>
-          </Reveal>
-
-          <Reveal delay={400}>
-            <button className="bg-white text-brand-forest px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gray-100 transition-all flex items-center gap-4 group shadow-2xl">
-              Book Your Strategy Session
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              Start With Strategy
+              <ArrowUpRight className="w-6 h-6 lg:group-hover/btn:translate-x-0.5 lg:group-hover/btn:-translate-y-0.5 transition-transform" />
             </button>
-          </Reveal>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

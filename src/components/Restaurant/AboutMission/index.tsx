@@ -4,23 +4,23 @@ import { motion } from 'framer-motion';
 const pillars = [
   {
     number: "01",
-    title: "Be Seen When Hunger Strikes",
-    description: "Hungry guests are looking for their next meal, but your restaurant isn't showing up. Poor local SEO lets competitors capture bookings meant for you. We rank your restaurant for searches like 'best brunch near me' and 'date night spots' so the right diners find you first.",
+    title: "Be Discovered by Diners Searching Now",
+    description: "When someone searches for a restaurant, you need to be the first name they see. With poor local SEO, your restaurant stays invisible while competitors fill their tables with customers meant for you. We rank you for searches like \"best Italian restaurant near me\" and \"brunch spots open now\" so hungry diners find you exactly when they're ready to eat.",
   },
   {
     number: "02",
-    title: "Turn Searchers into Loyal Regulars",
-    description: "Potential guests hesitate when they don't see recent reviews or high-quality photos of your dishes. A weak online presence makes even five-star food look questionable. We automate review collection and showcase guest testimonials that make new diners confident to book.",
+    title: "Build a Reputation That Brings Customers Back",
+    description: "Potential diners scroll past restaurants without recent reviews or mouthwatering photos. A weak online presence makes even the best cuisine look unappealing. We automate review collections and create engaging social content that showcases your dishes, ambiance, and happy customers, making new diners eager to book a table.",
   },
   {
     number: "03",
-    title: "Ads That Fill Your Reservation Book",
-    description: "Diners looking for immediate options go to the restaurants that appear first on Google. Competitors with stronger ad presence take covers meant for you. We run targeted Google Search and Meta Ads to put your menu at the top when guests are ready to eat.",
+    title: "Run Ads That Fill Your Reservation Book",
+    description: "Hungry customers looking for a place to eat right now go to restaurants that appear first on Google and social media. Your competitors may have stronger ad presence and capture reservations meant for you. We run Google Search Ads, Local Service Ads, and Instagram campaigns that put your restaurant front and center when diners are ready to make a reservation.",
   },
   {
     number: "04",
-    title: "Data Over Guesswork",
-    description: "Many restaurant owners spend on marketing without knowing what actually drives new covers. Hidden data leads to wasted budget and missed opportunities. Our dashboards clearly show which campaigns bring reservation requests and which guests actually walk through your doors.",
+    title: "Know Exactly What's Driving Reservations",
+    description: "Many restaurants waste marketing dollars without understanding what actually brings in customers. We provide clear dashboards that show which platforms drive reservations, what posts get engagement, and which promotions fill tables. No more guessing. Just smart marketing that keeps your dining room buzzing.",
   }
 ];
 

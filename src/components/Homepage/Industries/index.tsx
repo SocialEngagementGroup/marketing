@@ -40,7 +40,7 @@ const industries: Industry[] = [
     image: 'https://images.unsplash.com/photo-1554679665-f5537f187268?w=800&q=80',
     route: '/marketing-for-restaurants',
     position: 'object-bottom',
-    status: 'coming-soon',
+    status: 'live',
   },
   {
     id: 4,

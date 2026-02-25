@@ -6,20 +6,20 @@ const WhyChooseUs: React.FC = () => {
   const cards = [
     {
       number: "01",
-      title: "We Build Guest Acquisition Systems, Not Just Websites",
-      description: "Every part of our strategy—SEO, ads, and reputation management—is designed to bring in hungry diners, not just website visitors.",
+      title: "More Than a Website, We Build a Guest-Generating Engine",
+      description: "This is not a “pretty website” project. It’s a structured system combining local SEO, ads, social proof, and conversion-focused design to consistently bring in guests who are ready to dine.",
       icon: <Target className="w-6 h-6" />,
     },
     {
       number: "02",
-      title: "Tailored Specifically for Restaurants",
-      description: "We understand what guests look for: high-quality visuals, easy menu access, and fast booking. Every campaign positions your venue as the go-to spot.",
+      title: "Built for Restaurants",
+      description: "We know what matters to diners: menu clarity, strong visuals, trust signals, convenience, and fast booking. Every element is designed to reduce hesitation and increase reservations.",
       icon: <ChefHat className="w-6 h-6" />,
     },
     {
       number: "03",
-      title: "Your Growth, Our Mission",
-      description: "We focus on delivering measurable results—increased covers and steady bookings—so your restaurant stays full all week long.",
+      title: "Your Growth Is the Goal",
+      description: "We focus on outcomes: more booked tables, more calls, more repeat guests. You get measurable progress you can actually track.",
       icon: <TrendingUp className="w-6 h-6" />,
     }
   ];

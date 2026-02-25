@@ -30,10 +30,10 @@ const Hero: React.FC = () => {
 
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-brand-black tracking-tight leading-[1.1] flex flex-col items-center">
-              <TextReveal className="justify-center">Marketing that fills</TextReveal>
+              <TextReveal className="justify-center">Marketing for Restaurants</TextReveal>
               <div className="flex flex-wrap justify-center gap-x-4">
-                 <TextReveal className="text-[#A64942] justify-center" delay={0.4}>your tables</TextReveal>
-                 <TextReveal className="justify-center" delay={0.6}>every day.</TextReveal>
+                 <TextReveal className="text-[#A64942] justify-center" delay={0.4}>That Fills Your Tables</TextReveal>
+                 <TextReveal className="justify-center" delay={0.6}>Every Day.</TextReveal>
               </div>
             </h1>
           </div>
@@ -42,9 +42,9 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="text-lg md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light leading-relaxed"
+            className="text-lg md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto font-light leading-relaxed"
           >
-            We help restaurants attract diners when they're ready to eat, build a reputation that keeps them coming back, and run smart campaigns that turn online searches into booked tables.
+            We help restaurants attract diners when they’re ready to eat, build a reputation that keeps them coming back, and run smart campaigns that turn online searches into booked tables so you can focus on what you do best: serving amazing food
           </motion.p>
 
           <motion.div 

@@ -52,3 +52,26 @@ export const allTestimonials: Testimonial[] = [
     rating: 5
   },
 ];
+
+export const webSolutionsTestimonials: Testimonial[] = [
+  {
+    id: 101,
+    quote: "Social Engagement Group transformed our slow, outdated site into a high-performance lead generation engine. Our inbound inquiries have doubled since the launch.",
+    author: "James Wilson",
+    role: "Marketing Director at",
+    company: "TechFlow Systems",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80",
+    category: "ecommerce",
+    rating: 5
+  },
+  {
+    id: 102,
+    quote: "The speed and attention to detail were incredible. They delivered a conversion-focused landing page in under 10 days that immediately started performing for our ads.",
+    author: "Sarah Chen",
+    role: "Founder of",
+    company: "Lumina Wellness",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&q=80",
+    category: "other",
+    rating: 5
+  }
+];

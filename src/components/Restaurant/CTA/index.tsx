@@ -29,12 +29,11 @@ const CTA: React.FC = () => {
           </span>
 
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight font-outfit">
-            Let's Fill Your <br />
-            Reservation Book
+            Let’s Fill Your Tables
           </h2>
 
           <p className="text-white/90 text-lg md:text-xl mb-12 max-w-4xl mx-auto font-medium leading-relaxed">
-            Your restaurant's flavors deserve to be seen and tasted. Let us build a system that keeps your tables full with the guests who will love your hospitality.
+            Your food deserves attention. Let us build the system that keeps your restaurant busy with the guests you want.
           </p>
 
           <div className="flex justify-center">

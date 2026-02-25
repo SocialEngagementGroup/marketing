@@ -6,9 +6,9 @@ import CountUp from '../../Common/ui/CountUp';
 
 const CaseStudy: React.FC = () => {
   const metrics = [
-    { label: "Google Visibility", value: 70, suffix: "%", prefix: "+" },
-    { label: "Reservation Requests", value: 55, suffix: "%", prefix: "+" },
-    { label: "Google Maps Ranking", value: 3, prefix: "Top " }
+    { label: "INCREASE IN MAPS VISIBILITY", value: 70, suffix: "%", prefix: "+" },
+    { label: "GROWTH IN RESERVATIONS", value: 55, suffix: "%", prefix: "+" },
+    { label: "MONTHLY PROFILE VIEWS", value: 9600, suffix: "+", prefix: "" }
   ];
 
   return (
@@ -31,12 +31,12 @@ const CaseStudy: React.FC = () => {
             <div className="space-y-8 text-white/60 font-medium mb-12 lg:mb-12">
               <div>
                 <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">The Challenge:</p>
-                <p className="text-base text-white/80 border-l-2 border-white/10 pl-6 font-outfit">A top-tier hibachi spot with a dated website, zero review strategy, and virtually no presence on Google Maps despite great food.</p>
+                <p className="text-base text-white/80 border-l-2 border-white/10 pl-6 font-outfit">A popular restaurant had a dated website, inconsistent reviews, and low visibility on Google Maps, even during peak hours.</p>
               </div>
               
               <div>
                 <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">Our Solution:</p>
-                <p className="text-base text-white/80 border-l-2 border-[#B95D56]/50 pl-6 font-outfit">Mobile-first menu redesign, Google Maps optimization, automated review requests, and hyper-local Search Ads.</p>
+                <p className="text-base text-white/80 border-l-2 border-[#B95D56]/50 pl-6 font-outfit">We rebuilt the website for quick menu access and bookings, optimized the Google Business Profile, increased their followers based on Instagram, launched reservation-focused Meta Ads, and automated review requests.</p>
               </div>
             </div>
           </motion.div>

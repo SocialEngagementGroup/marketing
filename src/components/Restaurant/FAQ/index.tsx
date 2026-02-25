@@ -4,28 +4,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "How will you help guests find our restaurant on Google?",
-    answer: "We optimize your website and Google Business Profile to rank for local, high-intent searches like 'best brunch near me' and cuisine-specific queries."
+    question: "How will you help guests find us on Google?",
+    answer: "We optimize your website and Google Business Profile to rank for local, high-intent searches like “restaurant near me,” “best brunch,” and cuisine-specific keywords."
   },
   {
     question: "Do you only build websites?",
-    answer: "No. We build the website and manage local SEO, paid ads, and reputation building to consistently bring in new guests and reservation requests."
+    answer: "Yes, We build both websites and implement the full strategy: local SEO, paid ads, social proof, and tracking."
   },
   {
-    question: "Can you help us get more guest reviews?",
-    answer: "Yes. We automate review requests after a dining experience and help you showcase positive feedback across key reservation and social platforms."
+    question: "Can you help us get more reviews?",
+    answer: "Yes. We automate review requests and help you showcase them across key platforms to build trust."
   },
   {
-    question: "How do you track what's working?",
-    answer: "With real-time dashboards that show which campaigns generate bookings, direction clicks, and which diners convert to actual visits."
+    question: "How do you track what’s working?",
+    answer: "We provide dashboards showing calls, bookings, direction clicks, and which campaigns drive real guest actions."
   },
   {
-    question: "How are you different from other marketing agencies?",
-    answer: "We focus on qualified guest acquisition and measurable revenue outcomes (like reservation growth), not just clicks or impressions."
+    question: "How are you different from other agencies?",
+    answer: "We focus on measurable guest acquisition, not vanity metrics. The goal is filled tables and consistent bookings."
   },
   {
-    question: "Is this customized for my cuisine and location?",
-    answer: "Yes. Strategy, keywords, and ads are tailored to your specific cuisine type, restaurant location, and ideal diner demographics."
+    question: "Is it tailored to our cuisine and location?",
+    answer: "Yes. Keywords, ads, offers, and positioning are built around your restaurant type and local area."
   }
 ];
 

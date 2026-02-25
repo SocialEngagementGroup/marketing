@@ -1,99 +1,105 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import Reveal from '../../Common/ui/Reveal';
-import FAQItem from './FAQItem';
+import React, { useState } from 'react';
+import { Plus, Minus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: 'Do I own my website if AI is involved?',
-    answer: "Yes—100%. Even though we use AI as part of the process, your website is fully yours. You own the design, the content, and the final website. AI helps us move faster and prototype smarter—but it does not take ownership, control, or lock you into our platform.",
+    question: "1. Do I own my website if AI is involved?",
+    answer: "Yes—100%. While we use AI to prototype and move faster, the final product is yours. You own the design, the content, and the site itself."
   },
   {
-    question: 'Am I locked into your system or tools?',
-    answer: "No. Your website is built using standard, widely supported technologies. You are free to host it, manage it, or update it however you choose. We do not trap you in proprietary systems or ongoing dependencies.",
+    question: "2. Can I make changes later?",
+    answer: "Absolutely. You’ll be able to update content, add pages, and modify layouts. While we’re always here to help, you’re never forced to rely on us for simple updates."
   },
   {
-    question: 'Can I make changes later?',
-    answer: "Absolutely. You will be able to update content, add pages, modify layouts, and integrate new tools. We can help with updates if you want—but you are never forced to rely on us.",
+    question: "3. Is this just an AI-generated website?",
+    answer: "No. Humans lead the strategy, messaging, and final execution. AI is the tool that helps us prototype and build with incredible speed, but every site is reviewed and refined by our expert team."
   },
   {
-    question: 'Is this just an AI-generated website?',
-    answer: "No. AI assists with prototyping and speed, but humans lead the strategy and execution. Every site is reviewed, refined, and built intentionally. That is how we ensure your website is not just fast—but effective.",
+    question: "4. How long does it actually take to get a website live in 2025?",
+    answer: "While traditional agencies often quote 3 to 6 months, our hybrid workflow (Human Strategy + AI Execution) allows us to launch high-performance sites in weeks, not months. We focus on getting you to market fast with a \"Phase 1\" site that looks incredible, then scaling features as you grow."
   },
   {
-    question: 'How long does the process take?',
-    answer: 'Most projects are completed in 2-4 weeks, depending on complexity. This is significantly faster than traditional agencies (which often take 2-3 months) while maintaining high quality standards.',
+    question: "5. Why should I pay for a build when I can use a 'Free' AI website builder?",
+    answer: "Free AI builders are great for hobbyists, but they often produce \"cookie-cutter\" sites with messy code that struggles to rank on Google. More importantly, they lack strategy. A tool can't tell your brand story or build a psychological conversion funnel—only people can. We use AI as a high-powered engine, but our strategists keep their hands on the steering wheel."
   },
   {
-    question: 'What technologies do you use?',
-    answer: 'We use modern, industry-standard technologies including React, Next.js, TypeScript, and Tailwind CSS. This ensures your website is fast, secure, scalable, and easy to maintain.',
+    question: "6. Will my website be mobile-friendly and fast?",
+    answer: "Absolutely. In 2025, if your site isn’t \"mobile-first,\" it’s invisible. We build every site to be ultra-responsive and lightweight so it passes Google’s Core Web Vitals with flying colors. A fast site isn’t just a \"nice-to-have\"—it’s a requirement for ranking and keeping visitors from bouncing."
   },
   {
-    question: 'Do you offer ongoing support?',
-    answer: 'Yes, we offer optional maintenance packages. However, you are never locked in—you can choose to manage the site yourself or work with another developer at any time.',
+    question: "7. Do I have to provide all the photos and text myself?",
+    answer: "We’ve found that \"waiting for content\" is the #1 reason web projects stall. While you are the expert on your business, we can help bridge the gap. We use AI-assisted copywriting and high-quality stock curation to get the momentum started, which you can then refine to ensure it sounds exactly like you."
   },
+  {
+    question: "8. What happens if I want to move my website to a different host later?",
+    answer: "You aren't a hostage here. Because we build on standard, open frameworks, you are never \"locked in\" to our ecosystem. If you ever decide to move, you can take your entire site, content, and design with you. We believe in keeping clients because of our results, not because of a contract."
+  },
+  {
+    question: "9. Will my new website help me rank on page one of Google?",
+    answer: "We build every site with \"SEO-ready\" architecture—meaning clean code, proper header structures, and optimized metadata. While ranking #1 for a competitive term takes ongoing effort, we ensure your site’s foundation is exactly what Google wants to see the moment we flip the switch."
+  }
 ];
 
 const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
-    <section id="faq" className="relative py-32 overflow-hidden bg-brand-brick">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-brand-black/20 via-transparent to-transparent" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Heading */}
-          <div className="text-center mb-20">
-            <Reveal delay={200}>
-              <span className="text-brand-black text-xs font-bold tracking-widest uppercase mb-4 block">
-                FAQ
-              </span>
-            </Reveal>
-            <Reveal delay={400}>
-              <h2 className="text-4xl lg:text-5xl xl:text-7xl font-display text-white leading-[1.1] mb-6 uppercase tracking-tight">
-                Frequently Asked{' '}
-                <span className="text-brand-black italic font-serif normal-case tracking-normal">Questions</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={600}>
-                <p className="text-white/70 text-lg border-l-2 border-brand-black pl-6 inline-block font-medium">
-                  Everything you need to know about our AI-powered web development process.
-                </p>
-            </Reveal>
+    <section id="faq" className="py-20 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-[1fr,1.5fr] gap-6 lg:gap-20 items-center">
+          
+          {/* Left: Header */}
+          <div className="lg:sticky lg:top-32 text-center lg:text-left">
+            <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+            >
+                <h3 className="text-4xl md:text-5xl font-bold text-[#064232] mb-0 lg:mb-6 leading-tight font-outfit">
+                  Frequently <br className="hidden lg:block" />Asked Questions
+                </h3>
+            </motion.div>
           </div>
 
-          {/* FAQ List */}
-          <div className="glass-strong rounded-3xl p-1 lg:p-4 border border-white/10 shadow-2xl relative overflow-hidden">
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 bg-brand-black/5 pointer-events-none" />
-            
-            <div className="p-6 lg:p-8 space-y-2 relative z-10">
-                {faqs.map((faq, index) => (
-                <Reveal key={index} delay={400 + index * 50}>
-                    <FAQItem 
-                    question={faq.question} 
-                    answer={faq.answer} 
-                    initialOpen={index === 0}
-                    />
-                </Reveal>
-                ))}
-            </div>
-          </div>
-
-          {/* Still have questions */}
-          <div className="mt-20 text-center">
-            <Reveal delay={1000}>
-              <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Still have questions?</p>
-              <button
-                onClick={() => document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-4 text-brand-black hover:text-white transition-all bg-white/10 hover:bg-brand-black font-bold uppercase tracking-widest text-[10px] px-8 py-4 rounded-full border border-white/10 group"
+          {/* Right: Modern Accordion */}
+          <div className="space-y-2">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className={`rounded-2xl transition-all duration-300 ${openIndex === index ? 'bg-[#F0F4F2]' : 'bg-[#F9FBFA]'}`}
               >
-                Let's talk Strategy
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-              </button>
-            </Reveal>
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between gap-4 p-6 text-left focus:outline-none"
+                >
+                  <span className={`text-xl font-bold transition-colors font-outfit ${openIndex === index ? 'text-[#064232]' : 'text-gray-600'}`}>
+                    {faq.question}
+                  </span>
+                  <div className={`shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                    <Plus className={`h-5 w-5 ${openIndex === index ? 'text-[#064232]' : 'text-gray-400'}`} />
+                  </div>
+                </button>
+                
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <div className="px-6 pb-6 text-gray-500 text-lg font-medium leading-relaxed font-outfit">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
