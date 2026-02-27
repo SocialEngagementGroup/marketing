@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 interface HeaderProps {
   theme?: 'light' | 'dark';
   showHomeButton?: boolean;
-  accent?: 'brick' | 'navy' | 'lime';
+  accent?: 'brick' | 'navy' | 'lime' | 'forest';
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -37,16 +37,20 @@ const Header: React.FC<HeaderProps> = ({
   const accentClass =
     accent === 'navy'
       ? "bg-[#0A2647] border-[#0A2647] text-white hover:bg-white hover:text-[#0A2647]"
-      : accent === 'lime'
-        ? "bg-brand-healist-lime border-brand-healist-lime text-brand-healist-charcoal hover:bg-white"
-        : "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black";
+      : accent === 'forest'
+        ? "bg-[#064232] border-[#064232] text-white hover:bg-white hover:text-[#064232]"
+        : accent === 'lime'
+          ? "bg-brand-healist-lime border-brand-healist-lime text-brand-healist-charcoal hover:bg-white"
+          : "bg-brand-brick border-brand-brick text-white hover:bg-white hover:text-brand-black";
 
   const mobileAccentClass =
     accent === 'navy'
       ? "bg-[#0A2647] text-white"
-      : accent === 'lime'
-        ? "bg-brand-healist-lime text-brand-healist-charcoal"
-        : "bg-brand-brick text-white";
+      : accent === 'forest'
+        ? "bg-[#064232] text-white"
+        : accent === 'lime'
+          ? "bg-brand-healist-lime text-brand-healist-charcoal"
+          : "bg-brand-brick text-white";
 
   return (
     <>

@@ -5,9 +5,10 @@ export interface Testimonial {
   role: string;
   company: string;
   image: string;
-  category: 'legal' | 'restaurant' | 'ecommerce' | 'medical' | 'other';
+  category: 'lawyer' | 'restaurant' | 'doctor' | 'ecommerce';
   rating?: number;
   time?: string;
+  stats?: string;
 }
 
 export const allTestimonials: Testimonial[] = [
@@ -18,7 +19,7 @@ export const allTestimonials: Testimonial[] = [
     role: "CEO at",
     company: "The MFC Law",
     image: "/assets/testimonial/Michael F. Campopiano.png",
-    category: "legal",
+    category: "lawyer",
     rating: 5
   },
   {
@@ -28,7 +29,7 @@ export const allTestimonials: Testimonial[] = [
     role: "Owner at",
     company: "Aref Law Firm",
     image: "/assets/testimonial/Sharif Aref.png",
-    category: "legal",
+    category: "lawyer",
     rating: 5
   },
   {
@@ -48,30 +49,19 @@ export const allTestimonials: Testimonial[] = [
     role: "Medical Director at",
     company: "North Island Podiatry Associates",
     image: "/assets/testimonial/Dr. Junior King.png",
-    category: "medical",
-    rating: 5
-  },
-];
-
-export const webSolutionsTestimonials: Testimonial[] = [
-  {
-    id: 101,
-    quote: "Social Engagement Group transformed our slow, outdated site into a high-performance lead generation engine. Our inbound inquiries have doubled since the launch.",
-    author: "James Wilson",
-    role: "Marketing Director at",
-    company: "TechFlow Systems",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80",
-    category: "ecommerce",
+    category: "doctor",
     rating: 5
   },
   {
-    id: 102,
-    quote: "The speed and attention to detail were incredible. They delivered a conversion-focused landing page in under 10 days that immediately started performing for our ads.",
-    author: "Sarah Chen",
-    role: "Founder of",
-    company: "Lumina Wellness",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&q=80",
-    category: "other",
-    rating: 5
+    id: 5,
+    quote: "Social Engagement Group helped us go from 'quiet weekdays' to steady bookings. Guests now find us easily and trust us before they even walk in.",
+    author: "Mohammad Rifahtul Haque",
+    role: "Owner",
+    company: "Flame Japanese Hibachi",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600&h=600",
+    category: "restaurant",
+    rating: 5,
+    stats: "+70% Visibility"
   }
 ];
+

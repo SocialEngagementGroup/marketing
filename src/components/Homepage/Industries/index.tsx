@@ -44,7 +44,7 @@ const industries: Industry[] = [
   },
   {
     id: 4,
-    title: 'Web Solution',
+    title: 'Website',
     industry: 'Digital Services',
     description: "AI-powered website building that's fast and effective",
     image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80',

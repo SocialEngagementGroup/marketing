@@ -19,7 +19,7 @@ import FAQ from '../components/WebsiteSolutions/FAQ';
 const WebSolutionsLandingPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen text-brand-forest selection:bg-brand-forest selection:text-white relative">
-      <ScrollProgress color="bg-[#064232]" />
+      <ScrollProgress color="bg-white" />
       <div className="grain-overlay opacity-[0.03]" />
       
       <SEO 
@@ -27,7 +27,7 @@ const WebSolutionsLandingPage: React.FC = () => {
         description="Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses."
       />
       
-      <Header theme="dark" accent="navy" />
+      <Header theme="dark" accent="forest" />
       
       <main>
         <Hero />

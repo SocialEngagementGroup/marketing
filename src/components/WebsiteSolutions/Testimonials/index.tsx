@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ArrowDownRight } from 'lucide-react';
-import { webSolutionsTestimonials } from '../../../data/testimonials';
+import { allTestimonials } from '../../../data/testimonials';
 
-const testimonials = webSolutionsTestimonials || [];
+const categoryTestimonials = allTestimonials.filter(t => t.category === 'ecommerce');
+const testimonials = categoryTestimonials.length >= 2 ? categoryTestimonials : allTestimonials;
+
 
 const AUTO_PLAY_INTERVAL = 5000;
 const PAUSE_AFTER_CLICK = 8000;
@@ -70,9 +72,11 @@ const Testimonials: React.FC = () => {
               <div className="flex-grow max-w-[160px] h-[2px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={false}
-                  animate={{ left: `${(currentIndex / (testimonials.length - 1)) * 100}%` }}
-                  className="absolute top-0 w-1/3 h-full bg-white"
-                  style={{ transform: 'translateX(-50%)' }}
+                  animate={{ 
+                    left: `${(currentIndex / testimonials.length) * 100}%`,
+                    width: `${(1 / testimonials.length) * 100}%` 
+                  }}
+                  className="absolute top-0 h-full bg-white"
                 />
               </div>
 
@@ -144,9 +148,11 @@ const Testimonials: React.FC = () => {
               <div className="flex-grow max-w-[160px] h-[2px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={false}
-                  animate={{ left: `${(currentIndex / (testimonials.length - 1)) * 100}%` }}
-                  className="absolute top-0 w-1/3 h-full bg-white"
-                  style={{ transform: 'translateX(-50%)' }}
+                  animate={{ 
+                    left: `${(currentIndex / testimonials.length) * 100}%`,
+                    width: `${(1 / testimonials.length) * 100}%` 
+                  }}
+                  className="absolute top-0 h-full bg-white"
                 />
               </div>
 

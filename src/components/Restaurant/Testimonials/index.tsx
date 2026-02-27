@@ -1,33 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ArrowDownRight } from 'lucide-react';
+import { allTestimonials } from '../../../data/testimonials';
 
-const testimonials = [
-  {
-    id: 1,
-    quote: "Social Engagement Group helped us go from 'quiet weekdays' to steady bookings. Guests now find us easily and trust us before they even walk in.",
-    author: "Mohammad Rifahtul Haque",
-    role: "Owner, Flame Japanese Hibachi",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600&h=600",
-    stats: "+70% Visibility"
-  },
-  {
-    id: 2,
-    quote: "The reservation system integration and the way they showcase our dishes online has transformed our dinner service.",
-    author: "Sarah Jenkins",
-    role: "GM, The Urban Bistro",
-    image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=150&h=150",
-    stats: "Fully Booked"
-  },
-  {
-    id: 3,
-    quote: "Finally, marketing that actually brings people through the door. The dashboard shows us exactly how many covers we get.",
-    author: "David Chen",
-    role: "Owner, Golden Dragon",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=150&h=150",
-    stats: "ROI Positive"
-  }
-];
+const categoryTestimonials = allTestimonials.filter(t => t.category === 'restaurant');
+const testimonials = categoryTestimonials.length >= 2 ? categoryTestimonials : allTestimonials;
+
 
 const AUTO_PLAY_INTERVAL = 5000;
 const PAUSE_AFTER_CLICK = 8000;
@@ -89,9 +67,11 @@ const Testimonials: React.FC = () => {
               <div className="flex-grow max-w-[160px] h-[2px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                    initial={false}
-                   animate={{ left: `${(currentIndex / (testimonials.length - 1)) * 100}%` }}
-                   className="absolute top-0 w-1/3 h-full bg-white"
-                   style={{ transform: 'translateX(-50%)' }}
+                   animate={{ 
+                     left: `${(currentIndex / testimonials.length) * 100}%`,
+                     width: `${(1 / testimonials.length) * 100}%` 
+                   }}
+                   className="absolute top-0 h-full bg-white"
                 />
               </div>
 
@@ -141,7 +121,7 @@ const Testimonials: React.FC = () => {
                   <div>
                     <h4 className="text-lg font-bold text-[#A64942] font-outfit">{current.author}</h4>
                     <p className="text-[#8E3E38] text-sm font-semibold font-outfit">
-                      {current.role}
+                      {current.role} {current.company}
                     </p>
                   </div>
                 </div>
@@ -164,9 +144,11 @@ const Testimonials: React.FC = () => {
               <div className="flex-grow max-w-[160px] h-[2px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={false}
-                  animate={{ left: `${(currentIndex / (testimonials.length - 1)) * 100}%` }}
-                  className="absolute top-0 w-1/3 h-full bg-white"
-                  style={{ transform: 'translateX(-50%)' }}
+                  animate={{ 
+                    left: `${(currentIndex / testimonials.length) * 100}%`,
+                    width: `${(1 / testimonials.length) * 100}%` 
+                  }}
+                  className="absolute top-0 h-full bg-white"
                 />
               </div>
 

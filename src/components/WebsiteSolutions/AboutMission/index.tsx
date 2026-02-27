@@ -35,7 +35,7 @@ const AboutMission: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-bold tracking-[0.3em] text-[#A3E635] uppercase mb-4 block"
+            className="text-xs font-bold tracking-[0.3em] text-white/60 uppercase mb-4 block"
           >
             Human Strategy Meets AI Speed
           </motion.span>
@@ -77,7 +77,7 @@ const AboutMission: React.FC = () => {
                 </div>
 
                 {/* Subtle bottom indicator */}
-                <div className="absolute bottom-0 left-0 h-1 bg-[#A3E635]/0 lg:group-hover:w-full lg:group-hover:bg-[#A3E635]/40 transition-all duration-700" style={{ width: '0%' }} />
+                <div className="absolute bottom-0 left-0 h-1 bg-white/0 lg:group-hover:w-full lg:group-hover:bg-white/40 transition-all duration-700" style={{ width: '0%' }} />
               </motion.div>
            ))}
         </div>

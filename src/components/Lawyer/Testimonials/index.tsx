@@ -5,8 +5,8 @@ import TestimonialCard from './TestimonialCard';
 import { allTestimonials } from '../../../data/testimonials';
 
 const Testimonials: React.FC = () => {
-  // Filter for only legal industry testimonials
-  const testimonials = allTestimonials.filter(t => t.category === 'legal');
+  const categoryTestimonials = allTestimonials.filter(t => t.category === 'lawyer');
+  const testimonials = categoryTestimonials.length >= 2 ? categoryTestimonials : allTestimonials;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
