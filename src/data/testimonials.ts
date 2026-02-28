@@ -58,7 +58,7 @@ export const allTestimonials: Testimonial[] = [
     author: "Mohammad Rifahtul Haque",
     role: "Owner",
     company: "Flame Japanese Hibachi",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600&h=600",
+    image: "/assets/testimonial/Mohammad Rifahtul Haque.png",
     category: "restaurant",
     rating: 5,
     stats: "+70% Visibility"
