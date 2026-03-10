@@ -1,20 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const logos = [
-  'Aref-Black.png',
-  'Capiton-Black.png',
-  'FJH-Black.png',
-  'GT-Black.png',
-  'Gravy-Stack-Black.png',
-  'Infuse-Black.png',
-  'MFC-Black.png',
-  'NIPA-Black.png',
-  'Rastegar-Black.png',
-  'SC-Black.png',
-  'SMF-Black.png',
-  'Sporcle-Black.png',
-];
+import { clients } from '../../../data/clientsData';
 
 const Marquee: React.FC = () => {
   return (
@@ -50,11 +36,13 @@ const Marquee: React.FC = () => {
         <style>
           {`
             @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
             }
             .animate-marquee {
-              animation: marquee 35s linear infinite;
+              display: flex;
+              animation: marquee 80s linear infinite;
+              width: max-content;
             }
             .animate-marquee:hover {
               animation-play-state: paused;
@@ -67,16 +55,26 @@ const Marquee: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="relative mt-8 lg:mt-16 overflow-hidden"
+          className="relative mt-8 lg:mt-16 overflow-hidden max-w-[1240px] mx-auto"
         >
-          <div className="flex animate-marquee w-fit">
-            {[...logos, ...logos].map((logo, index) => (
-              <div key={index} className="flex-shrink-0 px-4 md:px-6">
-                <img
-                  src={`/assets/logos/clients/${logo}`}
-                  alt="Client Logo"
-                  className="h-10 md:h-12 w-auto object-contain opacity-90 grayscale-0 transition-opacity duration-300"
-                />
+          <div className="flex animate-marquee w-fit items-center">
+            {[1, 2].map((setIdx) => (
+              <div
+                key={`logo-set-${setIdx}`}
+                className="flex items-center gap-12 md:gap-16 pr-12 md:pr-16 flex-shrink-0"
+              >
+                {clients.map((logo, index) => (
+                  <div
+                    key={`logo-${setIdx}-${index}`}
+                    className="relative flex items-center justify-center"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>

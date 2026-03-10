@@ -111,3 +111,10 @@ html {
     transform: translateY(0);
   }
 }
+
+/* =========================================================
+   reCAPTCHA Concealment
+========================================================= */
+.grecaptcha-badge { 
+  visibility: hidden !important; 
+}

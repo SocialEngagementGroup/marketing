@@ -1,5 +1,6 @@
 import React from 'react';
 import Reveal from '../../Common/ui/Reveal';
+import { clients } from '../../../data/clientsData';
 
 const TrustBar: React.FC = () => {
   return (
@@ -19,11 +20,13 @@ const TrustBar: React.FC = () => {
         <style>
           {`
             @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
             }
             .animate-marquee {
-              animation: marquee 30s linear infinite;
+              display: flex;
+              animation: marquee 80s linear infinite;
+              width: max-content;
             }
             .animate-marquee:hover {
               animation-play-state: paused;
@@ -32,57 +35,27 @@ const TrustBar: React.FC = () => {
         </style>
 
         <Reveal delay={200}>
-          <div className="mt-16 overflow-hidden relative">
-            <div className="flex animate-marquee w-fit">
-              {/* First Set of Logos */}
-              <div className="flex items-center gap-12 md:gap-16 px-8 md:px-12 flex-shrink-0">
-                {[
-                  'Aref-Black.png',
-                  'Capiton-Black.png',
-                  'FJH-Black.png',
-                  'GT-Black.png',
-                  'Gravy-Stack-Black.png',
-                  'Infuse-Black.png',
-                  'MFC-Black.png',
-                  'NIPA-Black.png',
-                  'Rastegar-Black.png',
-                  'SC-Black.png',
-                  'SMF-Black.png',
-                  'Sporcle-Black.png',
-                ].map((logo, index) => (
-                  <img
-                    key={`logo-1-${index}`}
-                    src={`/assets/logos/clients/${logo}`}
-                    alt="Client Logo"
-                    className="h-10 md:h-12 w-auto object-contain opacity-90 grayscale-0"
-                  />
-                ))}
-              </div>
-
-              {/* Second Set of Logos (Duplicate for infinite scroll) */}
-              <div className="flex items-center gap-12 md:gap-16 px-8 md:px-12 flex-shrink-0">
-                {[
-                  'Aref-Black.png',
-                  'Capiton-Black.png',
-                  'FJH-Black.png',
-                  'GT-Black.png',
-                  'Gravy-Stack-Black.png',
-                  'Infuse-Black.png',
-                  'MFC-Black.png',
-                  'NIPA-Black.png',
-                  'Rastegar-Black.png',
-                  'SC-Black.png',
-                  'SMF-Black.png',
-                  'Sporcle-Black.png',
-                ].map((logo, index) => (
-                  <img
-                    key={`logo-2-${index}`}
-                    src={`/assets/logos/clients/${logo}`}
-                    alt="Client Logo"
-                    className="h-10 md:h-12 w-auto object-contain opacity-90 grayscale-0"
-                  />
-                ))}
-              </div>
+          <div className="mt-16 overflow-hidden relative max-w-[1240px] mx-auto">
+            <div className="flex animate-marquee w-fit items-center">
+              {[1, 2].map((setIdx) => (
+                <div
+                  key={`logo-set-${setIdx}`}
+                  className="flex items-center gap-12 md:gap-16 pr-12 md:pr-16 flex-shrink-0"
+                >
+                  {clients.map((logo, index) => (
+                    <div
+                      key={`logo-${setIdx}-${index}`}
+                      className="relative flex items-center justify-center"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
             
             {/* Fade Gradients */}
