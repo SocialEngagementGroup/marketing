@@ -17,9 +17,8 @@ const ReCaptchaProvider: React.FC<Props> = ({ children }) => {
         appendTo: "head",
         nonce: undefined,
       }}
-    >
-      {children}
-    </GoogleReCaptchaProvider>
+      children={children}
+    />
   );
 };
 
