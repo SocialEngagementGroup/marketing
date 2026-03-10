@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Loader2, CheckCircle2, AlertCircle, Calendar, Mail } from 'lucide-react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useNavigate } from 'react-router-dom';
 
 interface ContactFormProps {
@@ -35,19 +36,30 @@ const ContactForm: React.FC<ContactFormProps> = ({ successRedirect, accent = 'br
     }));
   };
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      setStatus('error');
+      return;
+    }
+
     try {
-      const response = await fetch('https://n8n.socialengagementgroup.com/webhook/form-submission', {
+      const token = await executeRecaptcha('contact_form');
+      
+      const response = await fetch('/api/form-submission', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           ...formData,
-          pageUrl: window.location.href
+          pageUrl: window.location.href,
+          recaptchaToken: token
         }),
       });
 
