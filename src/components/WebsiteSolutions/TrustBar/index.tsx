@@ -1,3 +1,5 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 import { clients } from '../../../data/clientsData';
 
 const TrustBar: React.FC = () => {
@@ -68,11 +70,16 @@ const TrustBar: React.FC = () => {
                     key={`logo-${setIdx}-${index}`}
                     className="relative flex items-center justify-center"
                   >
+                  <div
+                    key={`logo-${setIdx}-${index}`}
+                    className="relative flex items-center justify-center"
+                  >
                     <img
-                      src={`/assets/images/logos/clients/${logo.src}`}
+                      src={logo.src}
                       alt={logo.alt}
                       className="h-8 md:h-10 w-auto max-w-[120px] md:max-w-[140px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                     />
+                  </div>
                   </div>
                 ))}
               </div>
