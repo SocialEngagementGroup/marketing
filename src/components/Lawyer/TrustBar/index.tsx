@@ -1,3 +1,5 @@
+import React from 'react';
+import Reveal from '../../Common/ui/Reveal';
 import { clients } from '../../../data/clientsData';
 
 const TrustBar: React.FC = () => {

@@ -1,3 +1,5 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 import { clients } from '../../../data/clientsData';
 
 const TrustBar: React.FC = () => {
