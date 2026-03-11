@@ -34,7 +34,7 @@ function apiMiddlewarePlugin() {
           console.error('Dev API middleware error:', err);
           res.statusCode = 500;
           res.setHeader('Content-Type', 'application/json');
-          res.end(JSON.stringify({ success: false, error: err.message }));
+          res.end(JSON.stringify({ success: false, error: 'Internal server error' }));
         }
       });
     },

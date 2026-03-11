@@ -27,5 +27,11 @@
     "tailwindcss": "^3.4.19",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
+  },
+  "overrides": {
+    "ajv": "^8.17.1",
+    "minimatch": "^10.2.4",
+    "path-to-regexp": "^6.3.0",
+    "undici": "^6.23.0"
   }
 }
