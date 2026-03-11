@@ -6,7 +6,7 @@ const formSchema = yup.object({
   name: yup.string().required().max(100),
   email: yup.string().email().required().max(150),
   phone: yup.string().max(20).optional(),
-  company: yup.string().max(100).optional(),
+  business: yup.string().max(100).optional(),
   message: yup.string().max(2000).optional(),
   package: yup.string().max(50).optional(),
 });
