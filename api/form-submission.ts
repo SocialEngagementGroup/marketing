@@ -89,7 +89,7 @@ export default async function handler(
 
     const verifyData = await verifyRes.json();
 
-    if (!verifyData.success || verifyData.score < 0.5) {
+    if (!verifyData.success || verifyData.score < 0.5 || verifyData.action !== 'contact_form') {
       // Log details internally, mask them for the client
       console.log("reCAPTCHA REJECTED - score:", verifyData.score, "action:", verifyData.action, "errors:", verifyData["error-codes"]);
       return response.status(400).json({
