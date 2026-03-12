@@ -33,39 +33,36 @@ const CaseStudy: React.FC = () => {
             </h2>
 
             <div className="space-y-8 text-gray-400 font-medium mb-12 lg:mb-12">
+              <p className="text-base text-gray-300 border-l-2 border-white/10 pl-6 font-outfit">
+                When we began working with North Island Podiatry, their online presence was
+                inconsistent, their Google reviews were sparse, and their new patient pipeline
+                depended almost entirely on physician referrals.
+              </p>
+
               <div>
-                <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">
-                  The Challenge:
-                </p>
-                <p className="text-base text-gray-300 border-l-2 border-white/10 pl-6 font-outfit">
-                  An established family practice with an outdated website, no
-                  online review strategy, and minimal visibility in local search
-                  results.
+                <p className="text-base text-gray-300 border-l-2 border-cyan-400/50 pl-6 font-outfit">
+                  <span className="text-white font-bold">What we did:</span> Built a
+                  local SEO foundation, launched targeted Google Ads for high-intent searches,
+                  and implemented a systematic reputation-building process. Within four months,
+                  their practice was showing up in the top three results for every core search
+                  term in their area.
                 </p>
               </div>
 
-              <div>
-                <p className="text-white font-bold uppercase text-xs tracking-widest mb-3">
-                  Our Solution:
-                </p>
-                <p className="text-base text-gray-300 border-l-2 border-cyan-400/50 pl-6 font-outfit">
-                  To revitalize NIPA’s digital presence, we launched a
-                  mobile-optimized website and optimized Google Business Profiles
-                  for all locations. The strategy integrated automated review
-                  requests, targeted Search and Local Service Ads for
-                  insurance-accepting physicians, and specialized SEO content.
-                  This, combined with a social media overhaul, established the
-                  practice as a trusted local authority.
-                </p>
-              </div>
+              <p className="text-sm text-gray-400 pl-6 font-outfit italic">
+                The results below reflect their first six months with SEG.
+              </p>
             </div>
           </motion.div>
 
           {/* Metrics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:-mt-12">
-            {metrics.map((metric, index) => {
-              const Icon =
-                index === 0 ? MapPin : index === 1 ? Phone : TrendingUp;
+            {[
+              { label: "Increase In New Patient Inquiries", value: 47, suffix: "%", prefix: "" },
+              { label: "Return On Ad Spend", value: 3.4, suffix: "x", prefix: "" },
+              { label: "New Patients In 6 Months", value: 94, suffix: "+", prefix: "" },
+            ].map((metric, index) => {
+              const Icon = index === 0 ? Phone : index === 1 ? TrendingUp : MapPin;
               return (
                 <motion.div
                   key={index}
@@ -81,9 +78,10 @@ const CaseStudy: React.FC = () => {
                         end={metric.value}
                         prefix={metric.prefix}
                         suffix={metric.suffix}
+                        decimals={metric.value % 1 !== 0 ? 1 : 0}
                       />
                     </h3>
-                    <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-2 font-outfit">
+                    <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-2 font-outfit">
                       {metric.label}
                     </p>
                   </div>
