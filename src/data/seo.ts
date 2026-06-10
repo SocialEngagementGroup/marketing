@@ -1,8 +1,9 @@
 export const siteUrl =
   (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://digitaldoor.com';
+  'https://digital.socialengagementgroup.com';
 
 export const siteName = 'Social Engagement Group';
+export const mainSiteUrl = 'https://www.socialengagementgroup.com';
 export const defaultOgImage = '/favicon.png';
 
 export const routes = {
@@ -73,8 +74,8 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: siteName,
-  url: siteUrl,
-  logo: absoluteUrl('/assets/logos/logo.svg'),
+  url: mainSiteUrl,
+  logo: `${mainSiteUrl}/assets/images/site-logo/logo.svg`,
   sameAs: [
     'https://www.instagram.com/socialengagementgroup',
     'https://www.linkedin.com/company/social-engagement-group',
@@ -101,16 +102,16 @@ export const serviceSchema = ({
   serviceType: string;
 }) => ({
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: siteName,
+  '@type': 'Service',
+  name,
   url: absoluteUrl(path),
   description,
   serviceType,
-  areaServed: 'United States',
+  areaServed: 'US',
   provider: {
     '@type': 'Organization',
     name: siteName,
-    url: siteUrl,
+    url: mainSiteUrl,
   },
   offers: {
     '@type': 'Offer',

@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digitaldoor.com/sitemap.xml
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://digital.socialengagementgroup.com/sitemap.xml
