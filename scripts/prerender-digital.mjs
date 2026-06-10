@@ -15,9 +15,9 @@ const logoUrl = `${mainSiteUrl}/assets/images/site-logo/logo.svg`;
 const pages = [
   {
     path: '/',
-    title: 'Where Human Creativity Meets AI-Powered Business Growth | SEG',
+    title: 'AI-Powered Business Growth | SEG',
     description:
-      'Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call.',
+      'Transform your digital presence with SEG through creative strategy, AI-powered execution, websites, ads, SEO, and content built to convert attention into leads.',
     heading: 'Where Human Creativity Meets AI-Powered Growth',
     body:
       'We tell your story across every digital touchpoint, blending creativity, strategy, and AI-powered execution for modern business growth.',
@@ -44,7 +44,7 @@ const pages = [
   },
   {
     path: '/marketing-for-law-firm',
-    title: 'Legal Marketing Experts | Grow Your Law Practice with SEG',
+    title: 'Marketing for Law Firms | SEG',
     description:
       'Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume.',
     heading: 'Marketing for Law Firms Built for Consistent Call Volume',
@@ -55,9 +55,9 @@ const pages = [
   },
   {
     path: '/marketing-for-doctors',
-    title: 'Marketing for Medical Practices That Fills Your Appointment Calendar',
+    title: 'Marketing for Doctors | SEG',
     description:
-      'We help healthcare providers attract the right patients, build trust with a strong online reputation, and run targeted campaigns that turn searches into scheduled appointments.',
+      'We help healthcare providers attract ideal patients, build trust with stronger online reputation, and turn high-intent searches into scheduled appointments.',
     heading: 'Marketing for Medical Practices That Fills Your Calendar',
     body:
       'We help healthcare providers attract the right patients, strengthen reputation, and convert searches into scheduled appointments.',
@@ -66,14 +66,25 @@ const pages = [
   },
   {
     path: '/marketing-for-restaurants',
-    title: 'Marketing for Restaurants | Reservation Growth & Digital Strategy',
+    title: 'Restaurant Marketing | Reservation Growth | SEG',
     description:
-      'Fill your tables every day. Our guest-generating engine turns hungry searchers into loyal regulars for your restaurant.',
+      'Fill your tables with restaurant marketing built for local search, paid ads, social proof, and reservation growth that turns hungry guests into regulars.',
     heading: 'Marketing for Restaurants That Fills Your Tables Everyday',
     body:
       'We help restaurants reach hungry local searchers, grow reservations, and turn first-time guests into regulars.',
     serviceName: 'Marketing for Restaurants',
     serviceType: 'Restaurant Marketing',
+  },
+  {
+    path: '/website-solutions',
+    title: 'Web Solutions for Growing Businesses | SEG',
+    description:
+      'Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses.',
+    heading: 'Web Solutions Built for Growing Businesses',
+    body:
+      'We build high-performance websites with strategy, design, and conversion systems that help growth-oriented businesses win more inquiries.',
+    serviceName: 'Website Design and Development Services',
+    serviceType: 'Web Design',
   },
 ];
 

@@ -18,34 +18,34 @@ export const routes = {
 
 export const pageSeo = {
   home: {
-    title: 'Where Human Creativity Meets AI-Powered Business Growth | SEG',
+    title: 'AI-Powered Business Growth | SEG',
     description:
-      'Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call.',
+      'Transform your digital presence with SEG through creative strategy, AI-powered execution, websites, ads, SEO, and content built to convert attention into leads.',
     path: routes.home,
   },
   lawyer: {
-    title: 'Legal Marketing Experts | Grow Your Law Practice with SEG',
+    title: 'Marketing for Law Firms | SEG',
     description:
       'Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume.',
-    ogTitle: 'Legal Marketing Experts | Social Engagement Group',
+    ogTitle: 'Marketing for Law Firms | SEG',
     ogDescription:
-      'Specialized digital marketing strategies for law firms. Build authority and automate your growth.',
+      'Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume.',
     path: routes.lawyer,
   },
   doctors: {
-    title: 'Marketing for Medical Practices That Fills Your Appointment Calendar',
+    title: 'Marketing for Doctors | SEG',
     description:
-      'We help healthcare providers attract the right patients, build trust with a strong online reputation, and run targeted campaigns that turn searches into scheduled appointments.',
+      'We help healthcare providers attract ideal patients, build trust with stronger online reputation, and turn high-intent searches into scheduled appointments.',
     path: routes.doctors,
   },
   restaurants: {
-    title: 'Marketing for Restaurants | Reservation Growth & Digital Strategy',
+    title: 'Restaurant Marketing | Reservation Growth | SEG',
     description:
-      'Fill your tables every day. Our guest-generating engine turns hungry searchers into loyal regulars for your restaurant.',
+      'Fill your tables with restaurant marketing built for local search, paid ads, social proof, and reservation growth that turns hungry guests into regulars.',
     path: routes.restaurants,
   },
   websiteSolutions: {
-    title: 'Web Solutions | Professional Website Building | Social Engagement Group',
+    title: 'Web Solutions for Growing Businesses | SEG',
     description:
       'Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses.',
     path: routes.websiteSolutions,
