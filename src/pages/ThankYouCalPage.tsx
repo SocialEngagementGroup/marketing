@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '../components/Common/SEO';
 import Header from '../components/Common/Header';
 import Footer from '../components/Common/Footer';
+import { pageSeo } from '../data/seo';
 
 /**
  * Thank You Page - Optimized with Homepage Aesthetic
@@ -11,8 +12,9 @@ const ThankYouCalPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-brand-black text-white selection:bg-brand-brick selection:text-white overflow-x-hidden">
       <SEO 
-        title="Session Confirmed | Social Engagement Group" 
-        description="You're in the inner circle. Your session is confirmed. Check your email for details." 
+        title={pageSeo.thankYou.title}
+        description={pageSeo.thankYou.description}
+        noindex={pageSeo.thankYou.noindex}
       />
 
       {/* Global Navbar - Customized for Thank You page */}

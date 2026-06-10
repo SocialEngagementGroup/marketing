@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/Common/SEO';
 import Header from '../components/Common/Header';
+import { pageSeo } from '../data/seo';
 
 
 const NotFoundPage: React.FC = () => {
@@ -11,7 +12,7 @@ const NotFoundPage: React.FC = () => {
       className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center font-outfit selection:bg-indigo-500/30 bg-[#050505]"
       style={{ height: '100dvh' }}
     >
-      <SEO title="Page Not Found | Social Engagement Group" description="Oops! It looks like this page has drifted off into space." />
+      <SEO title={pageSeo.notFound.title} description={pageSeo.notFound.description} noindex={pageSeo.notFound.noindex} />
       
       {/* Site Navbar */}
       <Header theme="light" showHomeButton={true} />

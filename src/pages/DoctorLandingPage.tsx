@@ -15,6 +15,7 @@ import ScrollProgress from '../components/Common/ScrollProgress';
 import SEO from '../components/Common/SEO';
 import Footer from '../components/Common/Footer';
 import ContactForm from '../components/Common/ContactForm';
+import { pageSeo, serviceSchema } from '../data/seo';
 
 interface DoctorLandingPageProps {}
 
@@ -24,8 +25,15 @@ const DoctorLandingPage: React.FC<DoctorLandingPageProps> = () => {
       <ScrollProgress color="bg-white" />
       <div className="grain-overlay opacity-[0.03]" />
       <SEO
-        title="Marketing for Medical Practices That Fills Your Appointment Calendar"
-        description="We help healthcare providers attract the right patients, build trust with a strong online reputation, and run targeted campaigns that turn searches into scheduled appointments."
+        title={pageSeo.doctors.title}
+        description={pageSeo.doctors.description}
+        canonicalPath={pageSeo.doctors.path}
+        schema={serviceSchema({
+          name: 'Medical Practice Marketing Services',
+          description: pageSeo.doctors.description,
+          path: pageSeo.doctors.path,
+          serviceType: 'Healthcare Marketing',
+        })}
       />
       <Header accent="brick" />
         <main>

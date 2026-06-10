@@ -15,6 +15,7 @@ import Testimonials from '../components/WebsiteSolutions/Testimonials';
 import TrustBar from '../components/WebsiteSolutions/TrustBar';
 import CTA from '../components/WebsiteSolutions/CTA';
 import FAQ from '../components/WebsiteSolutions/FAQ';
+import { pageSeo, serviceSchema } from '../data/seo';
 
 const WebSolutionsLandingPage: React.FC = () => {
   return (
@@ -23,8 +24,15 @@ const WebSolutionsLandingPage: React.FC = () => {
       <div className="grain-overlay opacity-[0.03]" />
       
       <SEO 
-        title="Web Solutions | Professional Website Building | Social Engagement Group"
-        description="Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses."
+        title={pageSeo.websiteSolutions.title}
+        description={pageSeo.websiteSolutions.description}
+        canonicalPath={pageSeo.websiteSolutions.path}
+        schema={serviceSchema({
+          name: 'Website Design and Development Services',
+          description: pageSeo.websiteSolutions.description,
+          path: pageSeo.websiteSolutions.path,
+          serviceType: 'Web Design',
+        })}
       />
       
       <Header theme="dark" accent="forest" />
