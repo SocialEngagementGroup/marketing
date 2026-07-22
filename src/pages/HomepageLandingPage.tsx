@@ -14,6 +14,7 @@ import HomepageTestimonials from "../components/Homepage/Testimonials";
 import HomepageAbout from "../components/Homepage/About";
 import HomepageContact from "../components/Homepage/Contact";
 import Footer from "../components/Common/Footer";
+import { organizationSchema, pageSeo, websiteSchema } from "../data/seo";
 
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
@@ -188,11 +189,20 @@ const HomepageLandingPage: React.FC = () => {
   const accentColor = isLightUI ? "text-[#F5E6D3]" : "text-brand-black";
   const dotActiveColor = isLightUI ? "bg-[#F5E6D3]" : "bg-brand-purple";
   const dotInactiveColor = isLightUI ? "bg-white/30" : "bg-brand-black/10";
+  const seo = (
+    <SEO
+      title={pageSeo.home.title}
+      description={pageSeo.home.description}
+      canonicalPath={pageSeo.home.path}
+      schema={[organizationSchema, websiteSchema]}
+    />
+  );
 
   if (!isDesktop) {
     // Mobile Layout: Standard Vertical Stack
     return (
       <div className="w-full bg-brand-offwhite overflow-x-hidden min-h-screen flex flex-col selection:bg-brand-purple selection:text-white">
+        {seo}
         {/* Fixed Header */}
         <div className="fixed top-0 left-0 w-full z-50">
           <Header theme="dark" />{" "}
@@ -240,10 +250,7 @@ const HomepageLandingPage: React.FC = () => {
   // Desktop Layout
   return (
     <div className="h-screen w-screen overflow-hidden bg-brand-offwhite relative perspective-1000 selection:bg-brand-purple selection:text-white">
-      <SEO
-        title="Where Human Creativity Meets AI-Powered Business Growth | SEG"
-        description="Transform your digital presence with Social Engagement Group. From 3D animation to high-intent Google Ads, we build conversion engines for modern industries. Book a call."
-      />
+      {seo}
       <Header theme={theme} />
 
       {/* Slide Container */}
