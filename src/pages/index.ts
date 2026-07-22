@@ -12,6 +12,7 @@ export { default as ThankYouCalPage } from "./ThankYouCalPage";
 export { default as NotFoundPage } from "./NotFoundPage";
 export { default as DoctorLandingPage } from "./DoctorLandingPage";
 export { default as RestaurantLandingPage } from "./RestaurantLandingPage";
+export { default as RestaurantThankYouPage } from "./RestaurantThankYouPage";
 
 // Future landing pages can be exported here:
 // export { default as RetailLandingPage } from './RetailLandingPage';
