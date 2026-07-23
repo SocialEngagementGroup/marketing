@@ -1,40 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import * as yup from 'yup';
-
-// ── Inline Rate Limiter (LRU, max 5000 entries) ──────────────────────
-const rateLimitMap = new Map<string, { count: number; startTime: number }>();
-const MAX_ENTRIES = 5000;
-
-function rateLimit(ip: string, limit = 5, windowMs = 60 * 1000) {
-  const now = Date.now();
-  const userData = rateLimitMap.get(ip);
-
-  if (userData) {
-    rateLimitMap.delete(ip);
-    rateLimitMap.set(ip, userData);
-  }
-
-  if (!userData) {
-    if (rateLimitMap.size >= MAX_ENTRIES) {
-      const oldestKey = rateLimitMap.keys().next().value;
-      if (oldestKey) rateLimitMap.delete(oldestKey);
-    }
-    rateLimitMap.set(ip, { count: 1, startTime: now });
-    return null;
-  }
-
-  if (now - userData.startTime > windowMs) {
-    rateLimitMap.set(ip, { count: 1, startTime: now });
-    return null;
-  }
-
-  if (userData.count >= limit) {
-    return { error: 'Too many requests. Please try again later.', status: 429 };
-  }
-
-  userData.count += 1;
-  return null;
-}
+import { n8nAuthHeaders } from './_n8n';
+import { rateLimit } from './_rate-limit';
 
 // ── Validation Schema ────────────────────────────────────────────────
 const formSchema = yup.object({
@@ -66,19 +33,8 @@ export default async function handler(
   }
 
   try {
-    // 0. Rate Limiting (3 req / min / client)
-    const forwarded = request.headers['x-forwarded-for'];
-    const ip =
-      (typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : forwarded?.[0]?.split(',')[0]?.trim()) ||
-      (request.headers['x-real-ip'] as string) ||
-      request.socket?.remoteAddress ||
-      '127.0.0.1';
-    const ua = request.headers['user-agent'] || 'unknown';
-
-    const rl = rateLimit(`${ip}-${ua}`, 3, 60_000);
-    if (rl) {
-      return response.status(rl.status).json({ success: false, error: rl.error });
-    }
+    // 0. Rate Limiting (3 req / min / IP)
+    if (rateLimit(request, response, 3, 60_000)) return;
 
     const { recaptchaToken, ...formData } = request.body || {};
 
@@ -102,6 +58,13 @@ export default async function handler(
       return response.status(500).json({ success: false, error: 'Internal server error' });
     }
 
+    // Fail closed: never send an unauthenticated request to the automation.
+    const authHeaders = n8nAuthHeaders();
+    if (!authHeaders) {
+      console.error('Form submission API: N8N_WEBHOOK_SECRET is not set');
+      return response.status(500).json({ success: false, error: 'Internal server error' });
+    }
+
     // 3. Verify reCAPTCHA
     const verifyRes = await fetchWithTimeout(
       'https://www.google.com/recaptcha/api/siteverify',
@@ -120,8 +83,22 @@ export default async function handler(
 
     const verifyData = await verifyRes.json();
 
-    if (!verifyData.success || verifyData.score < 0.5) {
-      console.log('reCAPTCHA REJECTED – score:', verifyData.score, 'errors:', verifyData['error-codes']);
+    // `action` must match the one the form minted the token with. Without this
+    // check a token issued for any other action on the same site key is
+    // accepted here, which is exactly what a replay would use.
+    if (
+      !verifyData.success ||
+      verifyData.score < 0.5 ||
+      verifyData.action !== 'contact_form'
+    ) {
+      console.log(
+        'reCAPTCHA REJECTED – score:',
+        verifyData.score,
+        'action:',
+        verifyData.action,
+        'errors:',
+        verifyData['error-codes']
+      );
       return response.status(400).json({ success: false, error: 'Authentication failed. Please try again.' });
     }
 
@@ -130,7 +107,7 @@ export default async function handler(
       webhookUrl,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify({ ...validatedData, submittedAt: new Date().toISOString() }),
       },
       15_000
