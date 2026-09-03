@@ -29,6 +29,7 @@ const RestaurantLandingPage: React.FC<RestaurantLandingPageProps> = () => {
         title={pageSeo.restaurants.title}
         description={pageSeo.restaurants.description}
         canonicalPath={pageSeo.restaurants.path}
+        noindex={pageSeo.restaurants.noindex}
         schema={serviceSchema({
           name: 'Restaurant Marketing Services',
           description: pageSeo.restaurants.description,

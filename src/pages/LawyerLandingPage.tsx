@@ -38,6 +38,7 @@ const LawyerLandingPage: React.FC = () => {
         ogTitle={pageSeo.lawyer.ogTitle}
         ogDescription={pageSeo.lawyer.ogDescription}
         canonicalPath={pageSeo.lawyer.path}
+        noindex={pageSeo.lawyer.noindex}
         ogType="website"
         schema={serviceSchema({
           name: 'Legal Marketing Services',

@@ -44,6 +44,7 @@ const pages = [
   },
   {
     path: '/marketing-for-law-firm',
+    noindex: true,
     title: 'Marketing for Law Firms | SEG',
     description:
       'Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume.',
@@ -55,6 +56,7 @@ const pages = [
   },
   {
     path: '/marketing-for-doctors',
+    noindex: true,
     title: 'Marketing for Doctors | SEG',
     description:
       'We help healthcare providers attract ideal patients, build trust with stronger online reputation, and turn high-intent searches into scheduled appointments.',
@@ -66,6 +68,7 @@ const pages = [
   },
   {
     path: '/marketing-for-restaurants',
+    noindex: true,
     title: 'Restaurant Marketing | Reservation Growth | SEG',
     description:
       'Fill your tables with restaurant marketing built for local search, paid ads, social proof, and reservation growth that turns hungry guests into regulars.',
@@ -83,6 +86,7 @@ const pages = [
     // half keeps the crawler-visible block accurate, and hydration swaps in the
     // fuller graph at the same id, so nothing is ever emitted twice.
     path: '/marketing-for-website',
+    noindex: true,
     title: 'The SEG Website Growth Engine | Websites Built to Convert',
     description:
       'SEG builds mobile-first websites that turn visitors into calls and bookings. Free 48-hour website audit, no contracts. Built for law firms, medical practices, and local service businesses.',
@@ -136,11 +140,19 @@ const renderMeta = (page) => {
   const canonical = canonicalFor(page.path);
   const schemas = page.schema || [serviceSchema(page)];
 
+  // The robots directive has to be in the prerendered HTML, not just applied by
+  // SEO.tsx on hydration: the crawlers most likely to index an ad landing page
+  // by accident are the ones that never run the JS.
+  //
+  // Canonical is omitted on noindex pages, both because Google treats
+  // noindex + canonical as contradictory and because SEO.tsx removes the tag on
+  // hydration — emitting one here would mean the raw and rendered heads
+  // disagree.
   return [
     `<title>${escapeHtml(page.title)}</title>`,
     `<meta name="description" content="${escapeHtml(page.description)}" />`,
-    '<meta name="robots" content="index, follow" />',
-    `<link rel="canonical" href="${canonical}" />`,
+    `<meta name="robots" content="${page.noindex ? 'noindex, follow' : 'index, follow'}" />`,
+    page.noindex ? '' : `<link rel="canonical" href="${canonical}" />`,
     `<meta property="og:site_name" content="${escapeHtml(siteName)}" />`,
     `<meta property="og:title" content="${escapeHtml(page.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(page.description)}" />`,

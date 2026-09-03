@@ -61,7 +61,11 @@ const SEO: React.FC<SEOProps> = ({
 
     // Update Meta Description
     setMetaTag('description', description);
-    setMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
+    // "follow", not "nofollow": keeping a page out of the index is no reason to
+    // stop its outbound links counting — these pages link to the main site and
+    // its legal pages. It also has to match what prerender-digital.mjs writes
+    // into the raw HTML, or the served and hydrated heads disagree.
+    setMetaTag('robots', noindex ? 'noindex, follow' : 'index, follow');
 
     // Update OpenGraph Tags
     setMetaTag('og:site_name', siteName, 'property');

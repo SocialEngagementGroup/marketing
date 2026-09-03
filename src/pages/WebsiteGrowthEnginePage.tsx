@@ -5,7 +5,7 @@ import SEO from '../components/Common/SEO';
 import ContactForm from '../components/Common/ContactForm';
 import WebsiteGrowthEngine from '../components/WebsiteGrowthEngine';
 import { faqEntries } from '../components/WebsiteGrowthEngine/FAQ/faqData';
-import { absoluteUrl, routes } from '../data/seo';
+import { absoluteUrl, pageSeo, routes } from '../data/seo';
 
 const CANONICAL = absoluteUrl(routes.website);
 
@@ -67,6 +67,7 @@ const WebsiteGrowthEnginePage: React.FC = () => {
         ogTitle="The SEG Website Growth Engine"
         ogDescription="Mobile-first websites built to convert. Free 48-hour audit, no contracts."
         canonicalPath={routes.website}
+        noindex={pageSeo.website.noindex}
         schema={schema}
       />
 
