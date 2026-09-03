@@ -13,6 +13,7 @@ import FAQ from '../components/Lawyer/FAQ';
 import Footer from '../components/Common/Footer';
 import SEO from '../components/Common/SEO';
 import ScrollProgress from '../components/Common/ScrollProgress';
+import { pageSeo, serviceSchema } from '../data/seo';
 
 /**
  * Lawyer Landing Page
@@ -32,25 +33,18 @@ const LawyerLandingPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-outfit text-slate-900">
       <SEO 
-        title="Legal Marketing Experts | Grow Your Law Practice with SEG"
-        description="Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume."
-        ogTitle="Legal Marketing Experts | Social Engagement Group"
-        ogDescription="Specialized digital marketing strategies for law firms. Build authority and automate your growth."
-        ogImage="/assets/images/lawyer-meta.jpg"
+        title={pageSeo.lawyer.title}
+        description={pageSeo.lawyer.description}
+        ogTitle={pageSeo.lawyer.ogTitle}
+        ogDescription={pageSeo.lawyer.ogDescription}
+        canonicalPath={pageSeo.lawyer.path}
         ogType="website"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          "name": "Social Engagement Group",
-          "description": "Premier digital marketing agency for law firms and attorneys.",
-          "url": "https://digital.socialengagementgroup.com/marketing-for-law-firm",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "US"
-          },
-          "serviceType": "Legal Marketing",
-          "areaServed": "USA"
-        }}
+        schema={serviceSchema({
+          name: 'Legal Marketing Services',
+          description: pageSeo.lawyer.description,
+          path: pageSeo.lawyer.path,
+          serviceType: 'Legal Marketing',
+        })}
       />
       <ScrollProgress color="bg-brand-beige" />
       <Header />

@@ -16,6 +16,7 @@ import ScrollProgress from '../components/Common/ScrollProgress';
 import SEO from '../components/Common/SEO';
 import Footer from '../components/Common/Footer';
 import ContactForm from '../components/Common/ContactForm';
+import { pageSeo, serviceSchema } from '../data/seo';
 
 interface RestaurantLandingPageProps {}
 
@@ -25,8 +26,15 @@ const RestaurantLandingPage: React.FC<RestaurantLandingPageProps> = () => {
       <ScrollProgress color="bg-white" />
       <div className="grain-overlay opacity-[0.03]" />
       <SEO
-        title="Marketing for Restaurants | Reservation Growth & Digital Strategy"
-        description="Fill your tables every day. Our guest-generating engine turns hungry searchers into loyal regulars for your restaurant."
+        title={pageSeo.restaurants.title}
+        description={pageSeo.restaurants.description}
+        canonicalPath={pageSeo.restaurants.path}
+        schema={serviceSchema({
+          name: 'Restaurant Marketing Services',
+          description: pageSeo.restaurants.description,
+          path: pageSeo.restaurants.path,
+          serviceType: 'Restaurant Marketing',
+        })}
       />
       <Header />
       <main>

@@ -8,7 +8,7 @@ import { pageSeo } from '../data/seo';
  * Thank You Page - Optimized with Homepage Aesthetic
  * Features: Blurred bg_thankyou.jpg background, site Navbar, site Footer, Bebas Neue typography.
  */
-const ThankYouCalPage: React.FC = () => {
+const RestaurantThankYouPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-brand-black text-white selection:bg-brand-brick selection:text-white overflow-x-hidden">
       <SEO 
@@ -71,4 +71,4 @@ const ThankYouCalPage: React.FC = () => {
   );
 };
 
-export default ThankYouCalPage;
+export default RestaurantThankYouPage;
