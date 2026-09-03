@@ -7,7 +7,6 @@
 
 export { default as LawyerLandingPage } from "./LawyerLandingPage";
 export { default as HomepageLandingPage } from "./HomepageLandingPage";
-export { default as WebSolutionsLandingPage } from "./WebSolutionsLandingPage";
 export { default as WebsiteGrowthEnginePage } from "./WebsiteGrowthEnginePage";
 export { default as ThankYouCalPage } from "./ThankYouCalPage";
 export { default as NotFoundPage } from "./NotFoundPage";

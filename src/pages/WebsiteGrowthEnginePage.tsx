@@ -5,8 +5,9 @@ import SEO from '../components/Common/SEO';
 import ContactForm from '../components/Common/ContactForm';
 import WebsiteGrowthEngine from '../components/WebsiteGrowthEngine';
 import { faqEntries } from '../components/WebsiteGrowthEngine/FAQ/faqData';
+import { absoluteUrl, routes } from '../data/seo';
 
-const CANONICAL = 'https://digital.socialengagementgroup.com/marketing-for-website';
+const CANONICAL = absoluteUrl(routes.website);
 
 /**
  * Website Growth Engine landing page.
@@ -65,6 +66,7 @@ const WebsiteGrowthEnginePage: React.FC = () => {
         description="SEG builds mobile-first websites that turn visitors into calls and bookings. Free 48-hour website audit, no contracts. Built for law firms, medical practices, and local service businesses."
         ogTitle="The SEG Website Growth Engine"
         ogDescription="Mobile-first websites built to convert. Free 48-hour audit, no contracts."
+        canonicalPath={routes.website}
         schema={schema}
       />
 

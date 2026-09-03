@@ -11,7 +11,9 @@ export const routes = {
   lawyer: '/marketing-for-law-firm',
   doctors: '/marketing-for-doctors',
   restaurants: '/marketing-for-restaurants',
-  websiteSolutions: '/website-solutions',
+  // /website-solutions is a permanent redirect to this path (see vercel.json);
+  // the page that used to live there was replaced by the Growth Engine rebuild.
+  website: '/marketing-for-website',
   thankYou: '/thank-you-cal',
   restaurantThankYou: '/thank-you-marketing-for-restaurants',
 };
@@ -43,12 +45,6 @@ export const pageSeo = {
     description:
       'Fill your tables with restaurant marketing built for local search, paid ads, social proof, and reservation growth that turns hungry guests into regulars.',
     path: routes.restaurants,
-  },
-  websiteSolutions: {
-    title: 'Web Solutions for Growing Businesses | SEG',
-    description:
-      'Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses.',
-    path: routes.websiteSolutions,
   },
   thankYou: {
     title: 'Session Confirmed | Social Engagement Group',

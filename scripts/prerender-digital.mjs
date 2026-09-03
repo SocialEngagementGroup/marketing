@@ -76,15 +76,34 @@ const pages = [
     serviceType: 'Restaurant Marketing',
   },
   {
-    path: '/website-solutions',
-    title: 'Web Solutions for Growing Businesses | SEG',
+    // Title, description and schema are kept identical to the <SEO> props in
+    // src/pages/WebsiteGrowthEnginePage.tsx. That page's client-side schema is
+    // an @graph that also carries FAQPage, built from faqData.ts — a TS module
+    // this plain-Node script can't import. Prerendering the ProfessionalService
+    // half keeps the crawler-visible block accurate, and hydration swaps in the
+    // fuller graph at the same id, so nothing is ever emitted twice.
+    path: '/marketing-for-website',
+    title: 'The SEG Website Growth Engine | Websites Built to Convert',
     description:
-      'Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses.',
-    heading: 'Web Solutions Built for Growing Businesses',
+      'SEG builds mobile-first websites that turn visitors into calls and bookings. Free 48-hour website audit, no contracts. Built for law firms, medical practices, and local service businesses.',
+    heading: 'Every Website Should Turn Visitors Into Customers',
     body:
-      'We build high-performance websites with strategy, design, and conversion systems that help growth-oriented businesses win more inquiries.',
-    serviceName: 'Website Design and Development Services',
-    serviceType: 'Web Design',
+      'We build websites that work as hard as you do. No contracts. Just a site that actually converts.',
+    schema: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ProfessionalService',
+        '@id': '#seg',
+        name: siteName,
+        description:
+          'A full-service 360-degree marketing agency building websites and growth engines for law firms, medical practices, and local service businesses.',
+        url: mainSiteUrl,
+        telephone: '+1-512-214-0504',
+        email: 'communications@socialengagementgroup.com',
+        areaServed: 'US',
+        priceRange: '$$',
+      },
+    ],
   },
 ];
 
@@ -132,9 +151,13 @@ const renderMeta = (page) => {
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
     `<meta name="twitter:image" content="${baseUrl}/favicon.png" />`,
+    // The id has to match the one SEO.tsx assigns on hydration. That component
+    // looks each id up before creating a node, so a matching id means it
+    // rewrites this block in place; without one it appends a second copy and
+    // every page ships its structured data twice.
     ...schemas.map(
-      (schema) =>
-        `<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`,
+      (schema, index) =>
+        `<script type="application/ld+json" id="json-ld-schema-${index}">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`,
     ),
   ]
     .filter(Boolean)
@@ -152,6 +175,32 @@ const withoutDefaultSeo = (html) =>
   html
     .replace(/<title>[\s\S]*?<\/title>/i, '')
     .replace(/<meta\s+name=["']description["'][^>]*>\s*/i, '');
+
+// The shell vercel.json rewrites unmatched paths to.
+//
+// It has to be a separate file from dist/index.html. Vercel serves a matching
+// static file before it applies a rewrite, so dist/index.html is only ever the
+// response for "/" — which means it should carry the homepage's metadata, and
+// the rewrite target should carry none. Pointing the rewrite at index.html is
+// what previously served the homepage's title, description, H1 and canonical
+// on every route this script does not prerender, telling crawlers those pages
+// were duplicates of the homepage.
+//
+// Deliberately noindex: after the loop below, every URL in sitemap.xml has its
+// own prerendered file, so the only paths that land here are the thank-you
+// pages, /404 and genuine misses — all of which should stay out of the index.
+// SEO.tsx resets robots to "index, follow" on hydration, so a real page that
+// ever slipped through would still recover for renderers that execute JS.
+//
+// #root is left empty on purpose. src/index.tsx branches on hasChildNodes(),
+// so an empty root takes the createRoot path rather than trying to hydrate
+// markup that React never produced.
+const fallbackHtml = withoutDefaultSeo(baseHtml).replace(
+  '</head>',
+  '    <meta name="robots" content="noindex, follow" />\n  </head>',
+);
+
+await writeFile(path.join(distDir, 'fallback.html'), fallbackHtml);
 
 for (const page of pages) {
   const html = withoutDefaultSeo(baseHtml)
