@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { LawyerLandingPage, HomepageLandingPage, WebSolutionsLandingPage, ThankYouCalPage, NotFoundPage, DoctorLandingPage, RestaurantLandingPage } from './pages';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { LawyerLandingPage, HomepageLandingPage, WebsiteGrowthEnginePage, ThankYouCalPage, NotFoundPage, DoctorLandingPage, RestaurantLandingPage } from './pages';
 
 /**
  * App Component
@@ -33,7 +33,11 @@ const App: React.FC = () => {
       <Route path="/marketing-for-law-firm" element={<LawyerLandingPage />} />
       <Route path="/marketing-for-doctors" element={<DoctorLandingPage />} />
       <Route path="/marketing-for-restaurants" element={<RestaurantLandingPage />} />
-      <Route path="/website-solutions" element={<WebSolutionsLandingPage />} />
+      <Route path="/marketing-for-website" element={<WebsiteGrowthEnginePage />} />
+      {/* The page shipped at /website-solutions before the Growth Engine
+          rebuild. Kept as a redirect so existing links and any indexed
+          URLs land on the new page rather than the 404. */}
+      <Route path="/website-solutions" element={<Navigate to="/marketing-for-website" replace />} />
       <Route path="/thank-you-cal" element={<ThankYouCalPage />} />
       <Route path="/marketing-for-law-firm/thank-you-cal" element={<ThankYouCalPage />} />
       <Route path="/404" element={<NotFoundPage />} />

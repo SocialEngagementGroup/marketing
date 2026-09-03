@@ -4,6 +4,11 @@
       "source": "/lawyer",
       "destination": "/marketing-for-law-firm",
       "permanent": true
+    },
+    {
+      "source": "/website-solutions",
+      "destination": "/marketing-for-website",
+      "permanent": true
     }
   ],
   "rewrites": [
