@@ -127,17 +127,27 @@ export function useScrollChoreography(root: RefObject<HTMLDivElement | null>) {
           }
 
           /* ---------- split headings ---------- */
+          // Looked up before the split so the hidden start state can be applied
+          // to the hero alone — see the note on gsap.set below.
+          const hero = el.querySelector<HTMLElement>('#hero');
+
           const splits: SplitText[] = [];
           q('[data-split]').forEach((n) => {
             const s = new SplitText(n, { type: 'words,chars', wordsClass: 'word', charsClass: 'char' });
             splits.push(s);
-            gsap.set(s.chars, { yPercent: 118 });
+            // Only the hero starts hidden: its intro is a timeline that plays on
+            // load, so the start state has to be in place immediately. The
+            // scrolled headings get theirs from a fromTo with
+            // immediateRender:false instead, so a heading whose ScrollTrigger
+            // never fires — a mis-measure on a 15,000px page, a deep link, a
+            // restored scroll position — stays readable rather than sitting
+            // permanently at yPercent 118, clipped by .word{overflow:hidden}.
+            if (hero?.contains(n)) gsap.set(s.chars, { yPercent: 118 });
           });
 
           /* ---------- hero intro ----------
              The hidden state is set from JS, never CSS, so the page stays
              readable with JS off or under reduced motion. */
-          const hero = el.querySelector<HTMLElement>('#hero');
           if (hero) {
             const heroSplit = hero.querySelector('[data-split]');
             const heroFades = hero.querySelectorAll('[data-fade]');
@@ -157,12 +167,33 @@ export function useScrollChoreography(root: RefObject<HTMLDivElement | null>) {
               ease: 'power2.inOut', yoyo: true, yoyoEase: 'power2.inOut',
             });
 
-            /* hero exit */
+            /* hero exit ----------
+               fromTo, not to. A scrubbed `to` records its start values the
+               first time it initialises, which happens before the intro
+               timeline above has rendered — so it captured the yPercent:118
+               left by the gsap.set, not the yPercent:0 the intro settles on.
+               Scrolling down played 118 -> -60 and looked right; scrolling back
+               to the top returned every character to 118, where
+               .word{overflow:hidden} clips it out of sight.
+
+               The whole headline goes, not one letter — the stagger just means
+               character 0 arrives back at 118 first, so a partial scroll up
+               shows the E disappear a beat before the rest of the line.
+
+               Declaring both ends makes progress 0 mean exactly the intro's
+               resting state, whenever the tween happens to initialise.
+               immediateRender:false stops the from-state being stamped on at
+               load, which would fight the intro. */
             if (heroSplit) {
-              gsap.to(heroSplit.querySelectorAll('.char'), {
-                yPercent: -60, opacity: 0, stagger: { amount: 0.25 }, ease: 'none',
-                scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 },
-              });
+              gsap.fromTo(
+                heroSplit.querySelectorAll('.char'),
+                { yPercent: 0, opacity: 1 },
+                {
+                  yPercent: -60, opacity: 0, stagger: { amount: 0.25 }, ease: 'none',
+                  immediateRender: false,
+                  scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 },
+                },
+              );
             }
             gsap.to(el.querySelectorAll('.device'), {
               yPercent: -12, scale: 0.94, ease: 'none',
@@ -180,13 +211,23 @@ export function useScrollChoreography(root: RefObject<HTMLDivElement | null>) {
             });
           });
 
-          /* ---------- non-hero split headings ---------- */
+          /* ---------- non-hero split headings ----------
+             fromTo with immediateRender:false, so the hidden state only exists
+             once the trigger actually fires. Previously every heading was
+             pre-hidden at yPercent 118 and relied on a `once` trigger to bring
+             it back; if that trigger never fired the heading stayed blank for
+             good. Failing towards "visible" is the right direction for text. */
           q('[data-split]').forEach((n) => {
             if (hero?.contains(n)) return;
-            gsap.to(n.querySelectorAll('.char'), {
-              yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.012,
-              scrollTrigger: { trigger: n, start: 'top 85%', once: true },
-            });
+            gsap.fromTo(
+              n.querySelectorAll('.char'),
+              { yPercent: 118 },
+              {
+                yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.012,
+                immediateRender: false,
+                scrollTrigger: { trigger: n, start: 'top 85%', once: true },
+              },
+            );
           });
 
           /* ---------- marquee, sped up by scroll velocity ---------- */
@@ -290,12 +331,22 @@ export function useScrollChoreography(root: RefObject<HTMLDivElement | null>) {
             panels.forEach((p) => {
               const idxEl = p.querySelector('.idx');
               if (!idxEl) return;
-              gsap.from(idxEl, {
-                yPercent: 22, ease: 'none',
-                scrollTrigger: {
-                  trigger: layers, start: 'top top', end: () => `+=${distance()}`, scrub: 1,
+              // Same reasoning as the hero exit: a scrubbed `from` captures its
+              // end value at init and renders the from-state immediately. Only
+              // a 22% offset here, so the worst case is a panel number sitting
+              // slightly low rather than disappearing — but it is the same
+              // implicit-start bug, so it gets the same explicit treatment.
+              gsap.fromTo(
+                idxEl,
+                { yPercent: 22 },
+                {
+                  yPercent: 0, ease: 'none',
+                  immediateRender: false,
+                  scrollTrigger: {
+                    trigger: layers, start: 'top top', end: () => `+=${distance()}`, scrub: 1,
+                  },
                 },
-              });
+              );
             });
           } else if (track) {
             /* Below the pin breakpoint the track is a swipe rail. CSS owns
