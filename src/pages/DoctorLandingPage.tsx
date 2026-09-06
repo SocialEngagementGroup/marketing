@@ -28,6 +28,7 @@ const DoctorLandingPage: React.FC<DoctorLandingPageProps> = () => {
         title={pageSeo.doctors.title}
         description={pageSeo.doctors.description}
         canonicalPath={pageSeo.doctors.path}
+        noindex={pageSeo.doctors.noindex}
         schema={serviceSchema({
           name: 'Medical Practice Marketing Services',
           description: pageSeo.doctors.description,

@@ -11,11 +11,28 @@ export const routes = {
   lawyer: '/marketing-for-law-firm',
   doctors: '/marketing-for-doctors',
   restaurants: '/marketing-for-restaurants',
-  websiteSolutions: '/website-solutions',
+  // /website-solutions is a permanent redirect to this path (see vercel.json);
+  // the page that used to live there was replaced by the Growth Engine rebuild.
+  website: '/marketing-for-website',
   thankYou: '/thank-you-cal',
   restaurantThankYou: '/thank-you-marketing-for-restaurants',
 };
 
+/**
+ * The four industry/product landing pages carry `noindex: true` on purpose.
+ *
+ * This subdomain exists to receive paid clicks. Google Ads does not require a
+ * landing page to be indexed — quality score is computed from the landing page
+ * experience, not from organic presence — so indexing these cost us nothing and
+ * put them in direct competition with socialengagementgroup.com's own
+ * /services/solution-for-* pages for the same queries. There is no way to tell
+ * Google to treat a subdomain as part of the parent domain, so the fix is to
+ * stop one of the two properties competing.
+ *
+ * `follow` is deliberate: these pages should still pass their outbound links.
+ * They are also excluded from sitemap.xml, and the main site's footer no longer
+ * links to them with exact-match anchor text.
+ */
 export const pageSeo = {
   home: {
     title: 'AI-Powered Business Growth | SEG',
@@ -31,24 +48,28 @@ export const pageSeo = {
     ogDescription:
       'Dominate your local market with specialized digital marketing for law firms. We help attorneys build brand authority and generate consistent call volume.',
     path: routes.lawyer,
+    noindex: true,
   },
   doctors: {
     title: 'Marketing for Doctors | SEG',
     description:
       'We help healthcare providers attract ideal patients, build trust with stronger online reputation, and turn high-intent searches into scheduled appointments.',
     path: routes.doctors,
+    noindex: true,
   },
   restaurants: {
     title: 'Restaurant Marketing | Reservation Growth | SEG',
     description:
       'Fill your tables with restaurant marketing built for local search, paid ads, social proof, and reservation growth that turns hungry guests into regulars.',
     path: routes.restaurants,
+    noindex: true,
   },
-  websiteSolutions: {
-    title: 'Web Solutions for Growing Businesses | SEG',
+  website: {
+    title: 'The SEG Website Growth Engine | Websites Built to Convert',
     description:
-      'Get a high-performance, conversion-focused website built with modern strategy and design. Professional web solutions for growth-oriented businesses.',
-    path: routes.websiteSolutions,
+      'SEG builds mobile-first websites that turn visitors into calls and bookings. Free 48-hour website audit, no contracts. Built for law firms, medical practices, and local service businesses.',
+    path: routes.website,
+    noindex: true,
   },
   thankYou: {
     title: 'Session Confirmed | Social Engagement Group',
