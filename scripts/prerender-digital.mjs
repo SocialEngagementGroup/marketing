@@ -188,7 +188,7 @@ const withoutDefaultSeo = (html) =>
     .replace(/<title>[\s\S]*?<\/title>/i, '')
     .replace(/<meta\s+name=["']description["'][^>]*>\s*/i, '');
 
-// The shell vercel.json rewrites unmatched paths to.
+// The bare SPA shell: no title, no description, no canonical, noindex.
 //
 // It has to be a separate file from dist/index.html. Vercel serves a matching
 // static file before it applies a rewrite, so dist/index.html is only ever the
@@ -198,21 +198,37 @@ const withoutDefaultSeo = (html) =>
 // on every route this script does not prerender, telling crawlers those pages
 // were duplicates of the homepage.
 //
-// Deliberately noindex: after the loop below, every URL in sitemap.xml has its
-// own prerendered file, so the only paths that land here are the thank-you
-// pages, /404 and genuine misses — all of which should stay out of the index.
-// SEO.tsx resets robots to "index, follow" on hydration, so a real page that
-// ever slipped through would still recover for renderers that execute JS.
-//
 // #root is left empty on purpose. src/index.tsx branches on hasChildNodes(),
 // so an empty root takes the createRoot path rather than trying to hydrate
 // markup that React never produced.
-const fallbackHtml = withoutDefaultSeo(baseHtml).replace(
+const shellHtml = withoutDefaultSeo(baseHtml).replace(
   '</head>',
   '    <meta name="robots" content="noindex, follow" />\n  </head>',
 );
 
-await writeFile(path.join(distDir, 'fallback.html'), fallbackHtml);
+// fallback.html backs the handful of real client-side routes that get no
+// prerendered file of their own — the thank-you pages, listed one by one in
+// vercel.json. It is deliberately noindex: those pages are post-conversion
+// screens and have no business in the index. SEO.tsx resets robots to
+// "index, follow" on hydration, so a real page that ever slipped through
+// would still recover for renderers that execute JS.
+await writeFile(path.join(distDir, 'fallback.html'), shellHtml);
+
+// 404.html is what Vercel serves — with an actual HTTP 404 — for any path that
+// matches no static file and no rewrite.
+//
+// This file is the reason vercel.json no longer carries a catch-all rewrite.
+// That rewrite answered every URL on the domain with HTTP 200 and a full page
+// of content, so anyone could mint links like /paypal-login-verify and have
+// them resolve. Safe Browsing crawls URLs it finds in the wild; a host that
+// returns 200 for every invented path is a standing invitation to be
+// classified as a deceptive site. Unmatched paths now 404, the way they
+// already do on www.
+//
+// It is the same shell, so React still boots and the router still renders the
+// branded NotFoundPage — a correct status code and a designed page, not one or
+// the other.
+await writeFile(path.join(distDir, '404.html'), shellHtml);
 
 for (const page of pages) {
   const html = withoutDefaultSeo(baseHtml)

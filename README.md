@@ -83,6 +83,55 @@ src/
 └── App.tsx         # Main routing and application structure
 ```
 
+## 🔒 Security
+
+`vercel.json` owns the site's security posture. Two things in it are load-bearing
+and easy to undo by accident.
+
+### Unmatched paths must 404
+
+There is deliberately **no catch-all rewrite**. Only the thank-you pages — real
+client-side routes with no prerendered file of their own — are listed under
+`rewrites`; everything else falls through to `dist/404.html`, which Vercel serves
+with an actual HTTP 404.
+
+The previous catch-all answered *every* URL on the domain with HTTP 200 and a
+full page of content, so a path like `/paypal-login-verify` resolved happily.
+Safe Browsing crawls URLs it finds linked in the wild, and a host that returns
+200 for every invented path is a standing invitation to be classified as a
+deceptive site. If you add a client-side route, add it to `rewrites` — do not
+reintroduce a wildcard.
+
+`dist/404.html` is the same SPA shell as `fallback.html`, so React still boots
+and renders the branded `NotFoundPage`: correct status code *and* a designed
+page, not one or the other.
+
+### Content Security Policy
+
+The CSP is enforcing, and it is tuned to the tags this site actually runs —
+GTM `GTM-TRPG9JZW`, GA4 `G-2WZGGVK5QF`, Google Ads `AW-17918518460`, the Meta
+Pixel, reCAPTCHA v3 and the YouTube embeds. Every allowlisted origin is there
+because something broke without it.
+
+Two directives are looser than they look, on purpose:
+
+- `img-src ... https:` — Google Ads remarketing pixels fire against the user's
+  local Google ccTLD (`www.google.com.bd/ads/ga-audiences` and friends). There
+  are ~190 of those and no wildcard syntax that spans TLDs. Images cannot
+  execute, so this is the cheap trade.
+- `script-src` allows `https://www.google.com` and `https://www.gstatic.com`
+  whole-host rather than path-scoped, because reCAPTCHA and the Ads conversion
+  scripts move paths between releases.
+
+`script-src`, `connect-src`, `frame-src`, `object-src`, `base-uri`,
+`form-action` and `frame-ancestors` stay tight — those are the ones that stop
+XSS and clickjacking.
+
+**If you add a tag in GTM, verify it against the CSP before you publish.** A
+blocked tag fails silently in production; the only symptom is missing
+conversions. Load the page, open DevTools and check for
+`Refused to connect / Refused to load` errors.
+
 ## 🎨 Design Principles
 
 - **Premium Aesthetics**: Using rich gradients, glassmorphism elements, and smooth micro-animations.
